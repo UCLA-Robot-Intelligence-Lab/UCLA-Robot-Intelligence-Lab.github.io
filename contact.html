@@ -1,70 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Add your CSS file -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio" />
+    <link href="Montserrat-VariableFont_wght.ttf" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+    <title>People - UCLA Robot Intelligence Lab</title>
+    <link rel="icon" type="image/x-icon" href="icon.png">
 </head>
 
 <body>
-    <!-- Navigation (optional) -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+    <header class="header center">
+        <h3><a href="index.html"><img src="original-uril.png" alt="Logo" style="height:100px; width:auto;"></a></h3>
+        <nav class="nav center">
+            <ul class="nav__list center">
+                <li class="nav__list-item"><a class="link link--nav" href="index.html">Home</a></li>
+                <li class="nav__list-item"><a class="link link--nav" href="people.html">People</a></li>
+                <li class="nav__list-item"><a class="link link--nav" href="research.html">Research</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main content -->
     <main>
-        <section class="contact-info">
-            <h1>Contact Us</h1>
-
-            <div class="contact-details">
-                <h2>Our Office</h2>
-                <p><strong>Address:</strong> 1234 Business St, Suite 100, City, State, ZIP</p>
-                <p><strong>Phone:</strong> (123) 456-7890</p>
-                <p><strong>Email:</strong> <a href="mailto:contact@example.com">contact@example.com</a></p>
-            </div>
-
-            <div class="map">
-                <h2>Our Location</h2>
-                <!-- Google Maps Embed -->
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.4259262168944!2d144.95605401578747!3d-37.81833187975181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d460b2046b3%3A0x7c7a14e7dfd5e0c4!2sFederation%20Square!5e0!3m2!1sen!2sus!4v1602500180328!5m2!1sen!2sus"
-                    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                    tabindex="0"></iframe>
-            </div>
-        </section>
-
-        <section class="contact-form">
-            <h2>Send Us a Message</h2>
-            <form action="submit_form.php" method="POST"> <!-- Replace with actual backend script -->
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
+        <section class="people">
+            <h1>Contact information</h1>
+            <h2>Github</h2>
+            <p>
+                https://github.com/UCLA-Robot-Intelligence-Lab
+            </p>
+            <h2>Email</h2>
+            <p>yuchencui@cs.ucla.edu</p>
         </section>
     </main>
 
-    <!-- Footer (optional) -->
-    <footer>
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
-    </footer>
+    <div class="scroll-container">
+        <div class="scroll-top">
+            <a aria-label="Scroll up" href="#top">
+                <i aria-hidden="true" class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>
