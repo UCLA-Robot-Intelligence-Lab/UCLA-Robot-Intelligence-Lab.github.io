@@ -1,32 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple webpage displaying an image with a favicon.">
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f5f5f5;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio" />
+  <link href="Montserrat-VariableFont_wght.ttf" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>UCLA Robot Intelligence Lab</title>
+  <link rel="icon" type="image/x-icon" href="icon.png">
 </head>
-<body>
-    <!-- Image Display -->
-    <img src="full_logo.png" alt="URIL">
+
+<body class="dark" id="top">
+  <header class="header center">
+    <h3>
+      <a href="javascript:void(0)" onclick="window.location.reload(true)">
+        <img src="original-uril.png" alt="Logo" style="height:100px; width:auto;">
+      </a>
+    </h3>
+
+    <nav class="nav center">
+      <ul class="nav__list center">
+        <li class="nav__list-item"><a class="link link--nav" href="people.html">People</a></li>
+        <li class="nav__list-item"><a class="link link--nav" href="research.html">Research</a></li>
+        <li class="nav__list-item"><a class="link link--nav" href="contact.html">Contact</a></li>
+        <!-- Add contact.html similarly -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- About -->
+    <div
+      style="display: flex; justify-content: center; align-items: center; background-color: #f0f0f0; overflow: hidden;">
+      <video autoplay muted loop style="width: 100%; height: auto; object-fit: cover;">
+        <source src="./urilcropped.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="about center">
+      <h1>UCLA <span class="about__name">Robot Intelligence Lab</span></h1>
+      <h2>
+        <div id="name"></div>
+      </h2>
+      <p class="about__desc">
+        At the UCLA Robot Intelligence Lab, we strive to
+        <span class="about__name">push the boundaries</span>
+        of
+        <span class="about__name">robotics</span>
+        and
+        <span class="about__name">artificial intelligence,</span>
+        advancing innovation to create impactful solutions that
+        <span class="about__name">empower humanity</span>
+        and
+        <span class="about__name">transform the future.</span>
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="https://ucla.edu" class="link footer__link">
+      Apply here
+    </a>
+  </footer>
+
+  <div class="scroll-container">
+    <div class="scroll-top">
+      <a aria-label="Scroll up" href="#top">
+        <i aria-hidden="true" class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
 </body>
+
 </html>
