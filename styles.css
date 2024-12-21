@@ -317,8 +317,8 @@ main {
 .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
   /* Slight glow effect on hover */
-  color: white;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  color: #fbd948;
+  box-shadow: 0 0 8px #fbd948;
   /* Glow effect */
 }
 
@@ -331,7 +331,7 @@ main {
   transform: translateX(-50%);
   width: 0%;
   height: 3px;
-  background-color: white;
+  background-color: #fbd948;
   /* White underline */
   border-radius: 2px;
   transition: width 0.3s ease-in-out;
