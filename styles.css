@@ -240,20 +240,22 @@ main {
   justify-content: center;
   /* Center-align the nav bar */
   align-items: center;
-  gap: 3em;
-  /* Space between links */
-  background-color: #222;
+  gap: 2em;
+  /* Reduced space between links */
+  background-color: #2b3f61;
   /* Dark background for the nav bar */
-  border-radius: 50px;
-  /* Rounded shape for the nav bar */
-  padding: 0.5em 2em;
-  /* Padding for the pill shape */
+  border-radius: 30px;
+  /* Less rounded */
+  padding: 0.3em calc(1.5em + 1vw);
+  /* Reduced padding */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   /* Soft shadow for depth */
   margin: 2em auto;
   /* Add spacing from other elements */
-  max-width: 80%;
-  /* Make it responsive */
+  max-width: 70%;
+  /* Reduced width for a smaller nav bar */
+  transition: all 0.3s ease-in-out;
+  /* Smooth resizing */
 }
 
 .nav-link {
@@ -261,12 +263,12 @@ main {
   /* Remove underline from links */
   color: white;
   /* Text color */
-  font-size: 1.2em;
-  /* Font size for prominence */
+  font-size: calc(1em + 0.3vw);
+  /* Reduced base size */
   font-weight: bold;
   /* Make the text bold */
-  padding: 0.5em 1.5em;
-  /* Add spacing for clickable area */
+  padding: 0.5em calc(1.1em + 0.4vw);
+  /* Increased top and bottom padding for height */
   border-radius: 30px;
   /* Slightly rounded edges for hover effect */
   position: relative;
@@ -274,6 +276,43 @@ main {
   transition: all 0.3s ease-in-out;
   /* Smooth transition on hover */
 }
+
+/* Media query for medium screens (e.g., tablets) */
+@media screen and (max-width: 1024px) {
+  .nav-bar {
+    max-width: 80%;
+    /* Slightly wider on medium screens */
+    gap: 1.8em;
+    padding: 0.4em calc(1.4em + 0.8vw);
+    /* Adjust padding */
+  }
+
+  .nav-link {
+    font-size: calc(0.9em + 0.3vw);
+    /* Slightly smaller font */
+    padding: 0.5em calc(1em + 0.3vw);
+    /* Maintain increased vertical padding */
+  }
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    max-width: 90%;
+    /* Use more screen width on smaller screens */
+    padding: 0.4em calc(1em + 0.5vw);
+    gap: 1.5em;
+  }
+
+  .nav-link {
+    font-size: calc(0.8em + 0.2vw);
+    /* Further reduce font size */
+    padding: 0.4em calc(0.8em + 0.3vw);
+    /* Slightly reduce vertical padding for smaller screens */
+  }
+}
+
+
 
 .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
@@ -306,9 +345,11 @@ main {
 /* Icon in Nav bar */
 /* Default Icon Styling */
 .expand-icon {
-  height: 100px;
+  height: calc(80px + 2vw);
+  /* Height scales dynamically with screen size */
   width: auto;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  /* Smooth resizing */
 }
 
 /* Hover Effect */
@@ -316,6 +357,31 @@ main {
   transform: scale(1.2);
   /* Scales the icon by 20% */
 }
+
+/* Media query for medium screens (e.g., tablets) */
+@media screen and (max-width: 1024px) {
+  .expand-icon {
+    height: calc(70px + 1.5vw);
+    /* Slightly smaller on medium screens */
+  }
+}
+
+/* Media query for small screens (e.g., phones) */
+@media screen and (max-width: 768px) {
+  .expand-icon {
+    height: calc(50px + 1vw);
+    /* Compact logo for smaller screens */
+  }
+}
+
+/* Media query for extra small screens */
+@media screen and (max-width: 480px) {
+  .expand-icon {
+    height: calc(40px + 0.5vw);
+    /* Further reduction for very small screens */
+  }
+}
+
 
 .transparent-icon {
   visibility: hidden;
