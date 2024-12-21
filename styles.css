@@ -303,8 +303,7 @@ main {
   /* Expand underline on hover */
 }
 
-/* Icon in Nav Bar*/
-
+/* Icon in Nav bar */
 /* Default Icon Styling */
 .expand-icon {
   height: 100px;
@@ -316,6 +315,10 @@ main {
 .expand-icon:hover {
   transform: scale(1.2);
   /* Scales the icon by 20% */
+}
+
+.transparent-icon {
+  visibility: hidden;
 }
 
 .about {

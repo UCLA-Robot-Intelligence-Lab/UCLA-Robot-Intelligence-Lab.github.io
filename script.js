@@ -41,24 +41,3 @@ const scrollUp = () => {
 };
 
 document.addEventListener('scroll', scrollUp);
-
-
-// Toggle
-
-// Theme toggle logic
-const toggle = document.getElementById("theme-toggle");
-
-// Load theme from localStorage
-if (localStorage.getItem("theme") === "light") {
-	body.classList.add("light-mode");
-	toggle.checked = true;
-}
-
-// Toggle theme and save to localStorage
-toggle.addEventListener("change", () => {
-	body.classList.toggle("light-mode");
-	localStorage.setItem(
-		"theme",
-		body.classList.contains("light-mode") ? "light" : "dark"
-	);
-});
