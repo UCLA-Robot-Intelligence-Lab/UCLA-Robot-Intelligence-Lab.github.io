@@ -64,12 +64,12 @@
 @keyframes curtainReveal {
     from {
         clip-path: inset(0 100% 0 0);
-        /* Completely hidden */
+        opacity: 0;
     }
 
     to {
         clip-path: inset(0 0 0 0);
-        /* Fully visible */
+        opacity: 1;
     }
 }
 
