@@ -61,15 +61,15 @@
     }
 }
 
-@keyframes curtainReveal {
+@keyframes materialize {
     from {
-        clip-path: inset(0 100% 0 0);
         opacity: 0;
+        transform: scale(0.9);
     }
 
     to {
-        clip-path: inset(0 0 0 0);
         opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -80,9 +80,6 @@
 
 .contact-title {
     display: inline-block;
-    /* Ensure the effect applies to the text */
-    opacity: 1;
-    /* Fully visible for the animation */
-    animation: curtainReveal 1.0s ease-out forwards;
-    /* Curtain unveil effect */
+    opacity: 0;
+    animation: materialize 0.5s ease-out forwards;
 }
