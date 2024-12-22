@@ -12,8 +12,14 @@
     padding: 20px;
     box-sizing: border-box;
     margin-bottom: 20px;
+
+    /* Initial state for animation */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: driftIn 1s ease-out forwards;
 }
 
+/* Profile Picture Styling */
 .profile-picture {
     width: 150px;
     height: 150px;
@@ -22,6 +28,7 @@
     margin-right: 20px;
 }
 
+/* Profile Details Styling */
 .profile-details {
     display: flex;
     flex-direction: column;
@@ -39,4 +46,17 @@
     font-size: 1em;
     color: #666;
     margin: 0;
+}
+
+/* Keyframes for the drift-in effect */
+@keyframes driftIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
