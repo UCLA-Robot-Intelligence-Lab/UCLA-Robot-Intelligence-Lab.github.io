@@ -60,3 +60,32 @@
         transform: translateY(0);
     }
 }
+
+@keyframes materialize {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Text altering */
+.people h1 {
+    font-size: 2.5rem;
+    color: #18315b;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #338fcd;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.people-title {
+    display: inline-block;
+    opacity: 0;
+    animation: materialize 0.5s ease-out forwards;
+}
