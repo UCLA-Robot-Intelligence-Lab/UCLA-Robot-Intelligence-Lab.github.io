@@ -305,9 +305,9 @@ main {
   }
 
   .nav-link {
-    font-size: calc(0.8em + 0.2vw);
+    font-size: calc(0.6em + 0.15vw);
     /* Further reduce font size */
-    padding: 0.4em calc(0.8em + 0.3vw);
+    padding: 0.3em calc(0.6em + 0.2vw);
     /* Slightly reduce vertical padding for smaller screens */
   }
 }
