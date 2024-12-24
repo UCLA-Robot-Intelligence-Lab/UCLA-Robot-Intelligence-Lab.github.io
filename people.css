@@ -1,3 +1,26 @@
+/* Hover Animation for Profile Container */
+.profile-container:hover {
+    box-shadow: 0 0 20px 10px #fcd628;
+    /* Adds a yellow glow */
+    transition: box-shadow 0.5s ease;
+    /* Smooth transition */
+}
+
+/* Ensure the entire container is clickable */
+.profile-link {
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Inherit text color */
+    display: block;
+    /* Makes the entire container clickable */
+}
+
+.profile-link:hover .profile-container {
+    box-shadow: 0 0 20px 10px #fcd628;
+    /* Yellow glow on hover */
+}
+
 /*Profile Pictures*/
 .profile-container {
     display: flex;

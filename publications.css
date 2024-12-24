@@ -1,0 +1,65 @@
+.publications-container {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.publications-title {
+    display: inline-block;
+    opacity: 0;
+    animation: materialize 0.5s ease-out forwards;
+}
+
+.publications-title {
+    display: inline-block;
+    opacity: 0;
+    animation: materialize 0.5s ease-out forwards;
+}
+
+.publications h1 {
+    font-size: 2.5rem;
+    color: #18315b;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #338fcd;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.publications h2 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph styles */
+.publications p {
+    font-size: 1rem;
+    color: #34495e;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes materialize {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
