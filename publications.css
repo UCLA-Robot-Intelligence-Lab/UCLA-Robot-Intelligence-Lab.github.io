@@ -40,6 +40,20 @@
     text-align: justify;
 }
 
+.publications button {
+    border: none;
+    color: white;
+    background-color: #338fcd;
+    padding: 3px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
