@@ -7,7 +7,7 @@
     /* Space between containers horizontally */
     align-items: stretch;
     /* Ensures all containers align and stretch vertically */
-    gap: 20px;
+    gap: 10px;
     /* Adds space between containers */
     width: 100%;
     box-sizing: border-box;
@@ -25,7 +25,7 @@
     background-color: #f9f9f9;
     /* Light background color */
     border-radius: 8px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     flex: 1 1 calc(50% - 20px);
     /* Take up half the width, minus the gap */
@@ -36,21 +36,21 @@
 
 /* Title styling */
 .profile-title {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: #333333;
     /* Dark gray text */
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: center;
 }
 
 /* Description styling */
 .profile-description {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.25;
     color: #555555;
     /* Medium gray text */
-    text-align: center;
+    text-align: left;
     margin-bottom: 15px;
     max-width: 90%;
     /* Ensure text doesn't span too wide */

@@ -401,8 +401,9 @@ main {
 }
 
 .about__desc {
-  font-size: 1rem;
-  max-width: 600px;
+  color:#2a2f4c;
+  font-size: 1.1rem;
+  max-width: 800px;
 }
 
 .about__desc,
