@@ -565,7 +565,7 @@ main {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1.5s ease-out forwards;
-  animation-delay: 1.0s;
+  animation-delay: 0.6s;
   /* Adjust delay to make it appear after the text */
 }
 
