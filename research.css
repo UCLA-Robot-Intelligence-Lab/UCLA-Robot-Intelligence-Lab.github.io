@@ -1,3 +1,85 @@
+/* Wrapper for all research area containers */
+.research-area-container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow containers to wrap if needed */
+    justify-content: space-between;
+    /* Space between containers horizontally */
+    align-items: stretch;
+    /* Ensures all containers align and stretch vertically */
+    gap: 20px;
+    /* Adds space between containers */
+    width: 100%;
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+    margin: 50px 0;
+}
+
+/* Styling for each research area container */
+.research-area-container {
+    display: flex;
+    flex-direction: column;
+    /* Vertical layout for content */
+    align-items: center;
+    /* Center content horizontally */
+    background-color: #f9f9f9;
+    /* Light background color */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(50% - 20px);
+    /* Take up half the width, minus the gap */
+    max-width: 50%;
+    /* Limit container to half the page width */
+    box-sizing: border-box;
+}
+
+/* Title styling */
+.profile-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333333;
+    /* Dark gray text */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Description styling */
+.profile-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555555;
+    /* Medium gray text */
+    text-align: center;
+    margin-bottom: 15px;
+    max-width: 90%;
+    /* Ensure text doesn't span too wide */
+}
+
+/* Image styling */
+.research-area-picture {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .research-area-container-wrapper {
+        flex-direction: column;
+        /* Stack containers vertically */
+    }
+
+    .research-area-container {
+        flex: 1 1 100%;
+        /* Make containers take up full width */
+        max-width: 100%;
+        /* Ensure full width on smaller screens */
+    }
+}
+
 /* Animations */
 
 @keyframes fadeInUp {
@@ -43,4 +125,43 @@
     border-bottom: 2px solid #338fcd;
     display: inline-block;
     padding-bottom: 5px;
+}
+
+.research h2 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph styles */
+.research p {
+    font-size: 1rem;
+    color: #34495e;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/*Text Link Stuff*/
+.text-link {
+    color: #338fcd;
+    text-decoration: none;
+    border-bottom: 1px solid #338fcd;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.text-link:visited {
+    color: #338fcd;
+    border-bottom-color: #338fcd;
+}
+
+.text-link:hover,
+.text-link:focus {
+    color: #338fcd;
+    border-bottom: 2px solid #338fcd;
+}
+
+.text-link:active {
+    color: #338fcd;
+    border-bottom-color: #338fcd;
 }
