@@ -110,5 +110,5 @@
 .people-title {
     display: inline-block;
     opacity: 0;
-    animation: materialize 0.5s ease-out forwards;
+    animation: driftIn 0.8s ease-out forwards;
 }
