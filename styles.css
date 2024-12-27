@@ -40,7 +40,7 @@ body {
   --clr-bg-alt: #2a2f4c;
   --clr-fg: #4592cf;
   --clr-fg-alt: #4592cf;
-  --clr-primary: #304063;
+  --clr-primary: #4593ce;
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
@@ -401,7 +401,7 @@ main {
 }
 
 .about__desc {
-  color:#2a2f4c;
+  color: #2a2f4c;
   font-size: 1.1rem;
   max-width: 800px;
 }
@@ -486,6 +486,7 @@ main {
   padding: 3em 0;
   margin-top: 4em;
   text-align: center;
+  animation: fadeInUp 1.5s ease-out forwards;
 }
 
 .footer__link {
