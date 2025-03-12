@@ -1,0 +1,124 @@
+/* Font import */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Theme variables */
+:root {
+  /* Logo colors */
+  --ucla-yellow: #FCD729;
+  --ucla-dark-blue: #314062;
+  --ucla-light-blue: #4493CF;
+  
+  /* Light mode (default) */
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --secondary-text-color: #555555;
+  --heading-color: var(--ucla-dark-blue);
+  --link-color: var(--ucla-light-blue);
+  --link-hover-color: #2a7ab8;
+  --nav-bg: var(--ucla-dark-blue);
+  --nav-text: #ffffff;
+  --nav-active: rgba(252, 215, 41, 0.3); /* Translucent yellow */
+  --footer-bg: var(--ucla-dark-blue);
+  --footer-text: #ffffff;
+  --card-bg: #f9f9f9;
+  --card-hover-bg: #f5f5f5;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --hero-bg: #f5f5f5;
+  --accent-color: var(--ucla-yellow);
+  --accent-color-hover: #e6c325;
+  --secondary-accent: var(--ucla-light-blue);
+  --theme-toggle-bg: rgba(252, 215, 41, 0.15);
+  --border-color: #e0e0e0;
+  --button-bg: var(--ucla-light-blue);
+  --button-hover: #2a7ab8;
+  --highlight-color: var(--ucla-yellow);
+}
+
+/* Dark mode */
+.dark-mode {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --secondary-text-color: #aaaaaa;
+  --heading-color: var(--ucla-light-blue);
+  --link-color: #6baae0; /* Lighter version of UCLA light blue */
+  --link-hover-color: #8fc1ec;
+  --nav-bg: #1a2235; /* Darker version of UCLA dark blue */
+  --nav-text: #e0e0e0;
+  --nav-active: rgba(252, 215, 41, 0.2); /* Translucent yellow */
+  --footer-bg: #1a2235;
+  --footer-text: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --card-hover-bg: #252525;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --hero-bg: #181818;
+  --accent-color: #d9b92b; /* Darker version of UCLA yellow for dark mode */
+  --accent-color-hover: #c4a725;
+  --secondary-accent: #3a7ab2; /* Darker version of UCLA light blue */
+  --theme-toggle-bg: rgba(252, 215, 41, 0.1);
+  --border-color: #333333;
+  --button-bg: #3a7ab2;
+  --button-hover: #2d6192;
+  --highlight-color: #d9b92b;
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+}
+
+/* Content sections */
+.content-section {
+  padding: 60px 0;
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease;
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
