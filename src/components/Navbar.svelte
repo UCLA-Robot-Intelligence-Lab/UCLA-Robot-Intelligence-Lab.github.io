@@ -6,6 +6,7 @@
   import { cubicOut } from "svelte/easing";
   import { slide, fly } from "svelte/transition";
   import { quintOut } from "svelte/easing";
+  import { theme } from "$lib/stores/theme";
 
   // Import icons this way instead
   import HomeIcon from "lucide-svelte/icons/home";
@@ -17,7 +18,24 @@
   // Logo image path is now hardcoded
   const logoSrc = "/full_logo.png";
 
-  // Navigation links with icons - all using UCLA yellow for hover/active states
+  // Get the current theme for conditional styling
+  let currentTheme = 'light';
+  theme.subscribe((value: string) => {
+    currentTheme = value;
+  });
+  
+  // Helper function to get the appropriate gradient based on theme
+  function getActiveGradient(isLightMode: boolean): string {
+    return isLightMode
+      ? "radial-gradient(circle, rgba(49,64,98,0.25) 0%, rgba(49,64,98,0.15) 50%, rgba(49,64,98,0) 100%)"
+      : "radial-gradient(circle, rgba(252,215,41,0.25) 0%, rgba(252,215,41,0.15) 50%, rgba(252,215,41,0) 100%)";
+  }
+  
+  // Helper function to get the appropriate active icon color based on theme
+  function getActiveIconColor(isLightMode: boolean): string {
+    return isLightMode ? "var(--ucla-light-blue)" : "var(--ucla-yellow)";
+  }
+  
   // Navigation links with their properties
   const navLinks: NavLink[] = [
     {
@@ -25,45 +43,40 @@
       href: "/",
       id: "home",
       icon: HomeIcon,
-      gradient:
-        "radial-gradient(circle, rgba(252,215,41,0.25) 0%, rgba(252,215,41,0.15) 50%, rgba(252,215,41,0) 100%)",
-      iconColor: "var(--ucla-yellow)",
+      gradient: getActiveGradient(currentTheme === 'light'),
+      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
     {
       name: "People",
       href: "/people",
       id: "people",
       icon: UsersIcon,
-      gradient:
-        "radial-gradient(circle, rgba(252,215,41,0.25) 0%, rgba(252,215,41,0.15) 50%, rgba(252,215,41,0) 100%)",
-      iconColor: "var(--ucla-yellow)",
+      gradient: getActiveGradient(currentTheme === 'light'),
+      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
     {
       name: "Research",
       href: "/research",
       id: "research",
       icon: FileTextIcon,
-      gradient:
-        "radial-gradient(circle, rgba(252,215,41,0.25) 0%, rgba(252,215,41,0.15) 50%, rgba(252,215,41,0) 100%)",
-      iconColor: "var(--ucla-yellow)",
+      gradient: getActiveGradient(currentTheme === 'light'),
+      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
     {
       name: "Publications",
       href: "/publications",
       id: "publications",
       icon: BookIcon,
-      gradient:
-        "radial-gradient(circle, rgba(252,215,41,0.25) 0%, rgba(252,215,41,0.15) 50%, rgba(252,215,41,0) 100%)",
-      iconColor: "var(--ucla-yellow)",
+      gradient: getActiveGradient(currentTheme === 'light'),
+      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
     {
       name: "Contact",
       href: "/contact",
       id: "contact",
       icon: MailIcon,
-      gradient:
-        "radial-gradient(circle, rgba(252,215,41,0.25) 0%, rgba(252,215,41,0.15) 50%, rgba(252,215,41,0) 100%)",
-      iconColor: "var(--ucla-yellow)",
+      gradient: getActiveGradient(currentTheme === 'light'),
+      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
   ];
 
@@ -138,19 +151,18 @@
                   tabindex="0"
                   aria-label={`${link.name} navigation item`}
                 >
-                  <!-- Glow effect that scales on hover -->
+                  <!-- Glow effect that scales on hover (only in dark mode) -->
                   <div
                     class="glow"
                     style="
                     background: {link.gradient}; 
-                    opacity: {hoveredItem === link.id || isActive(link)
+                    opacity: {(hoveredItem === link.id || isActive(link)) && currentTheme === 'dark'
                       ? 0.7
                       : 0};
-                    transform: scale({hoveredItem === link.id || isActive(link)
+                    transform: scale({(hoveredItem === link.id || isActive(link)) && currentTheme === 'dark'
                       ? 1.4
                       : 0.8});
-                    box-shadow: 0 0 15px 0 rgba(252,215,41,{hoveredItem ===
-                      link.id || isActive(link)
+                    box-shadow: 0 0 15px 0 rgba(252,215,41,{(hoveredItem === link.id || isActive(link)) && currentTheme === 'dark'
                       ? 0.3
                       : 0});
                   "
@@ -172,15 +184,15 @@
                       this={link.icon}
                       size="20"
                       color={hoveredItem === link.id || isActive(link)
-                        ? "var(--ucla-yellow)"
+                        ? currentTheme === 'light' ? "var(--ucla-light-blue)" : "var(--ucla-yellow)"
                         : "currentColor"}
-                      style="filter: {hoveredItem === link.id
+                      style="filter: {hoveredItem === link.id && currentTheme === 'dark'
                         ? 'drop-shadow(0 0 3px rgba(252,215,41,0.7))'
                         : 'none'}; transform: {hoveredItem === link.id
                         ? 'scale(1.1)'
-                        : 'scale(1)'}; transition: all 0.3s ease;"
+                        : 'scale(1)'}; transition: all 0.3s ease; font-weight: {isActive(link) && currentTheme === 'light' ? '700' : 'normal'};"
                     />
-                    <span>{link.name}</span>
+                    <span style="font-weight: {isActive(link) && currentTheme === 'light' ? '700' : 'normal'};">{link.name}</span>
                   </a>
 
                   <!-- Back face of the menu item (shows on hover) -->
@@ -199,15 +211,15 @@
                       this={link.icon}
                       size="20"
                       color={hoveredItem === link.id || isActive(link)
-                        ? "var(--ucla-yellow)"
+                        ? currentTheme === 'light' ? "var(--ucla-light-blue)" : "var(--ucla-yellow)"
                         : "currentColor"}
-                      style="filter: {hoveredItem === link.id
+                      style="filter: {hoveredItem === link.id && currentTheme === 'dark'
                         ? 'drop-shadow(0 0 3px rgba(252,215,41,0.7))'
                         : 'none'}; transform: {hoveredItem === link.id
                         ? 'scale(1.1)'
-                        : 'scale(1)'}; transition: all 0.3s ease;"
+                        : 'scale(1)'}; transition: all 0.3s ease; font-weight: {isActive(link) && currentTheme === 'light' ? '700' : 'normal'};"
                     />
-                    <span>{link.name}</span>
+                    <span style="font-weight: {isActive(link) && currentTheme === 'light' ? '700' : 'normal'};">{link.name}</span>
                   </a>
                 </div>
               </li>
@@ -221,6 +233,7 @@
       </div>
     </div>
   </div>
+  <div class="navbar-accent"></div>
 </header>
 
 <style>
@@ -231,7 +244,7 @@
     transition:
       background-color 0.3s ease,
       color 0.3s ease;
-    position: static;
+    position: relative;
     z-index: 100;
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -400,8 +413,19 @@
   .nav-item-front.active,
   .nav-item-back.active {
     font-weight: 600;
-    color: var(--ucla-yellow);
-    text-shadow: 0 0 5px rgba(252, 215, 41, 0.3);
+    color: var(--active-nav-color);
+    text-shadow: var(--active-nav-shadow);
+  }
+  
+  /* Define active color based on theme */
+  :global(:root) {
+    --active-nav-color: var(--ucla-dark-blue);
+    --active-nav-shadow: none; /* No text shadow in light mode */
+  }
+  
+  :global(.dark-mode) {
+    --active-nav-color: var(--ucla-yellow);
+    --active-nav-shadow: 0 0 5px rgba(252, 215, 41, 0.3); /* Keep glow in dark mode */
   }
 
   /* Make the component responsive */
@@ -443,6 +467,21 @@
     .logo {
       height: 75px; /* Keep logo bigger even on smaller screens */
     }
+  }
+
+  /* Gradient accent line at the bottom of navbar */
+  .navbar-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--ucla-yellow) 0%,
+      var(--ucla-light-blue) 100%
+    );
+    z-index: 10;
   }
 
   @media (max-width: 480px) {
