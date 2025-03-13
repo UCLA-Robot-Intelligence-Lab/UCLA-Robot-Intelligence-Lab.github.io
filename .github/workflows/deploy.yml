@@ -34,6 +34,14 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Process static files
+        run: |
+          cp ./static/CNAME ./build/ || echo "No CNAME file found"
+          touch ./build/.nojekyll
+      
+      - name: List build directory content
+        run: find build -type f -not -path "*/\.*" | sort
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
