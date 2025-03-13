@@ -4,39 +4,52 @@
 
 <footer>
   <div class="footer-accent"></div>
-  <div class="container">
-    <p>© {year} <span class="accent">UCLA</span> Robot Intelligence Lab. Hosted by GitHub Pages.</p>
+  <div class="footer-container">
+    <p>© {year} UCLA Robot Intelligence Lab. Hosted by GitHub Pages.</p>
   </div>
 </footer>
 
 <style>
   footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 20px 0;
-    margin-top: 50px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 30px 0;
+    margin-top: 0px;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
+    border-top: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
   }
-  
+
   .footer-accent {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--ucla-yellow) 0%, var(--ucla-light-blue) 100%);
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--ucla-yellow) 0%,
+      var(--ucla-light-blue) 50%,
+      var(--ucla-dark-blue) 100%
+    );
   }
-  
-  .accent {
-    color: var(--ucla-yellow);
-    font-weight: bold;
-  }
-  
-  .container {
+
+  .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 4rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 767px) {
+    .footer-container {
+      padding: 0 1.5rem;
+    }
   }
 </style>

@@ -6,7 +6,8 @@
   import { cubicOut } from "svelte/easing";
   import { slide, fly } from "svelte/transition";
   import { quintOut } from "svelte/easing";
-  import { theme } from "$lib/stores/theme";
+  import { theme } from "../lib/stores/theme.js";
+  import { browser } from "$app/environment";
 
   // Import icons this way instead
   import HomeIcon from "lucide-svelte/icons/home";
@@ -19,23 +20,36 @@
   const logoSrc = "/full_logo.png";
 
   // Get the current theme for conditional styling
-  let currentTheme = 'light';
+  // Default to system preference or 'light' during SSR
+  let currentTheme = (browser && localStorage.getItem("theme")) || "light";
   theme.subscribe((value: string) => {
     currentTheme = value;
   });
-  
+
   // Helper function to get the appropriate gradient based on theme
   function getActiveGradient(isLightMode: boolean): string {
     return isLightMode
       ? "radial-gradient(circle, rgba(49,64,98,0.25) 0%, rgba(49,64,98,0.15) 50%, rgba(49,64,98,0) 100%)"
       : "radial-gradient(circle, rgba(252,215,41,0.25) 0%, rgba(252,215,41,0.15) 50%, rgba(252,215,41,0) 100%)";
   }
-  
+
   // Helper function to get the appropriate active icon color based on theme
   function getActiveIconColor(isLightMode: boolean): string {
     return isLightMode ? "var(--ucla-light-blue)" : "var(--ucla-yellow)";
   }
-  
+
+  // Force theme sync when page changes
+  $: {
+    $page.url.pathname; // Track changes to pathname
+    if (browser) {
+      // Re-sync the theme on page changes
+      const savedTheme = localStorage.getItem("theme") || "light";
+      if (savedTheme !== currentTheme) {
+        currentTheme = savedTheme;
+      }
+    }
+  }
+
   // Navigation links with their properties
   const navLinks: NavLink[] = [
     {
@@ -43,40 +57,30 @@
       href: "/",
       id: "home",
       icon: HomeIcon,
-      gradient: getActiveGradient(currentTheme === 'light'),
-      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
     {
       name: "People",
       href: "/people",
       id: "people",
       icon: UsersIcon,
-      gradient: getActiveGradient(currentTheme === 'light'),
-      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
     {
       name: "Research",
       href: "/research",
       id: "research",
       icon: FileTextIcon,
-      gradient: getActiveGradient(currentTheme === 'light'),
-      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
     {
       name: "Publications",
       href: "/publications",
       id: "publications",
       icon: BookIcon,
-      gradient: getActiveGradient(currentTheme === 'light'),
-      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
     {
       name: "Contact",
       href: "/contact",
       id: "contact",
       icon: MailIcon,
-      gradient: getActiveGradient(currentTheme === 'light'),
-      iconColor: getActiveIconColor(currentTheme === 'light'),
     },
   ];
 
@@ -86,8 +90,6 @@
     href: string;
     id: string;
     icon: any; // Using 'any' for Svelte component type
-    gradient: string;
-    iconColor: string;
   }
 
   // Manage hover states for each nav item
@@ -155,14 +157,20 @@
                   <div
                     class="glow"
                     style="
-                    background: {link.gradient}; 
-                    opacity: {(hoveredItem === link.id || isActive(link)) && currentTheme === 'dark'
+                    background: {getActiveGradient(currentTheme === 'light')}; 
+                    opacity: {(hoveredItem === link.id || isActive(link)) &&
+                    currentTheme === 'dark'
                       ? 0.7
                       : 0};
-                    transform: scale({(hoveredItem === link.id || isActive(link)) && currentTheme === 'dark'
+                    transform: scale({(hoveredItem === link.id ||
+                      isActive(link)) &&
+                    currentTheme === 'dark'
                       ? 1.4
                       : 0.8});
-                    box-shadow: 0 0 15px 0 rgba(252,215,41,{(hoveredItem === link.id || isActive(link)) && currentTheme === 'dark'
+                    box-shadow: 0 0 15px 0 rgba(252,215,41,{(hoveredItem ===
+                      link.id ||
+                      isActive(link)) &&
+                    currentTheme === 'dark'
                       ? 0.3
                       : 0});
                   "
@@ -184,15 +192,26 @@
                       this={link.icon}
                       size="20"
                       color={hoveredItem === link.id || isActive(link)
-                        ? currentTheme === 'light' ? "var(--ucla-light-blue)" : "var(--ucla-yellow)"
+                        ? isActive(link)
+                          ? currentTheme === "light"
+                            ? "var(--ucla-light-blue)"
+                            : "var(--ucla-yellow)"
+                          : currentTheme === "light"
+                            ? "var(--ucla-light-blue)"
+                            : "var(--ucla-yellow)"
                         : "currentColor"}
-                      style="filter: {hoveredItem === link.id && currentTheme === 'dark'
-                        ? 'drop-shadow(0 0 3px rgba(252,215,41,0.7))'
-                        : 'none'}; transform: {hoveredItem === link.id
-                        ? 'scale(1.1)'
-                        : 'scale(1)'}; transition: all 0.3s ease; font-weight: {isActive(link) && currentTheme === 'light' ? '700' : 'normal'};"
+                      class="nav-icon {isActive(link)
+                        ? 'active-icon'
+                        : ''} {currentTheme === 'dark'
+                        ? 'dark-theme-icon'
+                        : 'light-theme-icon'}"
                     />
-                    <span style="font-weight: {isActive(link) && currentTheme === 'light' ? '700' : 'normal'};">{link.name}</span>
+                    <span
+                      style="font-weight: {isActive(link) &&
+                      currentTheme === 'light'
+                        ? '700'
+                        : 'normal'};">{link.name}</span
+                    >
                   </a>
 
                   <!-- Back face of the menu item (shows on hover) -->
@@ -211,15 +230,26 @@
                       this={link.icon}
                       size="20"
                       color={hoveredItem === link.id || isActive(link)
-                        ? currentTheme === 'light' ? "var(--ucla-light-blue)" : "var(--ucla-yellow)"
+                        ? isActive(link)
+                          ? currentTheme === "light"
+                            ? "var(--ucla-light-blue)"
+                            : "var(--ucla-yellow)"
+                          : currentTheme === "light"
+                            ? "var(--ucla-light-blue)"
+                            : "var(--ucla-yellow)"
                         : "currentColor"}
-                      style="filter: {hoveredItem === link.id && currentTheme === 'dark'
-                        ? 'drop-shadow(0 0 3px rgba(252,215,41,0.7))'
-                        : 'none'}; transform: {hoveredItem === link.id
-                        ? 'scale(1.1)'
-                        : 'scale(1)'}; transition: all 0.3s ease; font-weight: {isActive(link) && currentTheme === 'light' ? '700' : 'normal'};"
+                      class="nav-icon {isActive(link)
+                        ? 'active-icon'
+                        : ''} {currentTheme === 'dark'
+                        ? 'dark-theme-icon'
+                        : 'light-theme-icon'}"
                     />
-                    <span style="font-weight: {isActive(link) && currentTheme === 'light' ? '700' : 'normal'};">{link.name}</span>
+                    <span
+                      style="font-weight: {isActive(link) &&
+                      currentTheme === 'light'
+                        ? '700'
+                        : 'normal'};">{link.name}</span
+                    >
                   </a>
                 </div>
               </li>
@@ -304,13 +334,23 @@
     border-radius: 1rem;
     background: linear-gradient(
       to right,
-      rgba(252, 215, 41, 0.03),
-      rgba(252, 215, 41, 0.05),
-      rgba(252, 215, 41, 0.03)
+      rgba(120, 120, 120, 0.03),
+      rgba(120, 120, 120, 0.05),
+      rgba(120, 120, 120, 0.03)
     );
     backdrop-filter: blur(8px);
     z-index: 0;
     pointer-events: none;
+  }
+
+  /* Dark mode keeps UCLA branding */
+  :global(.dark-mode) .nav-glow-background {
+    background: linear-gradient(
+      to right,
+      rgba(252, 215, 41, 0.03),
+      rgba(252, 215, 41, 0.05),
+      rgba(252, 215, 41, 0.03)
+    );
   }
 
   .nav-menu-container {
@@ -320,15 +360,23 @@
     padding: 0;
     border-radius: 1rem;
     overflow: visible;
-    border: 1px solid rgba(252, 215, 41, 0.15); /* Add a subtle border */
+    border: 1px solid rgba(120, 120, 120, 0.15); /* Neutral grey border */
     box-shadow:
       0 4px 12px rgba(0, 0, 0, 0.05),
-      0 0 2px rgba(252, 215, 41, 0.2);
+      0 0 2px rgba(120, 120, 120, 0.2); /* Neutral grey shadow */
     background: linear-gradient(
       to bottom,
       var(--nav-bg-light) 0%,
       var(--nav-bg-dark) 100%
     );
+  }
+
+  /* Dark mode keeps UCLA branding */
+  :global(.dark-mode) .nav-menu-container {
+    border: 1px solid rgba(252, 215, 41, 0.15); /* UCLA Yellow border in dark mode */
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.05),
+      0 0 2px rgba(252, 215, 41, 0.2); /* UCLA Yellow shadow in dark mode */
   }
 
   .modern-nav ul {
@@ -416,13 +464,13 @@
     color: var(--active-nav-color);
     text-shadow: var(--active-nav-shadow);
   }
-  
+
   /* Define active color based on theme */
   :global(:root) {
     --active-nav-color: var(--ucla-dark-blue);
     --active-nav-shadow: none; /* No text shadow in light mode */
   }
-  
+
   :global(.dark-mode) {
     --active-nav-color: var(--ucla-yellow);
     --active-nav-shadow: 0 0 5px rgba(252, 215, 41, 0.3); /* Keep glow in dark mode */
@@ -502,5 +550,25 @@
     .theme-toggle-container {
       transform: scale(0.9); /* Slightly smaller theme toggle */
     }
+  }
+  /* Icon styles to ensure proper theme colors */
+  :global(.nav-icon) {
+    transition: all 0.3s ease;
+  }
+
+  :global(.active-icon.light-theme-icon) {
+    color: var(--ucla-light-blue) !important;
+  }
+
+  :global(.active-icon.dark-theme-icon) {
+    color: var(--ucla-yellow) !important;
+  }
+
+  :global(.nav-icon:hover) {
+    transform: scale(1.1);
+  }
+
+  :global(.dark-theme-icon:hover) {
+    filter: drop-shadow(0 0 3px rgba(252, 215, 41, 0.7));
   }
 </style>

@@ -107,19 +107,6 @@
     z-index: -1;
   }
 
-  .hero-accent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(
-      90deg,
-      var(--ucla-yellow) 0%,
-      var(--ucla-light-blue) 100%
-    );
-  }
-
   .hero-content {
     width: 100%;
     padding: 0 20px;

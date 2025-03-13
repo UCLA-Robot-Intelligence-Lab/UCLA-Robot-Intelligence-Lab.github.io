@@ -1,11 +1,13 @@
 <script>
   import { onMount } from 'svelte';
+  import { page } from '$app/stores';
   import '../app.css';
   import Navbar from '../components/Navbar.svelte';
   import Footer from '../components/Footer.svelte';
-  import { initTheme } from '$lib/stores/theme';
+  import { initTheme } from '../lib/stores/theme.js';
   
-  // We no longer need logoSrc as it's now hardcoded in the Navbar component
+  // Function to check if we're on the home page
+  $: isHomePage = $page.url.pathname === '/';
   
   // Initialize theme on mount
   onMount(() => {
@@ -19,7 +21,9 @@
   <slot />
 </main>
 
-<Footer />
+{#if !isHomePage}
+  <Footer />
+{/if}
 
 <style>
   /* Main content */
