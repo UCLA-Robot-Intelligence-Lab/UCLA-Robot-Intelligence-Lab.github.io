@@ -25,27 +25,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "16"
           cache: 'npm'
+          
       - name: Install dependencies
         run: npm ci
+        
       - name: Build
         run: npm run build
-      - name: Process static files
+        
+      - name: Prepare build for deployment
         run: |
-          cp ./static/CNAME ./build/ || echo "No CNAME file found"
+          # Add .nojekyll file to disable Jekyll processing
           touch ./build/.nojekyll
+          
+          # Copy CNAME file to build directory if it exists
+          if [ -f ./static/CNAME ]; then
+            cp ./static/CNAME ./build/
+          fi
+          
+          # Copy any other files from static directly to build if needed
+          cp -r ./static/*.png ./build/ 2>/dev/null || true
+          
+          # List build contents for debugging
+          echo "Build directory contents:"
+          find ./build -type f | sort
       
-      - name: List build directory content
-        run: find build -type f -not -path "*/\.*" | sort
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build
+          path: "./build"
 
   # Deployment job
   deploy:
@@ -57,4 +70,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
