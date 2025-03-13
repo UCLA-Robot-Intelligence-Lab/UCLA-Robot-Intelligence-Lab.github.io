@@ -1,4 +1,11 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  // Add JS class to html element for animation support
+  onMount(() => {
+    document.documentElement.classList.add("js-enabled");
+  });
+
   // Define person interface
   interface Person {
     name: string;
@@ -7,6 +14,62 @@
     bio: string;
     website?: string;
   }
+
+  // Animation with Intersection Observer
+  // Define a variable to control whether animations should run
+  let animationsEnabled = false;
+
+  onMount(() => {
+    // Set animations as enabled after component is mounted
+    animationsEnabled = true;
+
+    // Use Intersection Observer to trigger animations
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.15, // Slightly higher threshold to start animation when more of card is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Add a subtle delay to create a staggered effect
+          const delay = Math.random() * 250; // Extended random delay between 0-250ms for more staggered effect
+          setTimeout(() => {
+            entry.target.classList.add("in-view");
+          }, delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    // Observe all cards and section headings
+    const cards = document.querySelectorAll(".person-card");
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    // Observe section headings with a separate observer for just fade effect
+    const headingOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // Higher threshold for headings
+    };
+
+    const headingObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("heading-visible");
+          headingObserver.unobserve(entry.target);
+        }
+      });
+    }, headingOptions);
+
+    const headings = document.querySelectorAll(".section-heading");
+    headings.forEach((heading) => {
+      headingObserver.observe(heading);
+    });
+  });
   // People data
   const people: {
     faculty: Person[];
@@ -41,7 +104,7 @@
     undergrad_students: [
       {
         name: "Tracey Tay",
-        title: "Undergraduate Student",
+        title: "Undergraduate Student, EE",
         image: "/about-people/tracey-tay.jpg",
         bio: "Tracey is an exchange student from Imperial College London. She is passionate about the intersection of AI and robotics, with a particular focus on advancing intelligent systems. Her experience includes exploring innovative applications of natural language processing (NLP) and retrieval-augmented generation (RAG). Aside from academics, she enjoys being outdoors, doing a mixture of sports, music, cooking and getting to know people :)",
         website: "http://www.linkedin.com/in/traceytayyeehsin",
@@ -55,7 +118,7 @@
       },
       {
         name: "Edward Sun",
-        title: "Undergraduate Student is CS",
+        title: "Undergraduate Student in CS",
         image: "/about-people/Edward Sun.jpg",
         bio: "Edward is interested in generative models for robotics. Specifically, he is interested in developing robotic agents that can interact with humans better using natural language. In his free time, he likes to do pencil sketches, listen to music, and snowboard",
         website: "https://edwardosunny.github.io/",
@@ -70,7 +133,7 @@
       {
         name: "Jonathan Ouyang",
         title: "Undergraduate Student in CS",
-        image: "/about-people/jo-ouyang.jpg",
+        image: "/about-people/Jonathan.jpg",
         bio: "Jonathan is an undergraduate student researching Computer Vision and its applications in Robot Policy Learning and Athletic Training. He previously worked with SJSU's AI/Deep Learning lab to utilize computer vision for swimmers in collaboration with the SJSU D1 swim team. He also won a $200k car from Google. In his free time, Jonathan likes to watch anime with Daniel and annoy William",
         website: "https://www.linkedin.com/in/jon-ouyang/",
       },
@@ -117,7 +180,7 @@
   <div class="container people-container">
     <h1 class="people-main-title">People</h1>
 
-    <h2>Faculty</h2>
+    <h2 class="section-heading">Faculty</h2>
     <div class="people-grid">
       {#each people.faculty as person}
         <a
@@ -140,7 +203,7 @@
       {/each}
     </div>
 
-    <h2>Graduate Students</h2>
+    <h2 class="section-heading">Graduate Students</h2>
     <div class="people-grid">
       {#each people.grad_students as person}
         <a
@@ -163,7 +226,7 @@
       {/each}
     </div>
 
-    <h2>Undergraduate Students</h2>
+    <h2 class="section-heading">Undergraduate Students</h2>
     <div class="people-grid">
       {#each people.undergrad_students as person}
         <a
@@ -193,8 +256,15 @@
   .people-main-title {
     text-align: center;
     margin-bottom: -0.5rem;
-    font-size: 2.5rem;
+    margin-top: 0;
+    font-size: 3rem;
     color: var(--heading-color);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .content-section {
+    padding: 2.5rem 0 4rem;
   }
 
   .people-container {
@@ -230,6 +300,43 @@
     padding: 0;
     width: 100%;
     border: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
+  }
+
+  /* Animation styles - applied to all person cards */
+  .person-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 1.6s cubic-bezier(0.215, 0.61, 0.355, 1),
+      /* Ease-out-cubic with longer duration */ transform 1.8s
+        cubic-bezier(0.165, 0.84, 0.44, 1),
+      /* Ease-out-quart with longer duration */ box-shadow 0.3s ease-out,
+      border-color 0.3s ease;
+    will-change: transform, opacity; /* Optimize animation performance */
+  }
+
+  /* Apply the animation effect only when JavaScript is enabled */
+  :global(html.js-enabled) .person-card:not(.in-view) {
+    opacity: 0;
+    transform: translateY(
+      60px
+    ); /* Increased distance for more pronounced effect */
+  }
+
+  /* Section heading animations - fade only */
+  .section-heading {
+    position: relative;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    color: var(--heading-color); /* Uses UCLA Dark Blue from variables */
+    font-weight: 600;
+    transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1); /* Longer duration for smoother fade */
+    opacity: 1;
+  }
+
+  :global(html.js-enabled) .section-heading:not(.heading-visible) {
+    opacity: 0;
   }
 
   .person-card.has-link:hover {

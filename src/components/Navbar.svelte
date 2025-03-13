@@ -16,8 +16,9 @@
   import BookIcon from "lucide-svelte/icons/book";
   import MailIcon from "lucide-svelte/icons/mail";
 
-  // Logo image path is now hardcoded
-  const logoSrc = "/full_logo.png";
+  // Dynamic logo based on theme
+  $: logoSrc =
+    currentTheme === "dark" ? "/Yellow Outline Logo.png" : "/original-uril.png";
 
   // Get the current theme for conditional styling
   // Default to system preference or 'light' during SSR
@@ -132,7 +133,7 @@
     <div class="navbar-container">
       <div class="logo-container">
         <img
-          src="/original-uril.png"
+          src={logoSrc}
           alt="UCLA Robot Intelligence Lab Logo"
           class="logo"
         />

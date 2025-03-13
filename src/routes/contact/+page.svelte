@@ -7,55 +7,57 @@
     <h1 class="contact-main-title">Contact Us</h1>
 
     <div class="contact-card">
-      <h2>Prospective PhD students</h2>
-      <p>
-        Our lab is actively seeking motivated PhD students, ideally with
-        experience in robotics and/or artificial intelligence. If you have a
-        relevant background and are interested in joining URIL, please apply
-        directly to the
-        <a
-          href="https://www.cs.ucla.edu/graduate-admissions/"
-          class="text-link"
-          target="_blank"
-          rel="noopener noreferrer">UCLA CS PhD program.</a
-        >
-      </p>
-    </div>
+      <div class="contact-section">
+        <h2>Prospective PhD students</h2>
+        <p>
+          Our lab is actively seeking motivated PhD students, ideally with
+          experience in robotics and/or artificial intelligence. If you have a
+          relevant background and are interested in joining URIL, please apply
+          directly to the
+          <a
+            href="https://www.cs.ucla.edu/graduate-admissions/"
+            class="text-link"
+            target="_blank"
+            rel="noopener noreferrer">UCLA CS PhD program.</a
+          >
+        </p>
+      </div>
 
-    <div class="contact-card">
-      <h2>UCLA Master and Undergraduate students</h2>
-      <p>
-        Please fill out this
-        <a
-          href="https://forms.gle/d7uAPSB9nrQQJ3gcA"
-          class="text-link"
-          target="_blank"
-          rel="noopener noreferrer">application form</a
-        >
-        to indicate your interest.
-      </p>
-    </div>
+      <div class="contact-section">
+        <h2>UCLA Master and Undergraduate students</h2>
+        <p>
+          Please fill out this
+          <a
+            href="https://forms.gle/d7uAPSB9nrQQJ3gcA"
+            class="text-link"
+            target="_blank"
+            rel="noopener noreferrer">application form</a
+          >
+          to indicate your interest.
+        </p>
+      </div>
 
-    <div class="contact-card">
-      <h2>Summer undergraduate research intern</h2>
-      <p>
-        Please fill out this
-        <a
-          href="https://forms.gle/d7uAPSB9nrQQJ3gcA"
-          class="text-link"
-          target="_blank"
-          rel="noopener noreferrer">application form</a
-        >
-        by March 1st (same year you wish to do a summer intern).
-      </p>
-    </div>
+      <div class="contact-section">
+        <h2>Summer undergraduate research intern</h2>
+        <p>
+          Please fill out this
+          <a
+            href="https://forms.gle/d7uAPSB9nrQQJ3gcA"
+            class="text-link"
+            target="_blank"
+            rel="noopener noreferrer">application form</a
+          >
+          by March 1st (same year you wish to do a summer intern).
+        </p>
+      </div>
 
-    <div class="contact-card">
-      <p>
-        We especially encourage students from historically underrepresented
-        backgrounds in STEM to apply, even if your experience does not align
-        precisely with robotics or AI!
-      </p>
+      <div class="contact-section note">
+        <p>
+          We especially encourage students from historically underrepresented
+          backgrounds in STEM to apply, even if your experience does not align
+          precisely with robotics or AI!
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -77,9 +79,9 @@
 
   .contact-main-title {
     text-align: center;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: -0.5rem;
+    font-size: 3rem;
     color: var(--heading-color);
     font-weight: 700;
     letter-spacing: -0.03em;
@@ -91,12 +93,32 @@
   .contact-card {
     background-color: var(--card-bg);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 2.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .contact-section {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
+  }
+  
+  .contact-section:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  
+  .contact-section.note {
+    margin-top: 0.5rem;
+    background-color: rgba(252, 215, 41, 0.08); /* UCLA Yellow with low opacity */
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
   }
 
   .contact-card:hover {

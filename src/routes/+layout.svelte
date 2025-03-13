@@ -9,9 +9,18 @@
   // Function to check if we're on the home page
   $: isHomePage = $page.url.pathname === '/';
   
-  // Initialize theme on mount
+  // Initialize theme on mount and scroll to top on page load/reload
   onMount(() => {
     initTheme();
+    
+    // Ensure page starts at the top on reload
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto' // Use 'auto' instead of 'smooth' for immediate jump on reload
+      });
+    }
   });
 </script>
 

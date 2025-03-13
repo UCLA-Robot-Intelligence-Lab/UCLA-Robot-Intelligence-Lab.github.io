@@ -1,4 +1,64 @@
 <script>
+  import { onMount } from 'svelte';
+  
+  // Set up intersection observer for animation on page load
+  onMount(() => {
+    // Add js-enabled class to html element
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.add('js-enabled');
+      document.documentElement.classList.remove('no-js');
+    }
+    
+    // Create observer to detect when publications come into view
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 // Element is 15% visible before animating
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add a subtle delay to create a staggered effect
+          const delay = Math.random() * 250; // Random delay between 0-250ms
+          setTimeout(() => {
+            entry.target.classList.add('in-view');
+          }, delay);
+          
+          // Once animated, no need to observe anymore
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    
+    // Observe all publication cards
+    const publications = document.querySelectorAll('.publication-card');
+    publications.forEach(pub => {
+      observer.observe(pub);
+    });
+    
+    // Observe the main title with a higher threshold
+    const headingOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5 // Higher threshold for heading
+    };
+    
+    const headingObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('heading-visible');
+          headingObserver.unobserve(entry.target);
+        }
+      });
+    }, headingOptions);
+    
+    const heading = document.querySelector('.publications-title');
+    if (heading) {
+      headingObserver.observe(heading);
+    }
+  });
+  
   // Publications
   const publications = [
     {
@@ -277,7 +337,7 @@
 <style>
   /* Publications section styles */
   .publications-section {
-    padding: 4rem 0;
+    padding: 2.5rem 0 4rem;
   }
 
   .publications-container {
@@ -287,12 +347,25 @@
   }
 
   .publications-title {
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.25rem;
+    margin-top: 0;
     color: var(--heading-color);
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     letter-spacing: -0.03em;
     font-weight: 700;
+    transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1); /* Smooth fade-in */
+    opacity: 1;
+  }
+  
+  /* Heading animation */
+  :global(html.js-enabled) .publications-title:not(.heading-visible) {
+    opacity: 0;
+  }
+  
+  .publications-title.heading-visible,
+  :global(html.no-js) .publications-title {
+    opacity: 1;
   }
 
   .publications-list {
@@ -307,11 +380,30 @@
     background-color: var(--card-bg);
     border-radius: 14px;
     overflow: hidden;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with opacity */
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+      opacity 1.6s cubic-bezier(0.215, 0.61, 0.355, 1), /* Ease-out-cubic */
+      transform 1.8s cubic-bezier(0.165, 0.84, 0.44, 1), /* Ease-out-quart */
+      box-shadow 0.3s ease-out,
+      border-color 0.3s ease;
+    will-change: transform, opacity; /* Optimize animation performance */
+  }
+  
+  /* Apply the animation effect only when JavaScript is enabled */
+  :global(html.js-enabled) .publication-card:not(.in-view) {
+    opacity: 0;
+    transform: translateY(60px); /* Increased distance for more pronounced effect */
+  }
+  
+  :global(html.no-js) .publication-card,
+  .publication-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* Create a subtle glass-like effect for the card - Vercel inspired */
@@ -328,7 +420,7 @@
   }
 
   .publication-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) !important; /* Important to override animation transform */
     box-shadow:
       0 5px 20px rgba(0, 0, 0, 0.07),
       0 0 0 1px rgba(49, 64, 98, 0.08); /* UCLA Dark Blue border */
