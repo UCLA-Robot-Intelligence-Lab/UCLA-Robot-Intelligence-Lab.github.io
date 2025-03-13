@@ -16,8 +16,10 @@ const config = {
 			fallback: 'index.html',
 			strict: false
 		}),
-		// Disable trailing slashes for GitHub Pages compatibility
-		trailingSlash: 'never'
+		// Add paths configuration for GitHub Pages compatibility
+		paths: {
+			base: ''
+		}
 	}
 };
 
