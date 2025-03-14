@@ -87,6 +87,13 @@
     ],
     grad_students: [
       {
+        name: "Chenggong (Alex) Zhang",
+        title: "PhD student in ECE",
+        image: "/about-people/alex.jpg",
+        bio: "Alex is a first year PhD student in ECE department from Yangtze River area, working on deep generative model and reinforcement learning. Currently, he is collaborating with Professor Cui on a project with policy learning for manipulation. Out of academia, he enjoys sprinting and listening to Spotify.",
+        website: "https://www.linkedin.com/in/chenggong-zhang-1a3aa6252/",
+      },
+      {
         name: "Metin Alp Dogan",
         title: "Master’s student in ECE",
         image: "/about-people/alp.jpg",
@@ -104,7 +111,7 @@
     undergrad_students: [
       {
         name: "Tracey Tay",
-        title: "Undergraduate Student, EE",
+        title: "Undergraduate Student in EE",
         image: "/about-people/tracey-tay.jpg",
         bio: "Tracey is an exchange student from Imperial College London. She is passionate about the intersection of AI and robotics, with a particular focus on advancing intelligent systems. Her experience includes exploring innovative applications of natural language processing (NLP) and retrieval-augmented generation (RAG). Aside from academics, she enjoys being outdoors, doing a mixture of sports, music, cooking and getting to know people :)",
         website: "http://www.linkedin.com/in/traceytayyeehsin",
