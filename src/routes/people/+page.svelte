@@ -107,6 +107,13 @@
         bio: "Soham is a second-year Master's student in Computer Science with a background and broad interests in robot learning and perception. His current research focuses on developing efficient data quality metrics for imitation learning. Beyond research, he enjoys wildlife photography, swimming, martial arts, and hiking to recharge.",
         website: "https://stochasticritic.github.io/",
       },
+      {
+        name: "Yuanhong Zeng",
+        title: "Master’s student in ECE",
+        image: "/about-people/yuanhong.jpeg",
+        bio: "Yuanhong a first-year master’s student in the ECE department with a passion for optimization, computer vision, and robot learning. His current research involves developing an embodiment-agnostic manipulation policy using 3D flow generation. Outside of my academic pursuits, he is also a professionally trained chef and he enjoys exploring new food.",
+        website: "https://www.linkedin.com/in/yuanhong-zeng/",
+      },
     ],
     undergrad_students: [
       {
