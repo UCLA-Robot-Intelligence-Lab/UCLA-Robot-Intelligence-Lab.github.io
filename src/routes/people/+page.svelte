@@ -102,7 +102,7 @@
       },
       {
         name: "Soham Kulkarni",
-        title: "Master’s student in ECE",
+        title: "Master’s student in CS",
         image: "/about-people/soham.jpg",
         bio: "Soham is a second-year Master's student in Computer Science with a background and broad interests in robot learning and perception. His current research focuses on developing efficient data quality metrics for imitation learning. Beyond research, he enjoys wildlife photography, swimming, martial arts, and hiking to recharge.",
         website: "https://stochasticritic.github.io/",
