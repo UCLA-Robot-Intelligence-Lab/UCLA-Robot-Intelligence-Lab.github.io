@@ -103,9 +103,9 @@
       {
         name: "Soham Kulkarni",
         title: "Master’s student in ECE",
-        image: "/generic_student.jpg",
-        bio: "Soham is a Master’s student in ECE.",
-        website: "/",
+        image: "/about-people/soham.jpg",
+        bio: "Soham is a second-year Master's student in Computer Science with a background and broad interests in robot learning and perception. His current research focuses on developing efficient data quality metrics for imitation learning. Beyond research, he enjoys wildlife photography, swimming, martial arts, and hiking to recharge.",
+        website: "https://stochasticritic.github.io/",
       },
     ],
     undergrad_students: [
@@ -181,7 +181,49 @@
       },
     ],
   };
+
+  // Generate JSON-LD structured data for organization and team
+  $: jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    name: "UCLA Robot Intelligence Lab",
+    url: "https://robot.cs.ucla.edu",
+    logo: "https://robot.cs.ucla.edu/logo.png",
+    member: [
+      ...people.faculty.map((person) => ({
+        "@type": "Person",
+        name: person.name,
+        jobTitle: person.title,
+        image: `https://robot.cs.ucla.edu${person.image}`,
+        url: person.website,
+        worksFor: {
+          "@type": "Organization",
+          name: "UCLA Robot Intelligence Lab",
+        },
+      })),
+      ...people.grad_students.map((person) => ({
+        "@type": "Person",
+        name: person.name,
+        jobTitle: person.title,
+        image: `https://robot.cs.ucla.edu${person.image}`,
+        url: person.website,
+      })),
+      ...people.undergrad_students.map((person) => ({
+        "@type": "Person",
+        name: person.name,
+        jobTitle: person.title,
+        image: `https://robot.cs.ucla.edu${person.image}`,
+        url: person.website,
+      })),
+    ],
+  };
 </script>
+
+<svelte:head>
+  <script type="application/ld+json">
+    {JSON.stringify(jsonLdData)}
+  </script>
+</svelte:head>
 
 <section class="content-section">
   <div class="container people-container">
