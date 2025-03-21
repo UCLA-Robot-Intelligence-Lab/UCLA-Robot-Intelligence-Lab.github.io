@@ -15,6 +15,14 @@
     website?: string;
   }
 
+  // Define people data structure
+  interface PeopleData {
+    faculty: Person[];
+    collaborators: Person[];
+    grad_students: Person[];
+    undergrad_students: Person[];
+  }
+
   // Animation with Intersection Observer
   // Define a variable to control whether animations should run
   let animationsEnabled = false;
@@ -71,11 +79,7 @@
     });
   });
   // People data
-  const people: {
-    faculty: Person[];
-    grad_students: Person[];
-    undergrad_students: Person[];
-  } = {
+  const people: PeopleData = {
     faculty: [
       {
         name: "Yuchen Cui",
@@ -85,7 +89,7 @@
         website: "https://yuchencui.cc/",
       },
     ],
-    grad_students: [
+    collaborators: [
       {
         name: "Chenggong (Alex) Zhang",
         title: "PhD student in ECE",
@@ -93,6 +97,8 @@
         bio: "Alex is a first year PhD student in ECE department from Yangtze River area, working on deep generative model and reinforcement learning. Currently, he is collaborating with Professor Cui on a project with policy learning for manipulation. Out of academia, he enjoys sprinting and listening to Spotify.",
         website: "https://www.linkedin.com/in/chenggong-zhang-1a3aa6252/",
       },
+    ],
+    grad_students: [
       {
         name: "Metin Alp Dogan",
         title: "Master’s student in ECE",
@@ -222,6 +228,13 @@
         image: `https://robot.cs.ucla.edu${person.image}`,
         url: person.website,
       })),
+      ...people.collaborators.map((person) => ({
+        "@type": "Person",
+        name: person.name,
+        jobTitle: person.title,
+        image: `https://robot.cs.ucla.edu${person.image}`,
+        url: person.website,
+      })),
     ],
   };
 </script>
@@ -239,6 +252,29 @@
     <h2 class="section-heading">Faculty</h2>
     <div class="people-grid">
       {#each people.faculty as person}
+        <a
+          href={person.website || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="person-card {person.website ? 'has-link' : ''}"
+        >
+          <img
+            src={person.image || "/placeholder.svg"}
+            alt={person.name}
+            class="person-image"
+          />
+          <div class="person-content">
+            <h3>{person.name}</h3>
+            <p class="person-title">{person.title}</p>
+            <p class="person-bio">{person.bio}</p>
+          </div>
+        </a>
+      {/each}
+    </div>
+
+    <h2 class="section-heading">Collaborators</h2>
+    <div class="people-grid">
+      {#each people.collaborators as person}
         <a
           href={person.website || "#"}
           target="_blank"
