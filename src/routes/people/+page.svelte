@@ -95,7 +95,7 @@
         title: "PhD student in ECE",
         image: "/about-people/xu.jpg",
         bio: "Xu is a PhD student in Electrical and Computer Engineering department. Her current research interests lie in leveraging physiological signals for seamless human-robot interactions. Outside of academics, she likes tennis, skating, and cooking.",
-        website: "www.linkedin.com/in/xukristenyan",
+        website: "https://www.linkedin.com/in/xukristenyan",
       },
       {
         name: "Metin Alp Dogan",
