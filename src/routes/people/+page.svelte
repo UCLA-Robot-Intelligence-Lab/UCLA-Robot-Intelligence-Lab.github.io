@@ -100,6 +100,13 @@
     ],
     grad_students: [
       {
+        name: "Xu Kristen Yan",
+        title: "PhD student in ECE",
+        image: "/generic_student.jpg",
+        bio: "Xu a PhD student in the ECE",
+        website: "/people",
+      },
+      {
         name: "Metin Alp Dogan",
         title: "Master’s student in ECE",
         image: "/about-people/alp.jpg",
