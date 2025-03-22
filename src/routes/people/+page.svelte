@@ -89,22 +89,13 @@
         website: "https://yuchencui.cc/",
       },
     ],
-    collaborators: [
-      {
-        name: "Chenggong (Alex) Zhang",
-        title: "PhD student in ECE",
-        image: "/about-people/alex.jpg",
-        bio: "Alex is a first year PhD student in ECE department from Yangtze River area, working on deep generative model and reinforcement learning. Currently, he is collaborating with Professor Cui on a project with policy learning for manipulation. Out of academia, he enjoys sprinting and listening to Spotify.",
-        website: "https://www.linkedin.com/in/chenggong-zhang-1a3aa6252/",
-      },
-    ],
     grad_students: [
       {
         name: "Xu Kristen Yan",
         title: "PhD student in ECE",
-        image: "/generic_student.jpg",
-        bio: "Xu a PhD student in the ECE",
-        website: "/people",
+        image: "/about-people/xu.jpg",
+        bio: "Xu is a PhD student in Electrical and Computer Engineering department. Her current research interests lie in leveraging physiological signals for seamless human-robot interactions. Outside of academics, she likes tennis, skating, and cooking.",
+        website: "www.linkedin.com/in/xukristenyan",
       },
       {
         name: "Metin Alp Dogan",
@@ -200,6 +191,15 @@
         website: "https://www.linkedin.com/in/narekgermirlian/",
       },
     ],
+    collaborators: [
+      {
+        name: "Chenggong (Alex) Zhang",
+        title: "PhD student in ECE",
+        image: "/about-people/alex.jpg",
+        bio: "Alex is a first year PhD student in ECE department from Yangtze River area, working on deep generative model and reinforcement learning. Currently, he is collaborating with Professor Cui on a project with policy learning for manipulation. Out of academia, he enjoys sprinting and listening to Spotify.",
+        website: "https://www.linkedin.com/in/chenggong-zhang-1a3aa6252/",
+      },
+    ],
   };
 
   // Generate JSON-LD structured data for organization and team
@@ -279,29 +279,6 @@
       {/each}
     </div>
 
-    <h2 class="section-heading">Collaborators</h2>
-    <div class="people-grid">
-      {#each people.collaborators as person}
-        <a
-          href={person.website || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="person-card {person.website ? 'has-link' : ''}"
-        >
-          <img
-            src={person.image || "/placeholder.svg"}
-            alt={person.name}
-            class="person-image"
-          />
-          <div class="person-content">
-            <h3>{person.name}</h3>
-            <p class="person-title">{person.title}</p>
-            <p class="person-bio">{person.bio}</p>
-          </div>
-        </a>
-      {/each}
-    </div>
-
     <h2 class="section-heading">Graduate Students</h2>
     <div class="people-grid">
       {#each people.grad_students as person}
@@ -328,6 +305,29 @@
     <h2 class="section-heading">Undergraduate Students</h2>
     <div class="people-grid">
       {#each people.undergrad_students as person}
+        <a
+          href={person.website || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="person-card {person.website ? 'has-link' : ''}"
+        >
+          <img
+            src={person.image || "/placeholder.svg"}
+            alt={person.name}
+            class="person-image"
+          />
+          <div class="person-content">
+            <h3>{person.name}</h3>
+            <p class="person-title">{person.title}</p>
+            <p class="person-bio">{person.bio}</p>
+          </div>
+        </a>
+      {/each}
+    </div>
+
+    <h2 class="section-heading">Collaborators</h2>
+    <div class="people-grid">
+      {#each people.collaborators as person}
         <a
           href={person.website || "#"}
           target="_blank"
