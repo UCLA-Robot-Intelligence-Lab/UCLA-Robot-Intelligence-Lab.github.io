@@ -27,9 +27,9 @@
       playsinline 
       preload="auto" 
       class="alpha-video">
-      <!-- WebM format with alpha channel support -->
-      <source src="/cropped-uril.webm" type="video/webm">
-      <!-- Fallback to MOV format -->
+      <!-- VP9 WebM format with alpha channel support (high quality) -->
+      <source src="/cropped-uril-transparent.webm" type="video/webm">
+      <!-- Original MOV with alpha channel as fallback -->
       <source src="/Adobe/Untitled Project_AME/cropped-uril.mov" type="video/quicktime">
       Your browser does not support video playback.
     </video>

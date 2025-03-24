@@ -4,6 +4,7 @@
   import '../app.css';
   import Navbar from '../components/Navbar.svelte';
   import Footer from '../components/Footer.svelte';
+  import BackgroundBeams from '../components/BackgroundBeams.svelte';
   import { initTheme } from '../lib/stores/theme.js';
   
   // SEO metadata
@@ -62,6 +63,11 @@
   <link rel="canonical" href={pageUrl}>
 </svelte:head>
 
+<!-- Background beams effect for the entire site -->
+<div class="background-container">
+  <BackgroundBeams />
+</div>
+
 <Navbar />
 
 <main>
@@ -73,8 +79,21 @@
 {/if}
 
 <style>
+  /* Background container */
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
   /* Main content */
   main {
     min-height: calc(100vh - 200px);
+    position: relative;
+    z-index: 1;
   }
 </style>

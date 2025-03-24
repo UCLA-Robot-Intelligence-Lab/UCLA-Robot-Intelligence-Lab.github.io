@@ -102,7 +102,10 @@ h2 {
 /* Content sections */
 .content-section {
   padding: 60px 0;
-  background-color: var(--background-color);
+  /* Removed solid background to allow beams to show through */
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
   transition: background-color 0.3s ease;
 }
 
