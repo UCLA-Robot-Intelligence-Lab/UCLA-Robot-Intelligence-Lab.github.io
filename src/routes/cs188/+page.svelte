@@ -72,13 +72,13 @@
   <ul>
     <li><strong>TA: Zhihao (Seth) Zhao</strong></li>
     <ul>
-      <li>Email: <a href="mailto:sethzhao506@ucla.edu">sethzhao506@ucla.edu</a></li>
-      <li>Office Hour:</li>
-      <li>Location:</li>
+      <li>Email: <a href="mailto:sethzhao506@g.ucla.edu">sethzhao506@g.ucla.edu</a></li>
+      <li>Office Hour: 3-3:50 PM</li>
+      <li>Location: Public Affairs Building 1246</li>
     </ul>
     <li><strong>LA: Raayan Dhar</strong></li>
     <ul>
-      <li>Email: <a href="mailto:raayandhar@ucla.edu">raayandhar@ucla.edu</a></li>
+      <li>Email: <a href="mailto:raayandhar@g.ucla.edu">raayandhar@g.ucla.edu</a></li>
     </ul>
     <li>Best to ask questions on Piazza!</li>
   </ul>
