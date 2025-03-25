@@ -1,11 +1,11 @@
 <script>
   import Container from '../components/Container.svelte';
-  import Hero from '../components/Hero.svelte';
+  import VideoHero from '../components/VideoHero.svelte';
 </script>
 
-<Hero 
-  title="UCLA Robot Intelligence Lab" 
-  backgroundImage="/uril-small.jpg"
+<VideoHero 
+  videoSrc="/uril.mov"
+  height="500px"
 />
 
 <section class="about">
@@ -25,6 +25,8 @@
 </section>
 
 <style>
+
+  
   /* About section */
   .about {
     padding: 60px 0;

@@ -46,8 +46,10 @@
 		"svelte"
 	],
 	"dependencies": {
+		"clsx": "^2.1.1",
 		"lucide-svelte": "^0.479.0",
 		"motion": "^12.5.0",
-		"svelte-motion": "^0.12.2"
+		"svelte-motion": "^0.12.2",
+		"tailwind-merge": "^3.0.2"
 	}
 }
