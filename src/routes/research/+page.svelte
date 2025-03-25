@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import CardHoverEffect from "../../components/CardHoverEffect.svelte";
 
   // Set up intersection observer for animation on page load
   onMount(() => {
@@ -77,57 +78,70 @@
     </div>
     <div class="research-areas">
       <div class="research-area">
-        <div class="research-area-content">
-          <div class="research-media">
-            <div class="media-wrapper">
-              <img
-                src="/robot_skills.gif"
-                alt="Robot performing manipulation skills"
-              />
+        <CardHoverEffect>
+          <div class="research-area-content">
+            <div class="research-media">
+              <div class="media-wrapper">
+                <img
+                  src="/robot_skills.gif"
+                  alt="Robot performing manipulation skills"
+                />
+              </div>
+            </div>
+            <div class="research-text">
+              <h2>Improving Robot Skill Learning</h2>
+              <p>
+                We aim to improve the efficiency and adaptability of robots by
+                enabling few-shot and zero-shot learning capabilities. Our
+                approach includes developing structured learning frameworks such
+                as novel action representations that facilitate efficient
+                learning, and intermediate representations of motion that bridge
+                visual representation and low-level motions.
+              </p>
             </div>
           </div>
-          <div class="research-text">
-            <h2>Improving Robot Skill Learning</h2>
-            <p>
-              We aim to improve the efficiency and adaptability of robots by
-              enabling few-shot and zero-shot learning capabilities. Our
-              approach includes developing structured learning frameworks such
-              as novel action representations that facilitate efficient
-              learning, and intermediate representations of motion that bridge
-              visual representation and low-level motions.
-            </p>
-          </div>
-        </div>
+        </CardHoverEffect>
       </div>
 
       <div class="research-area">
-        <div class="research-area-content">
-          <div class="research-media">
-            <div class="media-wrapper">
-              <img
-                src="/gestures.gif"
-                alt="Human gestures and interaction modeling"
-              />
+        <CardHoverEffect>
+          <div class="research-area-content">
+            <div class="research-media">
+              <div class="media-wrapper">
+                <img
+                  src="/gestures.gif"
+                  alt="Human gestures and interaction modeling"
+                />
+              </div>
+            </div>
+            <div class="research-text">
+              <h2>Advancing Human Modeling</h2>
+              <p>
+                We draw inspiration from human interaction with the physical world
+                and other agents to design learning algorithms that improve
+                human-robot collaboration. Our efforts focus on designing
+                algorithms that mirror how humans interact with the environment,
+                and leverage multimodal human cues for human-robot interaction, in
+                both shared and full autonomy settings.
+              </p>
             </div>
           </div>
-          <div class="research-text">
-            <h2>Advancing Human Modeling</h2>
-            <p>
-              We draw inspiration from human interaction with the physical world
-              and other agents to design learning algorithms that improve
-              human-robot collaboration. Our efforts focus on designing
-              algorithms that mirror how humans interact with the environment,
-              and leverage multimodal human cues for human-robot interaction, in
-              both shared and full autonomy settings.
-            </p>
-          </div>
-        </div>
+        </CardHoverEffect>
       </div>
     </div>
   </div>
 </section>
 
 <style>
+  /* Additional variables for the 3D card effect */
+  :root {
+    --card-bg-rgb: 249, 249, 249;
+  }
+  
+  :global(.dark-mode) {
+    --card-bg-rgb: 30, 30, 30;
+  }
+  
   .content-section {
     padding: 4rem 0;
   }
@@ -235,11 +249,18 @@
     ); /* Increased distance for more pronounced effect */
   }
 
-  .research-area:hover {
-    transform: translateY(
-      -5px
-    ) !important; /* Important to override animation transform */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  /* Custom styles for the 3D hover effect */
+  :global(.research-area .card-container) {
+    height: 100%;
+    width: 100%;
+  }
+  
+  :global(.research-area .card-container:hover .research-area-content::before) {
+    opacity: 0.7;
+  }
+  
+  :global(.research-area .card-container:hover) {
+    transform: translateZ(0);
   }
 
   .research-area:nth-child(1) {
@@ -260,13 +281,38 @@
     background-color: var(--card-bg);
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
+    transition: all 0.3s ease;
+    /* UCLA-themed gradient border */
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+  
+  .research-area-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(45deg, var(--ucla-light-blue), var(--ucla-dark-blue), var(--ucla-yellow));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0.3;
+    z-index: -1;
+    transition: opacity 0.3s ease;
   }
 
   .research-text {
     flex: 1;
     padding: 1.5rem 0 0.5rem;
     width: 100%;
+    transform-style: preserve-3d;
+    transform: translateZ(10px);
   }
 
   .research-text h2 {
@@ -292,6 +338,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform-style: preserve-3d;
+    z-index: 1;
   }
 
   .media-wrapper {
@@ -303,6 +351,12 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     transition: transform 0.4s ease;
     border: 1px solid var(--border-color);
+    transform-style: preserve-3d;
+    transform: translateZ(20px);
+  }
+  
+  :global(.research-area .card-container:hover) .media-wrapper {
+    transform: translateZ(40px);
   }
 
   .media-wrapper:hover {
@@ -314,6 +368,7 @@
     height: auto;
     display: block;
     object-fit: cover;
+    transform-style: preserve-3d;
   }
 
   /* Responsive styles */
