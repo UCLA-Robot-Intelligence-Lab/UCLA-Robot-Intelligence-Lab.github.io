@@ -41,21 +41,21 @@
 
 <svelte:head>
   <!-- Primary Meta Tags -->
-  <title>{pageTitle}</title>
-  <meta name="title" content={pageTitle}>
+  <title>{siteTitle}</title>
+  <meta name="title" content={siteTitle}>
   <meta name="description" content={pageDescription}>
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content={pageUrl}>
-  <meta property="og:title" content={pageTitle}>
+  <meta property="og:title" content={siteTitle}>
   <meta property="og:description" content={pageDescription}>
   <meta property="og:image" content={pageImage}>
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content={pageUrl}>
-  <meta property="twitter:title" content={pageTitle}>
+  <meta property="twitter:title" content={siteTitle}>
   <meta property="twitter:description" content={pageDescription}>
   <meta property="twitter:image" content={pageImage}>
   
