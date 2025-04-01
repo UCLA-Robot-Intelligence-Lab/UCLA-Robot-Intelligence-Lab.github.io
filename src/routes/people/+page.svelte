@@ -131,7 +131,7 @@
         name: "Raayan Dhar",
         title: "Undergraduate Student in CS",
         image: "/about-people/raayan-dhar.jpg",
-        bio: "Raayan is a sophomore in CS. He is interested in machine learning and deep learning broadly. He is especially interested in robotics, generative models, vision, and reinforcement learning. He is currently working on improving diffusion policies.",
+        bio: "Raayan is an undergraduate studying computer science. He is especially interested in deep learning systems for the real world, in robotics or otherwise. In his free time, he enjoys hiking and running.",
         website: "https://raayandhar.github.io/",
       },
       {
