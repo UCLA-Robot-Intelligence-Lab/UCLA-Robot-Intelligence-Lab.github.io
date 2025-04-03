@@ -107,13 +107,13 @@
         <td>2</td>
         <td>4/8<br />4/10<br />4/11</td>
         <td>Kinematics & Dynamics<br />PID Control<br />CA 1 kickstart</td>
-        <td>Coding Assignment 1<br />Square Nut Assembly (PD control)</td>
+        <td>Coding Assignment 1<br />(PID control)</td>
         <td>4/18</td>
       </tr>
       <tr>
         <td>3</td>
         <td>4/15<br />4/17<br />4/18</td>
-        <td>Perception: Sensors<br />Perception: Algorithms<br />Practice Problems</td>
+        <td>Perception: part I<br />Perception: part II<br />Practice Problems</td>
         <td>Problem Set 2</td>
         <td>4/25</td>
       </tr>
@@ -134,21 +134,21 @@
       <tr>
         <td>6</td>
         <td>5/6<br />5/8<br />5/9</td>
-        <td>Motion Primitives<br />Behavior Cloning<br />CA 3 kickstart</td>
+        <td>Imitation Learning: Motion Primitives<br />Imitation Learning: Behavior Cloning<br />CA 3 kickstart</td>
         <td>Coding Assignment 3<br />Coffee Task (LfD)</td>
         <td>5/16</td>
       </tr>
       <tr>
         <td>7</td>
         <td>5/13<br />5/15<br />5/16</td>
-        <td><strong>Midterm Exam</strong><br />Human-Robot Interaction<br />Proposal Workshop</td>
+        <td>Human-Robot Interaction<br /><strong>Midterm Exam</strong><br />Project Workshop</td>
         <td>Problem Set 4<br />Final Project</td>
         <td>5/22<br />6/9</td>
       </tr>
       <tr>
         <td>8</td>
         <td>5/20<br />5/22<br />5/23</td>
-        <td>Final Project OH [Yuchen @ ICRA]<br />Foundation Models for Robotics<br />Project Workshop</td>
+        <td>Guest Lecture [Yuchen @ ICRA]<br />Foundation Models for Robotics<br />Project Workshop</td>
         <td>Problem Set 5</td>
         <td>5/30</td>
       </tr>
@@ -162,8 +162,8 @@
       <tr>
         <td>10</td>
         <td>6/3<br />6/6</td>
-        <td>Final Project Presentations</td>
-        <td>Final Project Report DUE</td>
+        <td>Guest Lecture <br />Final Project Presentation/Poster<br /></td>
+        <td>Final Project Report DUE (firm)</td>
         <td>6/9</td>
       </tr>
     </tbody>
