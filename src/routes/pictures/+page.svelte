@@ -442,6 +442,10 @@
     margin: 0 auto;
     line-height: 1.6;
   }
+  
+  :global(.dark) .gallery-subtitle {
+    color: white;
+  }
 
   /* Categories section removed */
 
