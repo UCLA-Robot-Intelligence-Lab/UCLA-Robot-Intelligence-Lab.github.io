@@ -15,13 +15,13 @@
   const labImages: GalleryImage[] = [
     {
       url: "/lab-pics/lab1.jpg",
-      caption: "Zoom meeting",
-      alt: "Zoom meeting",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
     {
       url: "/lab-pics/lab2.jpg",
-      caption: "Zoom meeting pt2",
-      alt: "Zoom meeting pt2",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
     {
       url: "/lab-pics/lab3.jpg",
@@ -40,18 +40,18 @@
     },
     {
       url: "/lab-pics/lab6.jpg",
-      caption: "Dwu28 👶",
-      alt: "Dwu28",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
     {
       url: "/lab-pics/lab7.jpg",
-      caption: "Jo looking pretty tuff",
-      alt: "Jo looking pretty tuff",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
     {
       url: "/lab-pics/lab8.jpg",
-      caption: "Jo at Target",
-      alt: "Jo at Target",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
     {
       url: "/lab-pics/lab9.jpg",
