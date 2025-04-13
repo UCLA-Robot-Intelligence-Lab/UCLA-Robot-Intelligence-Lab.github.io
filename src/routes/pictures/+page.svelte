@@ -443,7 +443,7 @@
     line-height: 1.6;
   }
   
-  :global(.dark) .gallery-subtitle {
+  :global(.dark-mode) .gallery-subtitle {
     color: white;
   }
 
@@ -470,7 +470,7 @@
     transition: width 0.3s ease;
   }
 
-  :global(.dark) .loading-progress {
+  :global(.dark-mode) .loading-progress {
     background-color: var(--ucla-yellow);
   }
 
@@ -513,7 +513,7 @@
     transform: rotate(calc(var(--random-rotate) * 1deg));
   }
 
-  :global(.dark) .image-container {
+  :global(.dark-mode) .image-container {
     background: #f0f0f0;
     border-color: #f0f0f0;
   }
@@ -545,7 +545,7 @@
     white-space: nowrap;
   }
 
-  :global(.dark) .image-container:after {
+  :global(.dark-mode) .image-container:after {
     color: #222;
   }
 
