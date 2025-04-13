@@ -36,7 +36,7 @@
   />
 </svelte:head>
 
-<div class="min-h-screen bg-white dark:bg-gray-900 relative">
+<div class="min-h-screen bg-white dark:bg-gray-900">
   <div class="container mx-auto px-4 py-8">
     <h1
       class="text-4xl md:text-5xl font-bold text-[#18315b] dark:text-[#fcd804] mb-8 text-center"

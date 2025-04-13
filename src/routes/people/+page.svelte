@@ -373,8 +373,8 @@
   }
 
   .people-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-bottom: 50px;
     width: 100%;
@@ -394,10 +394,11 @@
     cursor: pointer;
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     padding: 0;
     width: 100%;
+    height: 100%;
     border: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
   }
 
@@ -468,12 +469,12 @@
   }
 
   .person-image {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
     flex-shrink: 0;
     border-radius: 50%;
-    margin: 20px;
+    margin: 20px 20px 10px;
     border: 3px solid #fcd729; /* UCLA Yellow */
     box-shadow: 0 0 0 3px rgba(252, 215, 41, 0.2); /* UCLA Yellow glow */
     transition:
@@ -488,9 +489,10 @@
   }
 
   .person-content {
-    padding: 25px 30px;
+    padding: 0 20px 20px;
     flex-grow: 1;
-    max-width: calc(100% - 200px); /* Adjusted for new image size and margin */
+    width: 100%;
+    text-align: center;
   }
 
   .person-card h3 {
@@ -509,33 +511,40 @@
     font-weight: 500;
     position: relative;
     display: inline-block;
+    max-width: 100%;
   }
 
   /* Removed underline for person-title */
 
   .person-bio {
     margin: 0;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.5;
     color: var(--text-color);
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 992px) {
+    .people-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
   }
 
   @media (max-width: 768px) {
-    .people-grid {
-      gap: 20px;
-    }
-
     .person-image {
       width: 120px;
       height: 120px;
-      margin: 16px;
+      margin: 16px 16px 10px;
     }
 
     .person-content {
-      padding: 16px 20px;
-      max-width: calc(
-        100% - 152px
-      ); /* Adjusted for new image size and margin */
+      padding: 0 16px 16px;
     }
 
     .person-card h3 {
@@ -548,22 +557,22 @@
   }
 
   @media (max-width: 580px) {
+    .people-grid {
+      grid-template-columns: 1fr;
+    }
+
     .person-card {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
       padding-bottom: 20px;
     }
 
     .person-image {
-      width: 160px;
-      height: 160px;
-      margin: 30px 0 10px 0;
+      width: 140px;
+      height: 140px;
+      margin: 20px 0 10px 0;
     }
 
     .person-content {
-      padding: 10px 25px 25px;
-      max-width: 100%;
+      padding: 0 20px 20px;
     }
 
     .person-title::after {
