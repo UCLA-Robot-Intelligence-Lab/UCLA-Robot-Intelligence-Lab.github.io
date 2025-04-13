@@ -521,12 +521,7 @@
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--text-color);
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* Removed truncation properties to show full bio text */
   }
 
   @media (max-width: 992px) {
