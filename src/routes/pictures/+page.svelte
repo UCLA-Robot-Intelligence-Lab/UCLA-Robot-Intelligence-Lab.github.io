@@ -55,23 +55,23 @@
     },
     {
       url: "/lab-pics/lab9.jpg",
-      caption: "Delorean pretty tuff yo",
-      alt: "Delorean",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
     {
       url: "/lab-pics/lab10.jpg",
-      caption: "Delorean Roller",
-      alt: "Delorean Roller",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
     {
       url: "/lab-pics/lab11.jpg",
-      caption: "More Delorean",
-      alt: "More Delorean",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
     {
       url: "/lab-pics/lab12.jpg",
-      caption: "Jo with his delorean",
-      alt: "Jo with his delorean",
+      caption: "Lab dinner",
+      alt: "Lab dinner",
     },
   ];
 
@@ -442,7 +442,7 @@
     margin: 0 auto;
     line-height: 1.6;
   }
-  
+
   :global(.dark-mode) .gallery-subtitle {
     color: white;
   }
