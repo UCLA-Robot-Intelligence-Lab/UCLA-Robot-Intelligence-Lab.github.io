@@ -99,57 +99,57 @@
       <tr>
         <td>1</td>
         <td>4/1<br />4/3<br />4/4</td>
-        <td>Introduction & Logistics<br />Configuration Space, Rigid Bodies<br />Robosuite Tutorial</td>
+        <td>Introduction &amp; Logistics<br />Configuration Space, Motors, Sensors<br />Robosuite Tutorial</td>
         <td>Problem Set 1</td>
         <td>4/11</td>
       </tr>
       <tr>
         <td>2</td>
         <td>4/8<br />4/10<br />4/11</td>
-        <td>Kinematics & Dynamics<br />PID Control<br />CA 1 kickstart</td>
-        <td>Coding Assignment 1<br />(PID control)</td>
-        <td>4/18</td>
+        <td>Rigid Body Motions &amp; Kinematics<br />Dynamics &amp; PID Control<br />CA 1 kickstart</td>
+        <td>Coding Assignment 1:<br />(PID control)</td>
+        <td>4/20</td>
       </tr>
       <tr>
         <td>3</td>
         <td>4/15<br />4/17<br />4/18</td>
-        <td>Perception: part I<br />Perception: part II<br />Practice Problems</td>
+        <td>Perception: Cameras &amp; Calibrations<br />Perception: Computer Vision<br />Worksheet 1</td>
         <td>Problem Set 2</td>
         <td>4/25</td>
       </tr>
       <tr>
         <td>4</td>
         <td>4/22<br />4/24<br />4/25</td>
-        <td>State Estimation: Particle Filter<br />State Estimation: SLAM<br />CA 2 kickstart</td>
-        <td>Coding Assignment 2<br />Camera Calibration</td>
+        <td>State Estimation: Filters<br />Guest speaker: Yuhao Chen<br />State Estimation: SLAM<br />CA 2 kickstart</td>
+        <td>Coding Assignment 2:<br />Camera Calibration</td>
         <td>5/2</td>
       </tr>
       <tr>
         <td>5</td>
         <td>4/29<br />5/1<br />5/2</td>
-        <td>Locomotion<br />Task and Motion Planning<br />Practice Problems</td>
+        <td>Motion Planning<br />Markov Decision Processes<br />Worksheet 2</td>
         <td>Problem Set 3</td>
         <td>5/9</td>
       </tr>
       <tr>
         <td>6</td>
         <td>5/6<br />5/8<br />5/9</td>
-        <td>Imitation Learning: Motion Primitives<br />Imitation Learning: Behavior Cloning<br />CA 3 kickstart</td>
-        <td>Coding Assignment 3<br />Coffee Task (LfD)</td>
-        <td>5/16</td>
+        <td>Motion Primitives<br />Behavior Cloning<br />Practice Midterm</td>
+        <td>Coding Assignment 3:<br />Dynamic Movement Primitives</td>
+        <td>5/23</td>
       </tr>
       <tr>
         <td>7</td>
         <td>5/13<br />5/15<br />5/16</td>
-        <td>Human-Robot Interaction<br /><strong>Midterm Exam</strong><br />Project Workshop</td>
-        <td>Problem Set 4<br />Final Project</td>
-        <td>5/22<br />6/9</td>
+        <td>Human–Robot Interaction<br /><strong>Midterm Exam</strong><br />CA 3 kickstart</td>
+        <td>Final Project <br />Project Proposal (Open Project)</td>
+        <td>6/9<br />5/23</td>
       </tr>
       <tr>
         <td>8</td>
         <td>5/20<br />5/22<br />5/23</td>
-        <td>Guest Lecture [Yuchen @ ICRA]<br />Foundation Models for Robotics<br />Project Workshop</td>
-        <td>Problem Set 5</td>
+        <td>Guest Lecture – Dong Lao<br />Foundation Models for Robotics<br />Project Workshop</td>
+        <td>Problem Set 4</td>
         <td>5/30</td>
       </tr>
       <tr>
@@ -161,9 +161,9 @@
       </tr>
       <tr>
         <td>10</td>
-        <td>6/3<br />6/6</td>
-        <td>Guest Lecture <br />Final Project Presentation/Poster<br /></td>
-        <td>Final Project Report DUE (firm)</td>
+        <td>6/3<br />6/6<br />6/9</td>
+        <td>Guest Talk<br />Bonus Topic<br />Office Hours</td>
+        <td>Final Project Report<br />Report DUE (firm)</td>
         <td>6/9</td>
       </tr>
     </tbody>
