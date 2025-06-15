@@ -15,13 +15,13 @@
   const labImages: GalleryImage[] = [
     {
       url: "/lab-pics/lab1.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
+      caption: "CORL Submission Celebration",
+      alt: "CORL Submission Celebration",
     },
     {
       url: "/lab-pics/lab2.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
+      caption: "Lab Meeting Social",
+      alt: "Lab MeetingSocial",
     },
     {
       url: "/lab-pics/lab3.jpg",
@@ -40,38 +40,23 @@
     },
     {
       url: "/lab-pics/lab6.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
+      caption: "Lab Kayaking Trip",
+      alt: "Lab Kayaking Trip",
     },
     {
       url: "/lab-pics/lab7.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
+      caption: "Lab Picnic Social",
+      alt: "Lab Picnic Social",
     },
     {
       url: "/lab-pics/lab8.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
+      caption: "Lab birthday celebration",
+      alt: "Lab birthday celebration",
     },
     {
       url: "/lab-pics/lab9.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
-    },
-    {
-      url: "/lab-pics/lab10.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
-    },
-    {
-      url: "/lab-pics/lab11.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
-    },
-    {
-      url: "/lab-pics/lab12.jpg",
-      caption: "Lab dinner",
-      alt: "Lab dinner",
+      caption: "Hard at Work",
+      alt: "Hard at Work",
     },
   ];
 
