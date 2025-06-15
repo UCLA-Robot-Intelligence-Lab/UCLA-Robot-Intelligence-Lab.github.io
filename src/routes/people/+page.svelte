@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
 
   // Add JS class to html element for animation support
   onMount(() => {
@@ -254,7 +255,17 @@
 
 <section class="content-section">
   <div class="container people-container">
-    <h1 class="people-main-title">People</h1>
+    <div class="title-container">
+    <div class="title-wrapper">
+      <h1 class="people-main-title">People</h1>
+      <a href="/pictures" class="camera-icon-link" aria-label="View lab photo gallery">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="camera-icon">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+          <circle cx="12" cy="13" r="4" />
+        </svg>
+      </a>
+    </div>
+  </div>
 
     <h2 class="section-heading">Faculty</h2>
     <div class="people-grid">
@@ -352,14 +363,44 @@
 
 <style>
   /* People section */
-  .people-main-title {
+  .title-container {
     text-align: center;
     margin-bottom: -0.5rem;
+  }
+  
+  .title-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .people-main-title {
+    margin-bottom: 0;
     margin-top: 0;
     font-size: 3rem;
     color: var(--heading-color);
     font-weight: 700;
     letter-spacing: -0.03em;
+  }
+
+  .camera-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    opacity: 0.2;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .title-wrapper:hover .camera-icon-link {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .camera-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--heading-color);
   }
 
   .content-section {
