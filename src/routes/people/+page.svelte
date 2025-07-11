@@ -12,16 +12,17 @@
     name: string;
     title: string;
     image: string;
-    bio: string;
+    bio?: string;
     website?: string;
   }
 
   // Define people data structure
   interface PeopleData {
     faculty: Person[];
-    collaborators: Person[];
+    collaborators?: Person[];
     grad_students: Person[];
     undergrad_students: Person[];
+    alumni: Person[];
   }
 
   // Animation with Intersection Observer
@@ -86,6 +87,7 @@
         name: "Yuchen Cui",
         title: "Lab Director, Assistant Professor",
         image: "/about-people/yuchen-cui.jpg",
+        //bio: "Yuchen is an Assistant Professor in the Computer Science Department. Yuchen's research lies at the intersection of machine learning, robotics, and human-robot interaction. Her work focuses on developing algorithms, frameworks, and systems that facilitate efficient robot learning from human interactions.",
         website: "https://yuchencui.cc/",
       },
     ],
@@ -94,12 +96,14 @@
         name: "Xu Kristen Yan",
         title: "PhD student in ECE",
         image: "/about-people/xu.jpg",
+        //bio: "Xu is a PhD student in Electrical and Computer Engineering department. Her current research interests lie in leveraging physiological signals for seamless human-robot interactions. Outside of academics, she likes tennis, skating, and cooking.",
         website: "https://www.linkedin.com/in/xukristenyan",
       },
       {
         name: "Metin Alp Dogan",
         title: "Master’s student in ECE",
         image: "/about-people/alp.jpg",
+        //bio: "Alp is a Master’s student in ECE, specializing in artificial intelligence, particularly inverse reinforcement learning techniques. He has research experience in control systems, optimization, and intelligent systems, with a focus on surgical robotics, and is a recipient of the Fulbright Scholarship. Alp enjoys snowboarding, hiking, and working out.",
         website: "https://www.linkedin.com/in/metinalpdogan/",
       },
       
@@ -107,6 +111,7 @@
         name: "Yuanhong Zeng",
         title: "Master’s student in ECE",
         image: "/about-people/yuanhong.jpeg",
+        //bio: "Yuanhong a first-year master’s student in the ECE department with a passion for optimization, computer vision, and robot learning. His current research involves developing an embodiment-agnostic manipulation policy using 3D flow generation. Outside of my academic pursuits, he is also a professionally trained chef and he enjoys exploring new food.",
         website: "https://www.linkedin.com/in/yuanhong-zeng/",
       },
     ],
@@ -116,42 +121,49 @@
         name: "Raayan Dhar",
         title: "Undergraduate Student in CS",
         image: "/about-people/raayan-dhar.jpg",
+        //bio: "Raayan is an undergraduate studying computer science. He is especially interested in deep learning systems for the real world, in robotics or otherwise. In his free time, he enjoys hiking and running.",
         website: "https://raayandhar.github.io/",
       },
       {
         name: "Edward Sun",
         title: "Undergraduate Student in CS",
         image: "/about-people/Edward Sun.jpg",
+        //bio: "Edward is interested in generative models for robotics. Specifically, he is interested in developing robotic agents that can interact with humans better using natural language. In his free time, he likes to do pencil sketches, listen to music, and snowboard",
         website: "https://edwardosunny.github.io/",
       },
       {
         name: "William Jiang",
         title: "Undergraduate Student in CSE",
         image: "/about-people/william-jiang.jpg",
+        //bio: "William is an undergraduate student pursuing a degree in Computer Science and Engineering at UCLA. His work centers on robot policy learning using gaze data from Meta's Aria glasses and innovative applications in computer vision. In addition to his academic pursuits, William designed and developed this website. He is also a member of UCLA's Division II hockey team.",
         website: "https://willjianger9.github.io/",
       },
       {
         name: "Jonathan Ouyang",
         title: "Undergraduate Student in CS",
         image: "/about-people/Jonathan.jpg",
+        //bio: "Jonathan is an undergraduate student researching Computer Vision and its applications in Robot Policy Learning and Athletic Training. He previously worked with SJSU's AI/Deep Learning lab to utilize computer vision for swimmers in collaboration with the SJSU D1 swim team. He also won a $200k car from Google. In his free time, Jonathan likes to watch anime with Daniel and annoy William",
         website: "https://www.linkedin.com/in/jon-ouyang/",
       },
       {
         name: "Daniel Wu",
         title: "Undergraduate Student in CSE",
         image: "/about-people/daniel-wu.jpg",
+        //bio: "Daniel is an undergraduate studying CSE at UCLA and researching robot policy learning using computer vision. He is also on the UCLA Badminton Team. In his free time, he enjoys singing karaoke and watching anime with Jonathan and William.",
         website: "https://www.linkedin.com/in/danielwu06/",
       },
       {
         name: "Aadit Gupta",
         title: "Undergraduate Student in CE",
         image: "/about-people/aadit.jpg",
+        //bio: "Aadit is an undergraduate studying Computer Engineering and is interested in robotics, the applications of natural language processing and computer vision. Aside from academics, he enjoys playing basketball, pickleball, and surfing.",
         website: "https://www.linkedin.com/in/aadit-gupta/",
       },
       {
         name: "Yike Shi",
         title: "Undergraduate Student in CE",
         image: "/about-people/yike.jpg",
+        //bio: "Yike is a sophomore at UCLA majoring in Computer Engineering. He is deeply fascinated by both classical control and AI in robotics, with a focus on robotics learning, algorithms, and vision. His research interests also include exploring privacy and security challenges in AI models. Coming from Nanjing, China, Yike is skilled at cooking authentic Chinese cuisine and enjoys playing soccer and badminton.",
         website: "https://www.linkedin.com/in/yike-shi-996304264/",
       },
     ],
@@ -160,12 +172,14 @@
         name: "Soham Kulkarni",
         title: "Master’s student in CS",
         image: "/about-people/soham.jpg",
+        //bio: "Soham is a second-year Master's student in Computer Science with a background and broad interests in robot learning and perception. His current research focuses on developing efficient data quality metrics for imitation learning. Beyond research, he enjoys wildlife photography, swimming, martial arts, and hiking to recharge.",
         website: "https://stochasticritic.github.io/",
       },
        {
         name: "Tracey Tay",
         title: "Undergraduate Student in EE",
         image: "/about-people/tracey-tay.jpg",
+        //bio: "Tracey is an exchange student from Imperial College London. She is passionate about the intersection of AI and robotics, with a particular focus on advancing intelligent systems. Her experience includes exploring innovative applications of natural language processing (NLP) and retrieval-augmented generation (RAG). Aside from academics, she enjoys being outdoors, doing a mixture of sports, music, cooking and getting to know people :)",
         website: "http://www.linkedin.com/in/traceytayyeehsin",
       },
     ]
@@ -213,7 +227,14 @@
         image: `https://robot.cs.ucla.edu${person.image}`,
         url: person.website,
       })),
-      ...people.collaborators.map((person) => ({
+      ...(people.collaborators ? people.collaborators.map((person) => ({
+        "@type": "Person",
+        name: person.name,
+        jobTitle: person.title,
+        image: `https://robot.cs.ucla.edu${person.image}`,
+        url: person.website,
+      })) : []),
+      ...people.alumni.map((person) => ({
         "@type": "Person",
         name: person.name,
         jobTitle: person.title,
@@ -261,7 +282,9 @@
           <div class="person-content">
             <h3>{person.name}</h3>
             <p class="person-title">{person.title}</p>
-            <p class="person-bio">{person.bio}</p>
+            {#if person.bio}
+              <p class="person-bio">{person.bio}</p>
+            {/if}
           </div>
         </a>
       {/each}
@@ -284,7 +307,9 @@
           <div class="person-content">
             <h3>{person.name}</h3>
             <p class="person-title">{person.title}</p>
-            <p class="person-bio">{person.bio}</p>
+            {#if person.bio}
+              <p class="person-bio">{person.bio}</p>
+            {/if}
           </div>
         </a>
       {/each}
@@ -307,15 +332,44 @@
           <div class="person-content">
             <h3>{person.name}</h3>
             <p class="person-title">{person.title}</p>
-            <p class="person-bio">{person.bio}</p>
+            {#if person.bio}
+              <p class="person-bio">{person.bio}</p>
+            {/if}
           </div>
         </a>
       {/each}
     </div>
 
-    <h2 class="section-heading">Collaborators</h2>
+    {#if people.collaborators && people.collaborators.length > 0}
+      <h2 class="section-heading">Collaborators</h2>
+      <div class="people-grid">
+        {#each people.collaborators as person}
+          <a
+            href={person.website || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="person-card {person.website ? 'has-link' : ''}"
+          >
+            <img
+              src={person.image || "/placeholder.svg"}
+              alt={person.name}
+              class="person-image"
+            />
+            <div class="person-content">
+              <h3>{person.name}</h3>
+              <p class="person-title">{person.title}</p>
+              {#if person.bio}
+                <p class="person-bio">{person.bio}</p>
+              {/if}
+            </div>
+          </a>
+        {/each}
+      </div>
+    {/if}
+    
+    <h2 class="section-heading">Alumni</h2>
     <div class="people-grid">
-      {#each people.collaborators as person}
+      {#each people.alumni as person}
         <a
           href={person.website || "#"}
           target="_blank"
@@ -330,7 +384,9 @@
           <div class="person-content">
             <h3>{person.name}</h3>
             <p class="person-title">{person.title}</p>
-            <p class="person-bio">{person.bio}</p>
+            {#if person.bio}
+              <p class="person-bio">{person.bio}</p>
+            {/if}
           </div>
         </a>
       {/each}
