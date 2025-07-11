@@ -76,9 +76,8 @@
       ],
     },
     {
-      title:
-        "How to Train Your Robots?
-The Impact of Demonstration Modality on Imitation Learning",
+      title: 
+        "How to Train Your Robots? The Impact of Demonstration Modality on Imitation Learning",
       authors: "Haozhuo Li, Yuchen Cui, Dorsa Sadigh",
       venue:
         "Proceedings of the International Conference on Robotics and Automation (ICRA), May 2025",
