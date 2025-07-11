@@ -63,10 +63,39 @@
   const publications = [
     {
       title:
+        "Shared Autonomy for Proximal Teaching",
+      authors: "Megha Srivastava, Reihaneh Iranmanesh, Yuchen Cui, Deepak Gopinath, Emily Sarah Sumner, Andrew Silva, Laporsha Dees, Guy Rosman, Dorsa Sadigh",
+      venue:
+        "ACM/IEEE International Conference on Human-Robot Interaction (HRI), Mar 2025",
+      links: [
+        {
+          text: "paper",
+          url: "https://arxiv.org/abs/2502.19899",
+          icon: "fa-file",
+        },
+      ],
+    },
+    {
+      title:
+        "How to Train Your Robots?
+The Impact of Demonstration Modality on Imitation Learning",
+      authors: "Haozhuo Li, Yuchen Cui, Dorsa Sadigh",
+      venue:
+        "Proceedings of the International Conference on Robotics and Automation (ICRA), May 2025",
+      links: [
+        {
+          text: "paper",
+          url: "https://arxiv.org/abs/2503.07017",
+          icon: "fa-file",
+        },
+      ],
+    },
+    {
+      title:
         "FlowRetrieval: Flow-Guided Data Retrieval for Few-Shot Imitation Learning",
       authors: "Li-Heng Lin, Yuchen Cui, Amber Xie, Tianyu Hua, Dorsa Sadigh",
       venue:
-        "Proceedings of the 8th Conference on Robot Learning (CoRL), November 2024",
+        "Conference on Robot Learning (CoRL), November 2024",
       links: [
         {
           text: "paper",
@@ -135,7 +164,7 @@
       title: "HYDRA: Hybrid Robot Actions for Imitation Learning",
       authors: "Suneel Belkhale, Yuchen Cui, Dorsa Sadigh",
       venue:
-        "Proceedings of the 7th Conference on Robot Learning (CoRL), November 2023",
+        "Conference on Robot Learning (CoRL), November 2023",
       links: [
         {
           text: "paper",
@@ -153,7 +182,7 @@
       title: "Gesture-Informed Robot Assistance via Foundation Model",
       authors: "Li-Heng Lin, Yuchen Cui, Yilun Hao, Fei Xia, Dorsa Sadigh",
       venue:
-        "Proceedings of the 7th Conference on Robot Learning (CoRL), November 2023",
+        "Conference on Robot Learning (CoRL), November 2023",
       links: [
         {
           text: "paper",
@@ -173,7 +202,7 @@
       authors:
         "Yilun Hao*, Ruinan Wang*, Zhangjie Cao, Zihan Wang, Yuchen Cui, Dorsa Sadigh",
       venue:
-        "Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), October 2023",
+        "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), October 2023",
       links: [
         {
           text: "paper",
@@ -247,7 +276,7 @@
       authors:
         "Yuchen Cui, Qiping Zhang, Alessandro Allievi, Peter Stone, Scott Niekum, and W. Bradley Knox",
       venue:
-        "Proceedings of the 4th Conference on Robot Learning (CoRL), November 2020",
+        "Conference on Robot Learning (CoRL), November 2020",
       links: [
         {
           text: "paper",
@@ -278,7 +307,7 @@
       title: "Risk-Aware Active Inverse Reinforcement Learning",
       authors: "Daniel S. Brown*, Yuchen Cui*, Scott Niekum",
       venue:
-        "Proceedings of the 4th Conference on Robot Learning (CoRL), November 2020",
+        "Conference on Robot Learning (CoRL), November 2020",
       links: [
         {
           text: "paper",
