@@ -58,6 +58,11 @@
       caption: "Hard at Work",
       alt: "Hard at Work",
     },
+    {
+      url: "/lab-pics/lab10.jpg",
+      caption: "Lab BBQ Social",
+      alt: "Lab BBQ Social",
+    },
   ];
 
   // Lightbox state
