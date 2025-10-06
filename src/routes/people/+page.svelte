@@ -23,6 +23,14 @@ const people: PeopleData = {
         bio: "Xu is a PhD student in Electrical and Computer Engineering department. Her current research interests lie in leveraging physiological signals for seamless human-robot interactions. Outside of academics, she likes tennis, skating, and cooking.",
         linkedin: "https://www.linkedin.com/in/xukristenyan",
       },
+      // {
+      //   name: "Omar Rayyan",
+      //   title: "PhD student in CS",
+      //   image: "/about-people/omar.jpg",
+      //   bio: "Omar is a PhD student in the Computer Science department.",
+      //   website: "https://orayyan.com/",
+      //   linkedin: "https://www.linkedin.com/in/omar-rayyan/",
+      // },
       {
         name: "Metin Alp Dogan",
         title: "Master’s student in ECE",
@@ -94,6 +102,14 @@ const people: PeopleData = {
         bio: "Yike is a sophomore at UCLA majoring in Computer Engineering. He is deeply fascinated by both classical control and AI in robotics, with a focus on robotics learning, algorithms, and vision. His research interests also include exploring privacy and security challenges in AI models. Coming from Nanjing, China, Yike is skilled at cooking authentic Chinese cuisine and enjoys playing soccer and badminton.",
         linkedin: "https://www.linkedin.com/in/yike-shi-996304264/",
       },
+      {
+        name: "Amit Rand",
+        title: "Undergraduate Student in Math & CS",
+        image: "/about-people/amit.jpg",
+        bio: "Amit is a senior at UCLA majoring in Mathematics and Computer Science. His work focuses on imitation and reinforcement learning, with an emphasis on policy optimization for data-efficient robotic learning and zero-shot generalization. Outside of research, he enjoys cooking, reading, and climbing.",
+        website: "https://amitsite.vercel.app/",
+        linkedin: "https://www.linkedin.com/in/amit-rand-361b30218/",
+     },
     ],
     alumni: [
       {
