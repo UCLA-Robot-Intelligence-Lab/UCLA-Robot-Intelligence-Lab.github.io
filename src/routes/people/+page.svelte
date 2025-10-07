@@ -23,14 +23,14 @@ const people: PeopleData = {
         bio: "Xu is a PhD student in Electrical and Computer Engineering department. Her current research interests lie in leveraging physiological signals for seamless human-robot interactions. Outside of academics, she likes tennis, skating, and cooking.",
         linkedin: "https://www.linkedin.com/in/xukristenyan",
       },
-      // {
-      //   name: "Omar Rayyan",
-      //   title: "PhD student in CS",
-      //   image: "/about-people/omar.jpg",
-      //   bio: "Omar is a PhD student in the Computer Science department.",
-      //   website: "https://orayyan.com/",
-      //   linkedin: "https://www.linkedin.com/in/omar-rayyan/",
-      // },
+      {
+        name: "Omar Rayyan",
+        title: "PhD student in CS",
+        image: "/about-people/omar.jpg",
+        bio: "Omar Rayyan is a first-year CS PhD student doing research at the intersection of machine learning and robotics. His work currently focuses on imitation learning and sim2real manipulation. Before joining the lab, Omar was an undergrad at NYU advised by Lerrel Pinto. Outside of research, he enjoys discovering new music and playing squash.",
+        website: "https://orayyan.com/",
+        linkedin: "https://www.linkedin.com/in/omar-rayyan/",
+      },
       {
         name: "Metin Alp Dogan",
         title: "Master’s student in ECE",
