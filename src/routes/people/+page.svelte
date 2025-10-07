@@ -24,6 +24,14 @@ const people: PeopleData = {
         linkedin: "https://www.linkedin.com/in/xukristenyan",
       },
       {
+        name: "Omar Rayyan",
+        title: "PhD student in CS",
+        image: "/about-people/omar.jpg",
+        bio: "Omar Rayyan is a first-year CS PhD student doing research at the intersection of machine learning and robotics. His work currently focuses on imitation learning and sim2real manipulation. Before joining the lab, Omar was an undergrad at NYU advised by Lerrel Pinto. Outside of research, he enjoys discovering new music and playing squash.",
+        website: "https://orayyan.com/",
+        linkedin: "https://www.linkedin.com/in/omar-rayyan/",
+      },
+      {
         name: "Metin Alp Dogan",
         title: "Master’s student in ECE",
         image: "/about-people/alp.jpg",
@@ -94,6 +102,14 @@ const people: PeopleData = {
         bio: "Yike is a sophomore at UCLA majoring in Computer Engineering. He is deeply fascinated by both classical control and AI in robotics, with a focus on robotics learning, algorithms, and vision. His research interests also include exploring privacy and security challenges in AI models. Coming from Nanjing, China, Yike is skilled at cooking authentic Chinese cuisine and enjoys playing soccer and badminton.",
         linkedin: "https://www.linkedin.com/in/yike-shi-996304264/",
       },
+      {
+        name: "Amit Rand",
+        title: "Undergraduate Student in Math & CS",
+        image: "/about-people/amit.jpg",
+        bio: "Amit is a senior at UCLA majoring in Mathematics and Computer Science. His work focuses on imitation and reinforcement learning, with an emphasis on policy optimization for data-efficient robotic learning and zero-shot generalization. Outside of research, he enjoys cooking, reading, and climbing.",
+        website: "https://amitsite.vercel.app/",
+        linkedin: "https://www.linkedin.com/in/amit-rand-361b30218/",
+     },
     ],
     alumni: [
       {
