@@ -6,20 +6,24 @@
   <h1>COM SCI 188: Introduction to Robotics</h1>
   <p><strong>Units:</strong> 4</p>
   <p><strong>Level:</strong> Upper Undergraduate</p>
-  <p><strong>Quarter:</strong> Spring 2025</p>
+  <p><strong>Quarter:</strong> Winter 2026</p>
 
   <h2>Schedule</h2>
   <ul>
-    <li><strong>Class:</strong> TR 10-11:50am @ Boelter 5249</li>
-    <li><strong>Discussion:</strong> F 2-3:50pm @ Public Affairs Building 1246 (Required)</li>
-    <li><strong>Piazza:</strong> <a href="https://piazza.com/ucla/spring2025/cs188" target="_blank">Course Piazza</a></li>
+    <li><strong>Class:</strong> TR 10-11:50am @ Boelter 2760</li>
+    <li><strong>Discussion Sections (Required):</strong></li>
+    <ul>
+      <li>1A: F 2-3:50pm @ Haines Hall A2</li>
+      <li>1B: F 12-1:50pm @ Haines Hall 118</li>
+    </ul>
+    <li><strong>Piazza:</strong> <a href="https://piazza.com/ucla/winter2026/cs188" target="_blank">Course Piazza</a></li>
   </ul>
 
   <h2>Recommended Background</h2>
   <ul>
-    <li><strong>Math:</strong> Calculus, Linear Algebra, Probability</li>
-    <li><strong>Physics:</strong> Mechanics, basic Dynamics</li>
-    <li><strong>Coding:</strong> Proficiency in Python</li>
+    <li><strong>Math:</strong> Calculus (MATH 32A), Linear Algebra (MATH 33A), Probability (MATH 70, MATH 170x)</li>
+    <li><strong>Physics:</strong> Mechanics (Physics 1A)</li>
+    <li><strong>Coding:</strong> CS 35L & Proficiency in Python</li>
   </ul>
 
   <h2>Course Description</h2>
@@ -33,7 +37,7 @@
     <li><strong>Name:</strong> Yuchen Cui</li>
     <li><strong>Office:</strong> EVI 396B</li>
     <li><strong>Contact:</strong> <a href="mailto:yuchencui@cs.ucla.edu">yuchencui@cs.ucla.edu</a></li>
-    <li><strong>Office Hours:</strong> Wed 3–4pm or by appointment</li>
+    <li><strong>Office Hours:</strong> Wed 3-4pm</li>
   </ul>
 
   <h2>Course Objectives</h2>
@@ -60,28 +64,39 @@
 
   <h2>Grading Breakdown</h2>
   <ul>
-    <li>Problem Sets: 30% (5 × 6%)</li>
-    <li>Programming Assignments: 18% (3 × 6%)</li>
-    <li>Midterm Exam: 30%</li>
-    <li>Final Project: 12%</li>
-    <li>Participation & In-Class Quizzes: 10%</li>
+    <li>Problem Sets: 24% (4 × 6%)</li>
+    <li>Programming Assignments: 24% (3 × 8%)</li>
+    <li>Midterm Exam: 29%</li>
+    <li>Final Project: 15% (demo 5% + report 10%)</li>
+    <li>Participation & In-Class Quizzes: 8%</li>
     <li><strong>Late Policy:</strong> -10% × Max Score × Days Late</li>
   </ul>
 
   <h2>Course Staff</h2>
+  <h3>Teaching Assistants</h3>
   <ul>
-    <li><strong>TA: Zhihao (Seth) Zhao</strong></li>
+    <li><strong>Holden Grissett</strong></li>
     <ul>
-      <li>Email: <a href="mailto:sethzhao506@g.ucla.edu">sethzhao506@g.ucla.edu</a></li>
-      <li>Office Hour: 3-3:50 PM</li>
-      <li>Location: Public Affairs Building 1246</li>
+      <li>Email: <a href="mailto:holdengs@g.ucla.edu">holdengs@g.ucla.edu</a></li>
+      <li>Discussion 1A: F 2-3:50pm @ Haines Hall A2</li>
+      <li>Office Hour: 2nd half of discussion section</li>
     </ul>
-    <li><strong>LA: Raayan Dhar</strong></li>
+    <li><strong>Ashima Suvarna</strong></li>
     <ul>
-      <li>Email: <a href="mailto:raayandhar@g.ucla.edu">raayandhar@g.ucla.edu</a></li>
+      <li>Email: <a href="mailto:asuvarna31@ucla.edu">asuvarna31@ucla.edu</a></li>
+      <li>Discussion 1B: F 12-1:50pm @ Haines Hall 118</li>
+      <li>Office Hour: 2nd half of discussion section</li>
     </ul>
-    <li>Best to ask questions on Piazza!</li>
   </ul>
+
+  <h3>Learning Assistants</h3>
+  <ul>
+    <li><strong>Raayan Dhar</strong> — <a href="mailto:raayandhar@ucla.edu">raayandhar@ucla.edu</a></li>
+    <li><strong>Yike Shi</strong> — <a href="mailto:yikeshi9248@g.ucla.edu">yikeshi9248@g.ucla.edu</a></li>
+    <li><strong>Alexis Lee</strong> — <a href="mailto:nocturne20@ucla.edu">nocturne20@ucla.edu</a></li>
+  </ul>
+
+  <p><em>Best to ask questions on Piazza!</em></p>
 
   <h2>Course Schedule (subject to change)</h2>
 
@@ -98,73 +113,73 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td>4/1<br />4/3<br />4/4</td>
-        <td>Introduction &amp; Logistics<br />Configuration Space, Motors, Sensors<br />Robosuite Tutorial</td>
+        <td>1/6<br />1/8<br />1/9</td>
+        <td>Introduction, Logistics, and Overview<br />Configuration Space, Actuators, and Sensors<br />Robosuite Tutorial</td>
         <td>Problem Set 1</td>
-        <td>4/11</td>
+        <td>1/16</td>
       </tr>
       <tr>
         <td>2</td>
-        <td>4/8<br />4/10<br />4/11</td>
-        <td>Rigid Body Motions &amp; Kinematics<br />Dynamics &amp; PID Control<br />CA 1 kickstart</td>
-        <td>Coding Assignment 1:<br />(PID control)</td>
-        <td>4/20</td>
+        <td>1/13<br />1/15<br />1/16</td>
+        <td>Rigid Body Motions &amp; Kinematics<br />Robot Dynamics and PID Control<br />CA 1 kickstart</td>
+        <td>Coding Assignment 1</td>
+        <td>1/23</td>
       </tr>
       <tr>
         <td>3</td>
-        <td>4/15<br />4/17<br />4/18</td>
-        <td>Perception: Cameras &amp; Calibrations<br />Perception: Computer Vision<br />Worksheet 1</td>
+        <td>1/20<br />1/22<br />1/23</td>
+        <td>Cameras, Imaging Models, and Calibration<br />Computer Vision for Robotics<br />Practice Problems</td>
         <td>Problem Set 2</td>
-        <td>4/25</td>
+        <td>1/30</td>
       </tr>
       <tr>
         <td>4</td>
-        <td>4/22<br />4/24<br />4/25</td>
-        <td>State Estimation: Filters<br />Guest speaker: Yuhao Chen<br />State Estimation: SLAM<br />CA 2 kickstart</td>
-        <td>Coding Assignment 2:<br />Camera Calibration</td>
-        <td>5/2</td>
+        <td>1/27<br />1/29<br />1/30</td>
+        <td>Probabilistic State Estimation<br />Simultaneous Localization and Mapping<br />CA 2 kickstart</td>
+        <td>Coding Assignment 2</td>
+        <td>2/6</td>
       </tr>
       <tr>
         <td>5</td>
-        <td>4/29<br />5/1<br />5/2</td>
-        <td>Motion Planning<br />Markov Decision Processes<br />Worksheet 2</td>
+        <td>2/3<br />2/5<br />2/6</td>
+        <td>Configuration-Space Planning &amp; Sampling-Based Planning (PRM, RRT)<br />Trajectory Generation Basics<br />Practice Problems</td>
         <td>Problem Set 3</td>
-        <td>5/9</td>
+        <td>2/13</td>
       </tr>
       <tr>
         <td>6</td>
-        <td>5/6<br />5/8<br />5/9</td>
-        <td>Motion Primitives<br />Behavior Cloning<br />Practice Midterm</td>
-        <td>Coding Assignment 3:<br />Dynamic Movement Primitives</td>
-        <td>5/23</td>
+        <td>2/10<br />2/12<br />2/13</td>
+        <td>Markov Decision Processes (MDPs) &amp; Reinforcement Learning<br />Imitation Learning<br />CA 3 kickstart</td>
+        <td>Coding Assignment 3</td>
+        <td>2/20</td>
       </tr>
       <tr>
         <td>7</td>
-        <td>5/13<br />5/15<br />5/16</td>
-        <td>Human–Robot Interaction<br /><strong>Midterm Exam</strong><br />CA 3 kickstart</td>
-        <td>Final Project <br />Project Proposal (Open Project)</td>
-        <td>6/9<br />5/23</td>
+        <td>2/17<br />2/19<br />2/20</td>
+        <td>Midterm Review<br /><strong>Midterm Exam</strong><br />Office Hours</td>
+        <td>Final Project Proposal</td>
+        <td>2/27</td>
       </tr>
       <tr>
         <td>8</td>
-        <td>5/20<br />5/22<br />5/23</td>
-        <td>Guest Lecture – Dong Lao<br />Foundation Models for Robotics<br />Project Workshop</td>
+        <td>2/24<br />2/26<br />2/27</td>
+        <td>Human-Robot Interaction I<br />Human-Robot Interaction II<br />Final Project Kickoff &amp; Proposal Workshop</td>
         <td>Problem Set 4</td>
-        <td>5/30</td>
+        <td>3/6</td>
       </tr>
       <tr>
         <td>9</td>
-        <td>5/27<br />5/29<br />5/30</td>
-        <td>Robotics + X<br />Ethical Considerations<br />Project Workshop</td>
+        <td>3/3<br />3/5<br />3/6</td>
+        <td>Foundation Models for Robotics<br />Ethical Considerations<br />Project Workshop</td>
         <td>—</td>
         <td>—</td>
       </tr>
       <tr>
         <td>10</td>
-        <td>6/3<br />6/6<br />6/9</td>
-        <td>Guest Talk<br />Bonus Topic<br />Office Hours</td>
+        <td>3/10<br />3/12<br />3/13</td>
+        <td>Frontier Research Topics<br />Final Project Brief<br />Office Hours</td>
         <td>Final Project Report<br />Report DUE (firm)</td>
-        <td>6/9</td>
+        <td>3/13</td>
       </tr>
     </tbody>
   </table>
