@@ -32,13 +32,19 @@ const people: PeopleData = {
         linkedin: "https://www.linkedin.com/in/omar-rayyan/",
       },
       {
+        name: "Maximilian Gilles",
+        title: "Visiting Researcher (PhD student at KIT)",
+        image: "/about-people/max.jpg",
+        bio: "Maximilian Gilles is a doctoral researcher at the Karlsruhe Institute of Technology (KIT), specializing in robot perception and grasp learning. Currently, he is a visiting researcher at the URIL Lab (Fall Quarter 2025 - Winter Quarter 2026).",
+        linkedin: "https://www.linkedin.com/in/maximilian-g1/",
+      },
+      {
         name: "Metin Alp Dogan",
         title: "Master’s student in ECE",
         image: "/about-people/alp.jpg",
         bio: "Alp is a Master’s student in ECE, specializing in artificial intelligence, particularly inverse reinforcement learning techniques. He has research experience in control systems, optimization, and intelligent systems, with a focus on surgical robotics, and is a recipient of the Fulbright Scholarship. Alp enjoys snowboarding, hiking, and working out.",
         linkedin: "https://www.linkedin.com/in/metinalpdogan/",
       },
-      
       {
         name: "Yuanhong Zeng",
         title: "Master’s student in ECE",
