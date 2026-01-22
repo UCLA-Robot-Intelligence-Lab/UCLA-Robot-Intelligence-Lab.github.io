@@ -62,6 +62,85 @@
   // Publications
   const publications = [
     {
+  title: "DiSCo: Diffusion Sequence Copilots for Shared Autonomy",
+  authors:
+    "Brandon McMahan, Andy Wang, Xu Yan, Michael Zhou, Yuyang Yuan, Johannes Y. Lee, Ali Shreif, Matthew Li, Zhenghao Peng, Bolei Zhou, Yuchen Cui, Jonathan C. Kao",
+  venue:
+    "ACM/IEEE International Conference on Human-Robot Interaction (HRI), 2026",
+  links: [],
+},
+    {
+  title:
+    "Intent at a Glance: Gaze-Guided Robotic Manipulation via Foundation Models",
+  authors:
+    "Tracey Yee Hsin Tay, Xu Yan, Jonathan Ouyang, Daniel Wu, William Jiang, Jonathan Kao, Yuchen Cui",
+  venue:
+    "RSS 2025 Workshop on Robot Planning in the Era of Foundation Models, Jan 2026",
+  links: [
+    {
+      text: "paper",
+      url: "https://arxiv.org/abs/2601.05336",
+      icon: "fa-file",
+    },
+    {
+      text: "website",
+      url: "https://gamma0.vercel.app/",
+      icon: "fa-globe",
+    },
+  ],
+},
+{
+  title: "TRACE: Textual Reasoning for Affordance Coordinate Extraction",
+  authors: "Sangyun Park, Jin Kim, Yuchen Cui, Matthew S Brown",
+  venue:
+    "ICCV 2025 Knowledge-Intensive Multimodal Reasoning Workshop, Nov 2025",
+  links: [
+    {
+      text: "paper",
+      url: "https://arxiv.org/abs/2511.01999",
+      icon: "fa-file",
+    },
+  ],
+},
+{
+  title:
+    "Casper: Inferring Diverse Intents for Assistive Teleoperation with Vision Language Models",
+  authors:
+    "Huihan Liu, Rutav Shah, Shuijing Liu, Jack Pittenger, Mingyo Seo, Yuchen Cui, Yonatan Bisk, Roberto Martín-Martín, Yuke Zhu",
+  venue: "CoRL 2025",
+  links: [
+    {
+      text: "paper",
+      url: "https://arxiv.org/abs/2506.14727",
+      icon: "fa-file",
+    },
+  ],
+},
+{
+  title:
+    "GraphPad: Inference-Time 3D Scene Graph Updates for Embodied Question Answering",
+  authors:
+    "Muhammad Qasim Ali, Saeejith Nair, Alexander Wong, Yuchen Cui, Yuhao Chen",
+  venue:
+    "Workshop on 3D-LLM/VLA: Bridging Language, Vision and Action in 3D Environments, Jun 2025",
+  links: [
+    {
+      text: "paper",
+      url: "https://arxiv.org/abs/2506.01174",
+      icon: "fa-file",
+    },
+  ],
+},
+{
+  title:
+    "SAMJAM: Zero-Shot Video Scene Graph Generation for Egocentric Kitchen Videos",
+  authors:
+    "Joshua Li, Fernando Jose Pena Cantu, Emily Yu, Alexander Wong, Yuchen Cui, Yuhao Chen",
+  venue: "Computer Vision and Pattern Recognition Conference (CVPR), 2025",
+  links: [],
+},
+
+    {
       title:
         "Shared Autonomy for Proximal Teaching",
       authors: "Megha Srivastava, Reihaneh Iranmanesh, Yuchen Cui, Deepak Gopinath, Emily Sarah Sumner, Andrew Silva, Laporsha Dees, Guy Rosman, Dorsa Sadigh",
