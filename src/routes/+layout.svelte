@@ -64,10 +64,10 @@
   <link rel="canonical" href={pageUrl} />
 </svelte:head>
 
-<!-- Background beams effect for the entire site -->
+<!-- Background beams effect for the entire site
 <div class="background-container">
   <BackgroundBeams />
-</div>
+</div> -->
 
 <Navbar />
 
@@ -96,5 +96,12 @@
     min-height: calc(100vh - 200px);
     position: relative;
     z-index: 1;
+    padding-top: 76px;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding-top: 66px;
+    }
   }
 </style>

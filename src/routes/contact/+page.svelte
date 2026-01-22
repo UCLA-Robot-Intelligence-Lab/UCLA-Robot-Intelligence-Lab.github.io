@@ -47,7 +47,7 @@
             target="_blank"
             rel="noopener noreferrer">application form</a
           >
-          by March 1st (same year you wish to do a summer intern).
+          by March 1st (same year you wish to do a summer internship).
         </p>
       </div>
 
@@ -65,48 +65,38 @@
 <style>
   /* Contact section styles */
   .content-section {
-    padding: 4rem 0;
+    padding: 30px 0 80px;
+    background-color: white;
   }
 
   .contact-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
 
   .contact-main-title {
-    text-align: center;
-    margin-bottom: 0.5rem;
-    margin-top: -0.5rem;
-    font-size: 3rem;
-    color: var(--heading-color);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    position: relative;
+    text-align: left;
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
-  /* Removed underline for main contact title */
-
   .contact-card {
-    background-color: var(--card-bg);
-    border-radius: 16px;
-    padding: 2.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
   }
   
   .contact-section {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
+    padding-bottom: 0;
+    border-bottom: none;
   }
   
   .contact-section:last-child {
@@ -116,56 +106,52 @@
   
   .contact-section.note {
     margin-top: 0.5rem;
-    background-color: rgba(252, 215, 41, 0.08); /* UCLA Yellow with low opacity */
-    border-radius: 8px;
-    padding: 1rem 1.5rem;
-  }
-
-  .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    background-color: #f9f9f9;
+    border-left: 3px solid #4493CF;
+    border-radius: 4px;
+    padding: 0.5rem 1.5rem 0.75rem 1.5rem;
   }
 
   .contact-card h2 {
-    color: var(--heading-color);
+    color: #1a1a1a;
     margin-top: 0;
-    margin-bottom: 1.25rem;
-    font-size: 1.6rem;
-    position: relative;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with opacity */
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 0;
+    border-bottom: none;
   }
 
   .contact-card p {
-    margin-bottom: 0.75rem;
-    line-height: 1.8;
-    font-size: 1.1rem;
-    color: var(--text-color);
+    margin-bottom: 0;
+    line-height: 1.75;
+    font-size: 1rem;
+    color: #333333;
   }
 
   .text-link {
-    color: var(--ucla-light-blue);
-    text-decoration: underline;
-    transition: all 0.2s ease;
+    color: #4493CF;
+    text-decoration: none;
+    transition: color 0.2s ease;
     font-weight: 500;
   }
 
   .text-link:hover {
-    color: var(--ucla-dark-blue);
-    text-decoration-color: var(--ucla-yellow);
+    color: #2a7ab8;
+    text-decoration: underline;
   }
 
-  @media (max-width: 767px) {
-    .contact-container {
-      padding: 0 1.5rem;
-    }
-
+  @media (max-width: 768px) {
     .contact-main-title {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
 
-    .contact-card {
-      padding: 1.5rem;
+    .contact-card h2 {
+      font-size: 1.2rem;
+    }
+
+    .contact-card p {
+      font-size: 0.95rem;
     }
   }
 </style>

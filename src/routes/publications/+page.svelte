@@ -337,12 +337,10 @@
 
     <div class="publications-list">
       {#each publications as pub, i}
-        <div class="publication-card">
-          <div class="publication-content">
-            <h3 class="publication-title">{pub.title}</h3>
-            <p class="publication-authors">{pub.authors}</p>
-            <p class="publication-venue">{pub.venue}</p>
-          </div>
+        <div class="publication-item">
+          <h3 class="publication-title">{pub.title}</h3>
+          <p class="publication-authors">{pub.authors}</p>
+          <p class="publication-venue">{pub.venue}</p>
           <div class="publication-links">
             {#each pub.links as link}
               <a
@@ -350,9 +348,9 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="link-button"
+                aria-label={link.text}
               >
-                <span class="icon"><i class="fa {link.icon}"></i></span>
-                <span class="label">{link.text}</span>
+                <i class="fa {link.icon}"></i>
               </a>
             {/each}
           </div>
@@ -365,247 +363,118 @@
 <style>
   /* Publications section styles */
   .publications-section {
-    padding: 2.5rem 0 4rem;
+    padding: 30px 0 80px;
+    background-color: white;
   }
 
   .publications-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 4rem; /* Increased horizontal padding */
+    padding: 0 20px;
   }
 
   .publications-title {
-    margin-bottom: 0.25rem;
-    margin-top: 0;
-    color: var(--heading-color);
-    text-align: center;
-    font-size: 3rem;
-    letter-spacing: -0.03em;
-    font-weight: 700;
-    transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1); /* Smooth fade-in */
-    opacity: 1;
-  }
-  
-  /* Heading animation */
-  :global(html.js-enabled) .publications-title:not(.heading-visible) {
-    opacity: 0;
-  }
-  
-  .publications-title.heading-visible,
-  :global(html.no-js) .publications-title {
-    opacity: 1;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 50px 0;
+    letter-spacing: -0.02em;
   }
 
   .publications-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    width: 100%;
+    gap: 20px;
   }
 
-  .publication-card {
-    background-color: var(--card-bg);
-    border-radius: 14px;
-    overflow: hidden;
-    position: relative;
+  .publication-item {
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with opacity */
-    opacity: 1;
-    transform: translateY(0);
-    transition: 
-      opacity 1.6s cubic-bezier(0.215, 0.61, 0.355, 1), /* Ease-out-cubic */
-      transform 1.8s cubic-bezier(0.165, 0.84, 0.44, 1), /* Ease-out-quart */
-      box-shadow 0.3s ease-out,
-      border-color 0.3s ease;
-    will-change: transform, opacity; /* Optimize animation performance */
-  }
-  
-  /* Apply the animation effect only when JavaScript is enabled */
-  :global(html.js-enabled) .publication-card:not(.in-view) {
-    opacity: 0;
-    transform: translateY(60px); /* Increased distance for more pronounced effect */
-  }
-  
-  :global(html.no-js) .publication-card,
-  .publication-card.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Create a subtle glass-like effect for the card - Vercel inspired */
-  .publication-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 14px;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-    z-index: -1;
-  }
-
-  .publication-card:hover {
-    transform: translateY(-4px) !important; /* Important to override animation transform */
-    box-shadow:
-      0 5px 20px rgba(0, 0, 0, 0.07),
-      0 0 0 1px rgba(49, 64, 98, 0.08); /* UCLA Dark Blue border */
-    border-color: rgba(
-      68,
-      147,
-      207,
-      0.25
-    ); /* UCLA Light Blue with higher opacity on hover */
-  }
-
-  .publication-card:hover::before {
-    opacity: 0.5;
-  }
-
-  .publication-content {
-    padding: 1.75rem 1.75rem 0.75rem;
-    flex: 1;
+    gap: 2px;
   }
 
   .publication-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: var(--heading-color);
-    margin: 0 0 0.75rem 0;
-    letter-spacing: -0.01em;
+    color: #1a1a1a;
+    margin: 0 0 4px 0;
     line-height: 1.4;
   }
 
   .publication-authors {
     font-size: 0.95rem;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 2px 0;
     line-height: 1.5;
-    color: var(--text-color);
+    color: #333333;
   }
 
   .publication-venue {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-style: italic;
-    margin: 0 0 1.25rem 0;
-    color: var(--secondary-text-color);
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with opacity */
+    margin: 0 0 8px 0;
+    color: #555555;
+    line-height: 1.5;
   }
 
   .publication-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    padding: 0.5rem 1.75rem 1.75rem;
-    margin-top: -1.5rem;
+    gap: 8px;
+    margin-top: 0;
   }
 
   .link-button {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
+    justify-content: center;
+    padding: 2px;
+    border-radius: 50%;
+    font-size: 0.65rem;
     text-decoration: none;
     transition: all 0.2s ease;
-    background-color: rgba(
-      68,
-      147,
-      207,
-      0.1
-    ); /* UCLA Light Blue with opacity */
-    color: var(--heading-color);
-    border: 1px solid transparent;
+    background-color: #4493CF;
+    color: white;
+    border: none;
+    width: 18px;
+    height: 18px;
   }
 
-  /* Subtle glow on hover - shadcn inspired */
   .link-button:hover {
-    background-color: rgba(
-      68,
-      147,
-      207,
-      0.15
-    ); /* UCLA Light Blue with opacity */
-    color: var(--ucla-light-blue);
-    border-color: rgba(68, 147, 207, 0.3); /* UCLA Light Blue border */
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(68, 147, 207, 0.2); /* UCLA Light Blue glow */
+    background-color: #2a7ab8;
   }
 
-  .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-  }
-
-  .label {
-    line-height: 1;
-  }
-
-  /* Dark mode specific styles */
-  :global(.dark-mode) .publication-card {
-    border-color: rgba(68, 147, 207, 0.15);
-    background-color: rgba(30, 30, 30, 0.7);
-  }
-
-  :global(.dark-mode) .publication-title {
-    color: var(--ucla-light-blue);
-  }
-
-  :global(.dark-mode) .link-button {
-    background-color: rgba(68, 147, 207, 0.15);
-    color: var(--text-color);
-  }
-
-  :global(.dark-mode) .link-button:hover {
-    background-color: rgba(252, 215, 41, 0.2);
-    color: var(--ucla-yellow);
-    border-color: rgba(252, 215, 41, 0.3);
-    box-shadow: 0 2px 10px rgba(252, 215, 41, 0.15);
-  }
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .publications-title {
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
+      font-size: 2rem;
+      margin-bottom: 40px;
     }
 
-    .publication-content {
-      padding: 1.5rem;
-    }
-
-    .publication-links {
-      padding: 0 1.5rem 1.5rem;
+    .publications-list {
+      gap: 18px;
     }
 
     .publication-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+    }
+
+    .publication-authors,
+    .publication-venue {
+      font-size: 0.9rem;
     }
   }
 
   @media (max-width: 480px) {
     .publications-title {
-      font-size: 1.8rem;
-    }
-
-    .publication-content {
-      padding: 1.25rem;
-    }
-
-    .publication-links {
-      padding: 0 1.25rem 1.25rem;
-      gap: 0.5rem;
+      font-size: 1.75rem;
     }
 
     .link-button {
-      padding: 0.5rem 0.8rem;
-      font-size: 0.85rem;
+      padding: 2px;
+      font-size: 0.6rem;
+      width: 16px;
+      height: 16px;
     }
   }
 </style>
