@@ -75,7 +75,7 @@
   authors:
     "Tracey Yee Hsin Tay, Xu Yan, Jonathan Ouyang, Daniel Wu, William Jiang, Jonathan Kao, Yuchen Cui",
   venue:
-    "RSS 2025 Workshop on Robot Planning in the Era of Foundation Models, Jan 2026",
+    "RSS 2025 Workshop on Robot Planning in the Era of Foundation Models, June 2025",
   links: [
     {
       text: "paper",
@@ -107,7 +107,7 @@
     "Casper: Inferring Diverse Intents for Assistive Teleoperation with Vision Language Models",
   authors:
     "Huihan Liu, Rutav Shah, Shuijing Liu, Jack Pittenger, Mingyo Seo, Yuchen Cui, Yonatan Bisk, Roberto Martín-Martín, Yuke Zhu",
-  venue: "CoRL 2025",
+  venue: "Conference on Robot Learning (CoRL), September 2025",
   links: [
     {
       text: "paper",
@@ -122,7 +122,7 @@
   authors:
     "Muhammad Qasim Ali, Saeejith Nair, Alexander Wong, Yuchen Cui, Yuhao Chen",
   venue:
-    "Workshop on 3D-LLM/VLA: Bridging Language, Vision and Action in 3D Environments, Jun 2025",
+    "CVPR Workshop on 3D-LLM/VLA: Bridging Language, Vision and Action in 3D Environments, June 2025",
   links: [
     {
       text: "paper",
@@ -136,7 +136,7 @@
     "SAMJAM: Zero-Shot Video Scene Graph Generation for Egocentric Kitchen Videos",
   authors:
     "Joshua Li, Fernando Jose Pena Cantu, Emily Yu, Alexander Wong, Yuchen Cui, Yuhao Chen",
-  venue: "Computer Vision and Pattern Recognition Conference (CVPR), 2025",
+  venue: "Computer Vision and Pattern Recognition Conference (CVPR) MetaFood Workshop, June 2025",
   links: [],
 },
 
