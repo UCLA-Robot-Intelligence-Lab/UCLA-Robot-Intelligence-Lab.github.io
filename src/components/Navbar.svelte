@@ -110,9 +110,45 @@
   }
 
   let mounted = false;
+  let mobileMenuOpen = false;
+
+  // Toggle mobile menu
+  function toggleMobileMenu() {
+    mobileMenuOpen = !mobileMenuOpen;
+    if (browser) {
+      // Prevent scrolling when menu is open
+      if (mobileMenuOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  // Close mobile menu when clicking a link
+  function closeMobileMenu() {
+    mobileMenuOpen = false;
+    if (browser) {
+      document.body.style.overflow = '';
+    }
+  }
 
   onMount(() => {
     mounted = true;
+    
+    // Close menu on window resize if open
+    const handleResize = () => {
+      if (window.innerWidth > 768 && mobileMenuOpen) {
+        closeMobileMenu();
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.body.style.overflow = '';
+    };
   });
 </script>
 
@@ -132,7 +168,8 @@
         </a>
       </div>
 
-      <nav class="modern-nav">
+      <!-- Desktop Navigation -->
+      <nav class="modern-nav desktop-nav">
         <ul class="nav-items-container">
           {#each navLinks as link, i}
               <li>
@@ -188,7 +225,8 @@
           </ul>
       </nav>
 
-      <div class="social-icons">
+      <!-- Desktop Social Icons -->
+      <div class="social-icons desktop-only">
         <a href="https://github.com/UCLA-Robot-Intelligence-Lab" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
           <GithubIcon size={24} />
         </a>
@@ -197,12 +235,82 @@
         </a>
       </div>
 
-      <!-- <div class="theme-toggle-container">
-        <ThemeToggle />
-      </div> -->
+      <!-- Mobile Hamburger Button -->
+      <button 
+        class="hamburger-button mobile-only"
+        on:click={toggleMobileMenu}
+        aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={mobileMenuOpen}
+      >
+        <span class="hamburger-line" class:open={mobileMenuOpen}></span>
+        <span class="hamburger-line" class:open={mobileMenuOpen}></span>
+        <span class="hamburger-line" class:open={mobileMenuOpen}></span>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- Mobile Menu Overlay -->
+{#if mobileMenuOpen}
+  <div 
+    class="mobile-menu-overlay"
+    transition:fly={{ y: -20, duration: 300 }}
+    on:click={closeMobileMenu}
+    on:keydown={(e) => e.key === 'Escape' && closeMobileMenu()}
+    role="presentation"
+  >
+    <nav class="mobile-nav" on:click|stopPropagation on:keydown|stopPropagation role="presentation">
+      <ul>
+        {#each navLinks as link}
+          <li>
+            <a
+              href={link.href}
+              class="mobile-nav-link"
+              class:active={isActive(link)}
+              on:click={closeMobileMenu}
+            >
+              <svelte:component
+                this={link.icon}
+                size="24"
+                color={isActive(link)
+                  ? currentTheme === "light"
+                    ? "var(--ucla-light-blue)"
+                    : "var(--ucla-yellow)"
+                  : "currentColor"}
+              />
+              <span>{link.name}</span>
+            </a>
+          </li>
+        {/each}
+        
+        <!-- Social links in mobile menu -->
+        <li class="mobile-menu-divider"></li>
+        <li>
+          <a 
+            href="https://github.com/UCLA-Robot-Intelligence-Lab" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="mobile-nav-link"
+            on:click={closeMobileMenu}
+          >
+            <GithubIcon size={24} />
+            <span>GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/pictures"
+            class="mobile-nav-link"
+            on:click={closeMobileMenu}
+          >
+            <CameraIcon size={24} />
+            <span>Photos</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+{/if}
 
 <style>
   header {
@@ -223,6 +331,18 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 8px;
+    }
   }
 
   .navbar-container {
@@ -334,6 +454,120 @@
     --active-nav-shadow: 0 0 5px rgba(252, 215, 41, 0.3); /* Keep glow in dark mode */
   }
 
+  /* Hide mobile elements on desktop */
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: flex;
+  }
+
+  /* Hamburger button */
+  .hamburger-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 101;
+  }
+
+  .hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: var(--nav-text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger-line.open:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger-line.open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-line.open:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu overlay */
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    backdrop-filter: blur(4px);
+  }
+
+  .mobile-nav {
+    background-color: var(--nav-bg);
+    max-width: 300px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+  }
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+  }
+
+  .mobile-nav li {
+    margin: 0;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-nav-link:hover {
+    background-color: rgba(68, 147, 207, 0.1);
+  }
+
+  .mobile-nav-link.active {
+    color: var(--ucla-light-blue);
+    background-color: rgba(68, 147, 207, 0.05);
+    font-weight: 600;
+  }
+
+  :global(.dark-mode) .mobile-nav-link.active {
+    color: var(--ucla-yellow);
+    background-color: rgba(252, 215, 41, 0.1);
+  }
+
+  .mobile-menu-divider {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 8px 16px;
+  }
+
+  :global(.dark-mode) .mobile-menu-divider {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
   /* Make the component responsive */
   @media (max-width: 960px) {
     /* Icons-only mode */
@@ -345,6 +579,11 @@
       padding: 6px; /* Reduce padding when only showing icons */
     }
 
+    .nav-item-front :global(svg) {
+      width: 20px;
+      height: 20px;
+    }
+
     .menu-item-wrapper {
       min-width: 44px; /* Reduce width to fit icon only */
     }
@@ -352,24 +591,30 @@
 
   @media (max-width: 768px) {
     .navbar-container {
-      flex-direction: row; /* Keep horizontal layout */
-      flex-wrap: nowrap; /* Prevent wrapping */
-      gap: 8px;
       justify-content: space-between;
     }
 
-    .modern-nav {
-      justify-content: center;
-      flex: 0 1 auto; /* Allow shrinking but not growing */
+    /* Hide desktop navigation and social icons */
+    .desktop-nav,
+    .desktop-only {
+      display: none !important;
     }
 
-    .modern-nav ul {
-      gap: 4px;
-      flex-wrap: nowrap; /* Prevent wrapping to keep horizontal */
+    /* Show mobile hamburger menu */
+    .mobile-only {
+      display: flex;
+    }
+
+    .hamburger-button {
+      display: flex;
+    }
+
+    .mobile-menu-overlay {
+      display: block;
     }
 
     .logo {
-      height: 90px; /* Keep logo bigger even on smaller screens */
+      height: 50px;
     }
   }
 
@@ -401,22 +646,18 @@
 
 
   @media (max-width: 480px) {
-    .logo-container {
-      padding: 3px; /* Reduce padding */
+    .logo {
+      height: 45px;
     }
 
-    .nav-item-front {
-      padding: 6px; /* Further reduce padding */
+    .mobile-nav {
+      width: 95%;
     }
 
-    .menu-item-wrapper {
-      margin: 2px; /* Reduce margin between items */
-      min-width: 36px; /* Even smaller for very small screens */
+    .mobile-nav-link {
+      padding: 14px 20px;
+      font-size: 1rem;
     }
-
-    /* .theme-toggle-container {
-      transform: scale(0.9);
-    } */
   }
   /* Icon styles to ensure proper theme colors */
   :global(.nav-icon) {
@@ -429,6 +670,33 @@
 
   :global(.active-icon.dark-theme-icon) {
     color: var(--ucla-yellow) !important;
+  }
+
+  /* Extra small screens (very small phones) */
+  @media (max-width: 380px) {
+    .logo {
+      height: 40px;
+    }
+
+    .hamburger-button {
+      width: 28px;
+      height: 28px;
+    }
+
+    .hamburger-line {
+      width: 20px;
+    }
+
+    .mobile-nav-link {
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      gap: 12px;
+    }
+
+    .mobile-nav-link :global(svg) {
+      width: 20px;
+      height: 20px;
+    }
   }
 
 </style>

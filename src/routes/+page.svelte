@@ -250,6 +250,21 @@
     transform: scale(1.02);
   }
 
+  /* Disable hover scale on touch devices */
+  @media (hover: none) {
+    .hero-image-wrapper:hover .hero-image {
+      transform: none;
+    }
+
+    .research-area:hover {
+      transform: translateY(0);
+    }
+
+    .research-area:hover .research-media img {
+      transform: none;
+    }
+  }
+
   .hero-description {
     max-width: 900px;
     margin: 0 auto;
@@ -268,34 +283,57 @@
 
   @media (max-width: 768px) {
     .hero {
-      padding: 40px 0 50px 0;
+      padding: 30px 0 40px 0;
     }
 
     .hero-image-wrapper {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       border-radius: 10px;
+      max-width: 100%;
     }
 
     .hero-description {
-      padding: 0 15px;
+      padding: 0 20px;
     }
 
     .hero-description p {
-      font-size: 1rem;
-      line-height: 1.75;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      text-align: left;
     }
 
     .research-areas {
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 25px;
     }
 
     .research-text h3 {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
     }
 
     .research-text p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 20px 0 30px 0;
+    }
+
+    .hero-image-wrapper {
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .hero-description {
+      padding: 0 16px;
+    }
+
+    .hero-description p {
       font-size: 0.9rem;
+      line-height: 1.65;
     }
   }
   /* News section */
@@ -425,12 +463,14 @@
     transition: all 0.2s ease;
     font-weight: 500;
     position: relative;
+    padding: 2px 0;
+    display: inline-block;
   }
 
   .news-text-link::after {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
@@ -446,6 +486,20 @@
 
   .news-text-link:hover::after {
     width: 100%;
+  }
+
+  /* Better touch targets on mobile */
+  @media (max-width: 768px) {
+    .news-text-link {
+      padding: 4px 2px;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .news-text-link::after {
+      display: none;
+    }
   }
 
   /* Research section */
@@ -626,87 +680,172 @@
 
   @media (max-width: 768px) {
     .news {
-      padding: 40px 0 35px 0;
+      padding: 35px 0 30px 0;
     }
 
     .news-header {
-      margin-bottom: 25px;
-      padding: 0 15px;
+      margin-bottom: 20px;
+      padding: 0 20px;
     }
 
     .news-header h2 {
-      font-size: 2rem;
+      font-size: 1.85rem;
     }
 
     .news-subtitle {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     .news-list {
-      padding: 0 15px;
+      padding: 0 20px;
     }
 
     .news-item {
       grid-template-columns: 1fr;
-      gap: 8px;
-      padding: 18px 0;
+      gap: 6px;
+      padding: 14px 0;
+      border-radius: 8px;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin-left: -12px;
+      margin-right: -12px;
     }
 
     .news-date {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-align: left;
       font-weight: 600;
       color: var(--ucla-light-blue);
+      margin-bottom: 2px;
     }
 
     .news-description {
-      font-size: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
 
     .research {
-      padding: 40px 0 50px 0;
+      padding: 35px 0 45px 0;
     }
 
     .research-header {
-      margin-bottom: 30px;
-      padding: 0 15px;
+      margin-bottom: 25px;
+      padding: 0 20px;
     }
 
     .research-header h2 {
-      font-size: 2rem;
+      font-size: 1.85rem;
     }
 
     .research-brief {
-      font-size: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
 
     .research-areas {
       grid-template-columns: 1fr;
-      gap: 25px;
-      padding: 0 15px;
-    }
-
-    .research-area {
-      padding: 24px;
-    }
-
-    .research-text h3 {
-      font-size: 1.25rem;
-    }
-
-    .research-text p {
-      font-size: 0.95rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .news-header h2,
-    .research-header h2 {
-      font-size: 1.75rem;
+      gap: 20px;
+      padding: 0 20px;
     }
 
     .research-area {
       padding: 20px;
+    }
+
+    .research-text h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .research-text p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .research-media {
+      border-radius: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 20px 0 25px 0;
+    }
+
+    .hero-description {
+      padding: 0 16px;
+    }
+
+    .news {
+      padding: 30px 0 25px 0;
+    }
+
+    .news-header {
+      padding: 0 16px;
+      margin-bottom: 18px;
+    }
+
+    .news-header h2 {
+      font-size: 1.65rem;
+    }
+
+    .news-subtitle {
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    .news-list {
+      padding: 0 16px;
+    }
+
+    .news-item {
+      padding: 12px 10px;
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    .news-date {
+      font-size: 0.8rem;
+    }
+
+    .news-description {
+      font-size: 0.9rem;
+    }
+
+    .research {
+      padding: 30px 0 40px 0;
+    }
+
+    .research-header {
+      padding: 0 16px;
+      margin-bottom: 20px;
+    }
+
+    .research-header h2 {
+      font-size: 1.65rem;
+    }
+
+    .research-brief {
+      font-size: 0.9rem;
+    }
+
+    .research-areas {
+      padding: 0 16px;
+      gap: 18px;
+    }
+
+    .research-area {
+      padding: 18px;
+      gap: 16px;
+    }
+
+    .research-text h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .research-text p {
+      font-size: 0.875rem;
     }
   }
 </style>

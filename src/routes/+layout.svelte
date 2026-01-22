@@ -101,7 +101,13 @@
 
   @media (max-width: 768px) {
     main {
-      padding-top: 66px;
+      padding-top: 70px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    main {
+      padding-top: 65px;
     }
   }
 </style>
