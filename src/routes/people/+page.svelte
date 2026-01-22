@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { fade, scale, fly } from "svelte/transition";
   
-
 // People data
 const people: PeopleData = {
     faculty: [
@@ -17,10 +16,11 @@ const people: PeopleData = {
     ],
     grad_students: [
       {
-        name: "Xu Kristen Yan",
-        title: "PhD student in ECE",
+        name: "Xu Yan",
+        title: "PhD student in CS",
         image: "/about-people/xu.jpg",
-        bio: "Xu is a PhD student in Electrical and Computer Engineering department. Her current research interests lie in leveraging physiological signals for seamless human-robot interactions. Outside of academics, she likes tennis, skating, and cooking.",
+        bio: "Xu is a PhD student in Computer Science, co-advised by Professor Yuchen Cui and Professor Jonathan Kao. Her research focuses on making human-robot collaboration feel as natural and effortless as working with a trusted teammate, particularly by leveraging physiological signals for seamless human-robot interaction. Outside of academics, she enjoys tennis, skating, and cooking.",
+        website: "https://web.cs.ucla.edu/~xkyan3/",
         linkedin: "https://www.linkedin.com/in/xukristenyan",
       },
       {
@@ -38,18 +38,20 @@ const people: PeopleData = {
         bio: "Maximilian Gilles is a doctoral researcher at the Karlsruhe Institute of Technology (KIT), specializing in robot perception and grasp learning. Currently, he is a visiting researcher at the URIL Lab (Fall Quarter 2025 - Winter Quarter 2026).",
         linkedin: "https://www.linkedin.com/in/maximilian-g1/",
       },
+    ],
+    masters_students: [
       {
         name: "Metin Alp Dogan",
-        title: "Master’s student in ECE",
+        title: "Master's student in ECE",
         image: "/about-people/alp.jpg",
-        bio: "Alp is a Master’s student in ECE, specializing in artificial intelligence, particularly inverse reinforcement learning techniques. He has research experience in control systems, optimization, and intelligent systems, with a focus on surgical robotics, and is a recipient of the Fulbright Scholarship. Alp enjoys snowboarding, hiking, and working out.",
+        bio: "Alp is a Master's student in ECE, specializing in artificial intelligence, particularly inverse reinforcement learning techniques. He has research experience in control systems, optimization, and intelligent systems, with a focus on surgical robotics, and is a recipient of the Fulbright Scholarship. Alp enjoys snowboarding, hiking, and working out.",
         linkedin: "https://www.linkedin.com/in/metinalpdogan/",
       },
       {
         name: "Yuanhong Zeng",
-        title: "Master’s student in ECE",
+        title: "Master's student in ECE",
         image: "/about-people/yuanhong.jpeg",
-        bio: "Yuanhong a first-year master’s student in the ECE department with a passion for optimization, computer vision, and robot learning. His current research involves developing an embodiment-agnostic manipulation policy using 3D flow generation. Outside of my academic pursuits, he is also a professionally trained chef and he enjoys exploring new food.",
+        bio: "Yuanhong a first-year master's student in the ECE department with a passion for optimization, computer vision, and robot learning. His current research involves developing an embodiment-agnostic manipulation policy using 3D flow generation. Outside of my academic pursuits, he is also a professionally trained chef and he enjoys exploring new food.",
         linkedin: "https://www.linkedin.com/in/yuanhong-zeng/",
       },
     ],
@@ -106,6 +108,7 @@ const people: PeopleData = {
         title: "Undergraduate Student in CE",
         image: "/about-people/yike.jpg",
         bio: "Yike is a sophomore at UCLA majoring in Computer Engineering. He is deeply fascinated by both classical control and AI in robotics, with a focus on robotics learning, algorithms, and vision. His research interests also include exploring privacy and security challenges in AI models. Coming from Nanjing, China, Yike is skilled at cooking authentic Chinese cuisine and enjoys playing soccer and badminton.",
+        website: "https://yik3.github.io/Yike-Shi.github.io/",
         linkedin: "https://www.linkedin.com/in/yike-shi-996304264/",
       },
       {
@@ -145,7 +148,21 @@ const people: PeopleData = {
     //],
   };
 
-
+  // Robots data
+  const robots = [
+    {
+      name: "xArm",
+      image: "/about-people/xarm.png"
+    },
+    {
+      name: "Bimanual Robot",
+      image: "/about-people/bimanual.png"
+    },
+    {
+      name: "Humanoid Robot",
+      image: "/about-people/humanoid.png"
+    }
+  ];
 
   // State for detailed modal view
   let selectedPerson: Person | null = null;
@@ -171,6 +188,7 @@ const people: PeopleData = {
     faculty: Person[];
     collaborators?: Person[];
     grad_students: Person[];
+    masters_students: Person[];
     undergrad_students: Person[];
     alumni: Person[];
   }
@@ -290,636 +308,385 @@ const people: PeopleData = {
 
 <section class="content-section">
   <div class="container people-container">
-    <div class="title-container">
-    <div class="title-wrapper">
-      <h1 class="people-main-title">People</h1>
-      <a href="/pictures" class="camera-icon-link" aria-label="View lab photo gallery">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="camera-icon">
-          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-          <circle cx="12" cy="13" r="4" />
-        </svg>
-      </a>
-    </div>
-  </div>
-
-    <h2 class="section-heading">Faculty</h2>
-    <div class="people-grid">
+    <h1 class="page-title">People</h1>
+    <h2 class="section-heading">Faculty Members</h2>
+    <div class="people-list">
       {#each people.faculty as person}
-        <button
-          type="button"
-          class="person-card clickable"
-          on:click={() => {
-            selectedPerson = person;
-            modalOpen = true;
-          }}
-        >
+        <div class="person-item">
           <img
             src={person.image || "/placeholder.svg"}
             alt={person.name}
             class="person-image"
           />
           <div class="person-content">
-            <h3>{person.name}</h3>
-            <p class="person-title">{person.title}</p>
+            <div class="person-header">
+              <h3 class="person-name">{person.name}</h3>
+              <div class="person-social-icons">
+                {#if person.website}
+                  <a href={person.website} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Website">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </a>
+                {/if}
+                {#if person.linkedin}
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </a>
+                {/if}
+              </div>
+            </div>
+            <p class="person-bio">{person.bio || ''}</p>
           </div>
-        </button>
+        </div>
       {/each}
     </div>
 
-    <h2 class="section-heading">Grad Students</h2>
-    <div class="people-grid">
+    <h2 class="section-heading">PhD Students</h2>
+    <div class="people-list">
       {#each people.grad_students as person}
-        <button
-          type="button"
-          class="person-card clickable"
-          on:click={() => {
-            selectedPerson = person;
-            modalOpen = true;
-          }}
-        >
+        <div class="person-item" id={person.name.toLowerCase().replace(/\s+/g, '-')}>
           <img
             src={person.image || "/placeholder.svg"}
             alt={person.name}
             class="person-image"
           />
           <div class="person-content">
-            <h3>{person.name}</h3>
-            <p class="person-title">{person.title}</p>
+            <div class="person-header">
+              <h3 class="person-name">{person.name}</h3>
+              <div class="person-social-icons">
+                {#if person.website}
+                  <a href={person.website} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Website">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </a>
+                {/if}
+                {#if person.linkedin}
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </a>
+                {/if}
+              </div>
+            </div>
+            <p class="person-bio">{person.bio || ''}</p>
           </div>
-        </button>
+        </div>
       {/each}
     </div>
 
-    <h2 class="section-heading">Undergrad Students</h2>
-    <div class="people-grid">
-      {#each people.undergrad_students as person}
-        <button
-          type="button"
-          class="person-card clickable"
-          on:click={() => {
-            selectedPerson = person;
-            modalOpen = true;
-          }}
-        >
+    <h2 class="section-heading">Masters Students</h2>
+    <div class="people-list">
+      {#each people.masters_students as person}
+        <div class="person-item">
           <img
             src={person.image || "/placeholder.svg"}
             alt={person.name}
             class="person-image"
           />
           <div class="person-content">
-            <h3>{person.name}</h3>
-            <p class="person-title">{person.title}</p>
+            <div class="person-header">
+              <h3 class="person-name">{person.name}</h3>
+              <div class="person-social-icons">
+                {#if person.website}
+                  <a href={person.website} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Website">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </a>
+                {/if}
+                {#if person.linkedin}
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </a>
+                {/if}
+              </div>
+            </div>
+            <p class="person-bio">{person.bio || ''}</p>
           </div>
-        </button>
+        </div>
+      {/each}
+    </div>
+
+    <h2 class="section-heading">Undergraduate Students</h2>
+    <div class="people-list">
+      {#each people.undergrad_students as person}
+        <div class="person-item">
+          <img
+            src={person.image || "/placeholder.svg"}
+            alt={person.name}
+            class="person-image"
+          />
+          <div class="person-content">
+            <div class="person-header">
+              <h3 class="person-name">{person.name}</h3>
+              <div class="person-social-icons">
+                {#if person.website}
+                  <a href={person.website} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Website">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </a>
+                {/if}
+                {#if person.linkedin}
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </a>
+                {/if}
+              </div>
+            </div>
+            <p class="person-bio">{person.bio || ''}</p>
+          </div>
+        </div>
       {/each}
     </div>
 
     <h2 class="section-heading">Alumni</h2>
-    <div class="people-grid">
+    <div class="people-list">
       {#each people.alumni as person}
-        <button
-          type="button"
-          class="person-card clickable"
-          on:click={() => {
-            selectedPerson = person;
-            modalOpen = true;
-          }}
-        >
+        <div class="person-item">
           <img
             src={person.image || "/placeholder.svg"}
             alt={person.name}
             class="person-image"
           />
           <div class="person-content">
-            <h3>{person.name}</h3>
-            <p class="person-title">{person.title}</p>
+            <div class="person-header">
+              <h3 class="person-name">{person.name}</h3>
+              <div class="person-social-icons">
+                {#if person.website}
+                  <a href={person.website} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Website">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </a>
+                {/if}
+                {#if person.linkedin}
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </a>
+                {/if}
+              </div>
+            </div>
+            <p class="person-bio">{person.bio || ''}</p>
           </div>
-        </button>
+        </div>
+      {/each}
+    </div>
+
+    <h2 class="section-heading">Robots</h2>
+    <div class="robots-grid">
+      {#each robots as robot}
+        <div class="robot-item">
+          <img
+            src={robot.image}
+            alt={robot.name}
+            class="robot-image"
+          />
+          <p class="robot-name">{robot.name}</p>
+        </div>
       {/each}
     </div>
   </div>
 </section>
 
-<!-- Modal dialog -->
-{#if modalOpen && selectedPerson}
-  <div 
-    class="modal-backdrop" 
-    transition:fade={{ duration: 200 }}
-    on:click={() => modalOpen = false}
-    on:keydown={(e) => e.key === 'Escape' && (modalOpen = false)}
-    role="presentation"
-  ></div>
-  
-  <div 
-    class="modal-container"
-    transition:scale={{ duration: 300, start: 0.95 }}
-    on:click={() => modalOpen = false}
-    on:keydown={(e) => e.key === 'Escape' && (modalOpen = false)}
-    role="presentation"
-  >
-    <div 
-      class="modal-content" 
-      on:click|stopPropagation
-      on:keydown={(e) => e.key === 'Escape' && (modalOpen = false)}
-      role="dialog"
-      aria-labelledby="modal-title"
-      tabindex="0"
-    >
-      <button class="modal-close" on:click={() => modalOpen = false} aria-label="Close modal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-      
-      <div class="modal-person-info">
-        <div class="modal-person-image-container">
-          <img 
-            src={selectedPerson.image || "/placeholder.svg"}
-            alt={selectedPerson.name || "Person profile"}
-            class="modal-person-image"
-          />
-        </div>
-        
-        <div class="modal-person-details">
-          <h2 id="modal-title" class="modal-person-name">{selectedPerson.name}</h2>
-          <p class="modal-person-title">{selectedPerson.title}</p>
-          
-          {#if selectedPerson.bio}
-            <div class="modal-person-bio">{selectedPerson.bio}</div>
-          {/if}
-          
-          <div class="modal-person-links">
-            {#if selectedPerson.website}
-              <a 
-                href={selectedPerson.website} 
-                class="modal-person-link website-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                </svg>
-                Personal Website
-              </a>
-            {/if}
-            
-            {#if selectedPerson.linkedin}
-              <a 
-                href={selectedPerson.linkedin} 
-                class="modal-person-link linkedin-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="link-icon">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-                LinkedIn
-              </a>
-            {/if}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{/if}
 
 <style>
-  /* People section */
-  .title-container {
-    text-align: center;
-    margin-bottom: -0.5rem;
-  }
-  
-  .title-wrapper {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-  }
-
-  .people-main-title {
-    margin-bottom: 0;
-    margin-top: 0;
-    font-size: 3rem;
-    color: var(--heading-color);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-  }
-
-  .camera-icon-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 12px;
-    opacity: 0.2;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .title-wrapper:hover .camera-icon-link {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-
-  .camera-icon {
-    width: 24px;
-    height: 24px;
-    color: var(--heading-color);
-  }
-
   .content-section {
-    padding: 2.5rem 0 4rem;
+    padding: 30px 0 80px;
+    background-color: white;
   }
 
   .people-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 4rem; /* Increased horizontal padding */
+    padding: 0 20px;
   }
 
-  .people-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 50px;
-    width: 100%;
-  }
-
-  .person-card {
-    background-color: var(--card-bg);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition:
-      transform 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67),
-      box-shadow 0.3s ease-out,
-      border-color 0.3s ease;
-    color: var(--text-color);
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgba(68, 147, 207, 0.1); /* UCLA Light Blue with low opacity */
-    background: none;
-    text-align: left;
-    font-family: inherit;
-    appearance: none;
-  }
-
-  /* Animation styles - applied to all person cards */
-  .person-card {
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-      opacity 1.6s cubic-bezier(0.215, 0.61, 0.355, 1),
-      /* Ease-out-cubic with longer duration */ transform 1.8s
-        cubic-bezier(0.165, 0.84, 0.44, 1),
-      /* Ease-out-quart with longer duration */ box-shadow 0.3s ease-out,
-      border-color 0.3s ease;
-    will-change: transform, opacity; /* Optimize animation performance */
-  }
-
-  /* Apply the animation effect only when JavaScript is enabled */
-  :global(html.js-enabled) .person-card:not(.in-view) {
-    opacity: 0;
-    transform: translateY(
-      60px
-    ); /* Increased distance for more pronounced effect */
-  }
-
-  /* Section heading animations - fade only */
-  .section-heading {
-    position: relative;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 2.2rem;
-    color: var(--heading-color); /* Uses UCLA Dark Blue from variables */
+  .page-title {
+    font-size: 2.5rem;
     font-weight: 600;
-    transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1); /* Longer duration for smoother fade */
-    opacity: 1;
-  }
-
-  :global(html.js-enabled) .section-heading:not(.heading-visible) {
-    opacity: 0;
-  }
-
-  .person-card.clickable {
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .person-card.clickable:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-    border-color: #4493CF; /* UCLA Blue */
-    background-color: rgba(68, 147, 207, 0.04); /* Very light UCLA blue background */
-  }
-
-  .person-image {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    flex-shrink: 0;
-    border-radius: 50%;
-    margin: 20px 20px 10px;
-    border: 3px solid #fcd729; /* UCLA Yellow */
-    box-shadow: 0 0 0 3px rgba(252, 215, 41, 0.2); /* UCLA Yellow glow */
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    background-color: #f0f0f0; /* Light background for images with transparency */
-  }
-
-  .person-card:hover .person-image {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 5px rgba(252, 215, 41, 0.3); /* UCLA Yellow glow */
-  }
-
-  .person-content {
-    padding: 0 20px 20px;
-    flex-grow: 1;
-    width: 100%;
-    text-align: center;
-  }
-
-  .person-card h3 {
-    margin: 0 0 8px;
-    font-size: 1.5rem;
-    color: var(--heading-color);
-    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 30px 0;
     letter-spacing: -0.02em;
   }
 
-  /* Person title styles */
-  .person-title {
-    color: #4493cf; /* UCLA Light Blue */
-    font-style: italic;
-    margin: 0 0 14px;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    font-weight: 500;
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
+  .section-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 40px 0 20px 0;
+  }
+
+  .section-heading:first-of-type {
     margin-top: 0;
   }
 
-  @media (max-width: 992px) {
-    .people-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+  .people-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .person-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    scroll-margin-top: 100px;
+  }
+
+  .person-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .person-content {
+    flex: 1;
+  }
+
+  .person-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .person-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4493CF;
+    margin: 0;
+  }
+
+  .person-social-icons {
+    display: flex;
+    gap: 6px;
+  }
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #4493CF;
+    color: white;
+    transition: background-color 0.2s ease;
+  }
+
+  .social-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .social-icon:hover {
+    background-color: #2a7ab8;
+  }
+
+  .person-bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333333;
+    margin: 0;
+  }
+
+  .robots-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .robot-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .robot-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .robot-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0;
+    text-align: center;
   }
 
   @media (max-width: 768px) {
-    .person-image {
-      width: 120px;
-      height: 120px;
-      margin: 16px 16px 10px;
-    }
-
-    .person-content {
-      padding: 0 16px 16px;
-    }
-
-    .person-card h3 {
+    .section-heading {
       font-size: 1.3rem;
+      margin: 35px 0 18px 0;
     }
 
-    .person-title {
-      font-size: 1rem;
-    }
-  }
-
-  @media (max-width: 580px) {
-    .people-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .person-card {
-      padding-bottom: 20px;
-    }
-
-    .person-image {
-      width: 140px;
-      height: 140px;
-      margin: 20px 0 10px 0;
-    }
-
-    .person-content {
-      padding: 0 20px 20px;
-    }
-
-    .person-title::after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* External link icon removed */
-  }
-
-  @media (max-width: 480px) {
-    .people-grid {
+    .person-item {
       gap: 16px;
     }
 
     .person-image {
-      width: 140px;
-      height: 140px;
+      width: 100px;
+      height: 100px;
     }
 
-    .person-card h3 {
-      font-size: 1.2rem;
+    .person-name {
+      font-size: 1.05rem;
     }
-  }
-  
-  /* Modal Styles */
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-  }
-  
-  .modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 101;
-    padding: 20px;
-  }
-  
-  .modal-content {
-    background-color: var(--card-bg);
-    border-radius: 18px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    border: 1px solid rgba(68, 147, 207, 0.2);
-  }
-  
-  .modal-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    opacity: 0.7;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    z-index: 5;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .modal-close:hover {
-    opacity: 1;
-    transform: scale(1.1);
-    background-color: white;
-  }
-  
-  .modal-person-info {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-  }
-  
-  .modal-person-image-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .modal-person-image {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #fcd729;
-    box-shadow: 0 0 0 4px rgba(252, 215, 41, 0.2);
-  }
-  
-  .modal-person-details {
-    text-align: center;
-  }
-  
-  .modal-person-name {
-    font-size: 2rem;
-    margin: 0 0 10px;
-    color: var(--heading-color);
-    font-weight: 600;
-  }
-  
-  .modal-person-title {
-    color: #4493cf;
-    font-size: 1.2rem;
-    margin: 0 0 20px;
-    font-style: italic;
-    font-weight: 500;
-  }
-  
-  .modal-person-bio {
-    line-height: 1.6;
-    color: var(--text-color);
-    margin-bottom: 25px;
-    text-align: left;
-  }
-  
-  .modal-person-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 20px;
+
+    .person-bio {
+      font-size: 0.9rem;
+    }
   }
 
-  .modal-person-link {
-    display: inline-flex;
-    align-items: center;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 30px;
-    transition: all 0.2s ease;
-    gap: 8px;
-  }
-
-  .website-link, .linkedin-link {
-    color: #4493cf; /* UCLA Blue */
-    border: 2px solid #4493cf;
-  }
-  
-  .website-link:hover, .linkedin-link:hover {
-    background-color: #4493cf;
-    color: white;
-  }
-  
-  .link-icon {
-    transition: transform 0.2s ease;
-  }
-  
-  .modal-person-link:hover .link-icon {
-    transform: translateX(2px);
-  }
-  
-  @media (min-width: 768px) {
-    .modal-person-info {
-      flex-direction: row;
-      align-items: center; /* Center items vertically */
-    }
-    
-    .modal-person-image-container {
-      margin-right: 30px;
-      margin-bottom: 0;
-      display: flex;
-      align-items: center; /* Center image vertically */
-    }
-    
-    .modal-person-details {
-      text-align: left;
-      flex: 1;
-    }
-  }
-  
   @media (max-width: 480px) {
-    .modal-content {
-      padding: 20px;
+    .person-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
-    
-    .modal-person-image {
-      width: 140px;
-      height: 140px;
-    }
-    
-    .modal-person-name {
-      font-size: 1.6rem;
+
+    .person-header {
+      justify-content: center;
     }
   }
 </style>

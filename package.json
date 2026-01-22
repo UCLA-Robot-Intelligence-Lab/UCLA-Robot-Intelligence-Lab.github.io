@@ -1,5 +1,5 @@
 {
-	"name": "fresh-svelte-app",
+	"name": "ucla-robot-intelligence-lab-website",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",

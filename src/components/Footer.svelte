@@ -5,14 +5,14 @@
 <footer>
   <div class="footer-accent"></div>
   <div class="footer-container">
-    <p>© {year} UCLA Robot Intelligence Lab. Hosted by GitHub Pages.</p>
+    <p>© {year} UCLA Robot Intelligence Lab.</p>
   </div>
 </footer>
 
 <style>
   footer {
-    background-color: var(--card-bg);
-    color: var(--text-color);
+    background-color: white;
+    color: #333333;
     padding: 30px 0;
     margin-top: 0px;
     text-align: center;
@@ -27,12 +27,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(
-      90deg,
-      var(--ucla-yellow) 0%,
-      var(--ucla-light-blue) 50%,
-      var(--ucla-dark-blue) 100%
-    );
+    background: var(--ucla-light-blue);
   }
 
   .footer-container {
