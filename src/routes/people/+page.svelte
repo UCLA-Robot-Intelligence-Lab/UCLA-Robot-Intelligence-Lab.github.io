@@ -107,7 +107,7 @@ const people: PeopleData = {
         name: "Yike Shi",
         title: "Undergraduate Student in CE",
         image: "/about-people/yike.jpg",
-        bio: "Yike is a sophomore at UCLA majoring in Computer Engineering. He is deeply fascinated by both classical control and AI in robotics, with a focus on robotics learning, algorithms, and vision. His research interests also include exploring privacy and security challenges in AI models. Coming from Nanjing, China, Yike is skilled at cooking authentic Chinese cuisine and enjoys playing soccer and badminton.",
+        bio: "Yike is a junior at UCLA majoring in Computer Engineering. He is deeply fascinated by both classical control and AI in robotics, with a focus on robotics learning, algorithms, and vision. His research interests also include exploring privacy and security challenges in AI models. Coming from Nanjing, China, Yike is skilled at cooking authentic Chinese cuisine and enjoys playing soccer and badminton.",
         website: "https://yik3.github.io/Yike-Shi.github.io/",
         linkedin: "https://www.linkedin.com/in/yike-shi-996304264/",
       },
