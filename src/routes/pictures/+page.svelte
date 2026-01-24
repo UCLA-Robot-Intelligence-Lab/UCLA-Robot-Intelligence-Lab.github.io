@@ -13,11 +13,31 @@
 
   // Array of lab images with descriptions
   const labImages: GalleryImage[] = [
-    // {
-    //   url: "/lab-pics/lab1.jpg",
-    //   caption: "CORL Submission Celebration",
-    //   alt: "CORL Submission Celebration",
-    // },
+    {
+      url: "/lab-pics/labphoto.jpg",
+      caption: "Winter 2026",
+      alt: "Winter 2026",
+    },
+    {
+      url: "/lab-pics/fall2025.jpg",
+      caption: "Fall 2025",
+      alt: "Fall 2025",
+    },
+    {
+      url: "/lab-pics/lab10.jpg",
+      caption: "BBQ Social (Summer 2025)",
+      alt: "BBQ Social",
+    },
+    {
+      url: "/lab-pics/SURE2025.jpg",
+      caption: "Fall 2025",
+      alt: "SURE 2025",
+    },
+    {
+      url: "/lab-pics/surp2025.jpg",
+      caption: "SURP 2025",
+      alt: "SURP 2025",
+    },
     {
       url: "/lab-pics/lab2.jpg",
       caption: "Lab Meeting Social",
@@ -49,20 +69,10 @@
       alt: "Lab Picnic Social",
     },
     {
-      url: "/lab-pics/lab8.jpg",
-      caption: "Lab birthday celebration",
-      alt: "Lab birthday celebration",
-    },
-    {
       url: "/lab-pics/lab9.jpg",
       caption: "Hard at Work",
       alt: "Hard at Work",
-    },
-    {
-      url: "/lab-pics/lab10.jpg",
-      caption: "Lab BBQ Social",
-      alt: "Lab BBQ Social",
-    },
+    }
   ];
 
   // Lightbox state
