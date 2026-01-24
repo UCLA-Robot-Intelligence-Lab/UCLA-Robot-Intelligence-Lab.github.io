@@ -92,7 +92,7 @@
   <Container>
     <div class="hero-content">
       <div class="hero-image-wrapper">
-        <img src="/lab-pics/labphoto.jpg" alt="UCLA Robot Intelligence Lab" class="hero-image" />
+        <img src="/lab-pics/labphoto_converted.jpg" alt="UCLA Robot Intelligence Lab" class="hero-image" />
       </div>
       <div class="hero-description">
         <p>
@@ -224,7 +224,7 @@
   }
 
   .hero-image-wrapper {
-    width: 100%;
+    width: 80%;
     max-width: 900px;
     margin: 0 auto 35px auto;
     border-radius: 12px;

@@ -13,11 +13,11 @@
 
   // Array of lab images with descriptions
   const labImages: GalleryImage[] = [
-    {
-      url: "/lab-pics/lab1.jpg",
-      caption: "CORL Submission Celebration",
-      alt: "CORL Submission Celebration",
-    },
+    // {
+    //   url: "/lab-pics/lab1.jpg",
+    //   caption: "CORL Submission Celebration",
+    //   alt: "CORL Submission Celebration",
+    // },
     {
       url: "/lab-pics/lab2.jpg",
       caption: "Lab Meeting Social",
