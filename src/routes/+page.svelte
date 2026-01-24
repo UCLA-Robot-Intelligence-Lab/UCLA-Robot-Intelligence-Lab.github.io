@@ -4,9 +4,15 @@
   import ExternalLink from 'lucide-svelte/icons/external-link';
 
   const newsItems = [
-    {
-      date: 'Jan 23, 2026',
-      description: '2 papers submitted to ICML!'
+  {date: 'Jan 10, 2026',
+  parts: [
+        { text: 'GAMMA', link: 'https://arxiv.org/abs/2601.05336' },
+        { text: ' is on arXiv now' }
+      ]
+  },  
+  {
+      date: 'Dec 5, 2025',
+      description: 'Disco is accepted to HRI 2026!'
     },
     {
       date: 'Oct 20, 2025',
