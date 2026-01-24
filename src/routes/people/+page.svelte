@@ -8,7 +8,7 @@ const people: PeopleData = {
       {
         name: "Yuchen Cui",
         title: "Lab Director, Assistant Professor",
-        image: "/about-people/yuchen-cui.jpg",
+        image: "/about-people/yuchen-cui.png",
         bio: "Yuchen is an Assistant Professor in the Computer Science Department. Yuchen's research lies at the intersection of machine learning, robotics, and human-robot interaction. Her work focuses on developing algorithms, frameworks, and systems that facilitate efficient robot learning from human interactions.",
         website: "https://yuchencui.cc/",
         linkedin: "https://www.linkedin.com/in/yuchen-cui-4702a548/",
