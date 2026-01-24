@@ -151,15 +151,15 @@ const people: PeopleData = {
   // Robots data
   const robots = [
     {
-      name: "xArm",
+      name: "Snap (Ufactory xArm)",
       image: "/about-people/xarm.png"
     },
     {
-      name: "Bimanual Robot",
+      name: "Crackle (Galaxea Leader-Follower)",
       image: "/about-people/bimanual.png"
     },
     {
-      name: "Humanoid Robot",
+      name: "Pop (Realman Humanoid)",
       image: "/about-people/humanoid.png"
     }
   ];
