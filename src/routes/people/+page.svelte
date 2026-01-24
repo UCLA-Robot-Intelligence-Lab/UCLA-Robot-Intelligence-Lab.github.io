@@ -627,7 +627,7 @@ const people: PeopleData = {
 
   .robots-grid {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     margin-bottom: 40px;
     flex-wrap: wrap;
   }
@@ -640,8 +640,8 @@ const people: PeopleData = {
   }
 
   .robot-image {
-    width: 120px;
-    height: 120px;
+    width: 320px;
+    height: 220px;
     border-radius: 8px;
     object-fit: cover;
   }
