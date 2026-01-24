@@ -92,7 +92,7 @@
   <Container>
     <div class="hero-content">
       <div class="hero-image-wrapper">
-        <img src="/lab-pics/labphoto_converted.jpg" alt="UCLA Robot Intelligence Lab" class="hero-image" />
+        <img src="/lab-pics/labphoto_converted.png" alt="UCLA Robot Intelligence Lab" class="hero-image" />
       </div>
       <div class="hero-description">
         <p>
