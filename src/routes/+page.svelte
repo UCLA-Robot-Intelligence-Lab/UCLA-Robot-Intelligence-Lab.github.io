@@ -96,13 +96,7 @@
       </div>
       <div class="hero-description">
         <p>
-          At the UCLA Robot Intelligence Lab (URIL), we are committed to 
-          advancing the fields of robotics and artificial intelligence through innovative research. 
-          Our goal is to develop intelligent systems that can adapt, learn efficiently, and collaborate effectively 
-          with humans. We focus on both robot skill learning and human-robot interaction, aiming to address 
-          practical challenges and contribute to meaningful applications. At URIL, we seek to bridge technical 
-          advancements with human-centered design, working toward a future where intelligent robots seamlessly 
-          integrate into and enhance everyday life.
+          At the UCLA Robot Intelligence Lab (URIL), we explore how robots can learn, adapt, and work alongside people in the real world. Our research brings together robotics and artificial intelligence to help robots acquire new skills from data and experience, respond to changing environments, and collaborate naturally with humans. We focus on robot skill learning and human–robot interaction, with an emphasis on systems that are understandable, usable, and ready for real-world settings. By combining advances in learning and autonomy with human-centered design, URIL aims to develop intelligent robots that meaningfully support and enhance everyday life.
         </p>
       </div>
     </div>
