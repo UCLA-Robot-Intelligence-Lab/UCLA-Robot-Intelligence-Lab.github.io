@@ -140,44 +140,37 @@
       <p class="research-brief">
         URIL is dedicated to advancing the development of intelligent robots
         that can be tailored to diverse end-user needs. To achieve this vision,
-        our research focuses on two key areas:
-      </p>
-    </div>
+        our research focuses on three key areas:
     
-    <div class="research-areas">
-      <div class="research-area">
-        <div class="research-media">
-          <img src="/robot_skills.gif" alt="Robot performing manipulation skills" />
-        </div>
-        <div class="research-text">
-          <h3>Improving Robot Skill Learning</h3>
+          <h3>Data- & Motion-Centric Robot Learning</h3>
           <p>
-            We aim to improve the efficiency and adaptability of robots by
-            enabling few-shot and zero-shot learning capabilities. Our
-            approach includes developing structured learning frameworks such
-            as novel action representations that facilitate efficient
-            learning, and intermediate representations of motion that bridge
-            visual representation and low-level motions.
+            We develop data- and motion-centric learning algorithms that decide
+            which experiences are most useful for robots to learn from. By
+            modeling demonstration quality and using motion-focused
+            representations such as optical flow and structured action spaces,
+            we enable robots to retrieve and reuse relevant past experiences
+            for few-shot and robust skill learning.
           </p>
-        </div>
-      </div>
-
-      <div class="research-area">
-        <div class="research-media">
-          <img src="/gestures.gif" alt="Human gestures and interaction modeling" />
-        </div>
-        <div class="research-text">
-          <h3>Advancing Human Modeling</h3>
+     
+          <h3>Multimodal Intent-Aware Interactive Learning</h3>
           <p>
-            We draw inspiration from human interaction with the physical world
-            and other agents to design learning algorithms that improve
-            human-robot collaboration. Our efforts focus on designing
-            algorithms that mirror how humans interact with the environment,
-            and leverage multimodal human cues for human-robot interaction, in
-            both shared and full autonomy settings.
+            We design interactive learning algorithms that treat language,
+            gestures, gaze, and audio as first-class supervision signals. Our
+            work builds models of human intent from these multimodal cues so
+            that robots can be corrected, guided, and collaborated with in
+            natural ways by everyday users, in both shared and full autonomy
+            settings.
           </p>
-        </div>
-      </div>
+      
+          <h3>Time- & Memory-Aware Robot Learning</h3>
+          <p>
+            We investigate how robots can build structured, time-aware memories
+            of past interactions to personalize and adapt over days and weeks.
+            Our research develops multi-timescale internal state, retrieval
+            mechanisms, and user-controllable memory that let robots remember,
+            forget, and update behavior in ways that remain safe, predictable,
+            and socially acceptable.
+          </p>
     </div>
   </Container>
 </section>
