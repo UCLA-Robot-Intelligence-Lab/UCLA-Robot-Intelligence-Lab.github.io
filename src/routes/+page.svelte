@@ -144,32 +144,29 @@
     
           <h3>Data- & Motion-Centric Robot Learning</h3>
           <p>
-            We develop data- and motion-centric learning algorithms that decide
-            which experiences are most useful for robots to learn from. By
-            modeling demonstration quality and using motion-focused
-            representations such as optical flow and structured action spaces,
-            we enable robots to retrieve and reuse relevant past experiences
-            for few-shot and robust skill learning.
+            Robots today often learn from large, passively collected datasets, but in real deployments the quality and structure of interaction data matters as much as its quantity. We develop theory, algorithms, and tools for understanding what makes a demonstration or interaction useful for learning, and for selecting and retrieving the right past experiences when training or adapting policies.
+
+            On the data side, we study how properties such as action consistency, transition diversity, and coverage of task variations predict downstream policy performance and robustness. This leads to concrete metrics for demonstration quality and principled methods for aggregating, filtering, and reweighting interaction data. On the motion side, we treat how things move—for example via optical flow and other motion fields—as a first-class representation: our work on flow-based retrieval shows that motion-centric embeddings can be more informative than appearance alone when reusing prior experiences.
+
+            Putting these together, we design robot learning systems that (1) score and curate demonstrations using data-quality metrics, (2) represent actions in hybrid or flow-based spaces that emphasize consistent, transferable motions, and (3) retrieve motion- and task-relevant episodes from large experience buffers or datasets to improve few-shot imitation and generalization. This direction provides the algorithmic backbone for the rest of the lab: it defines what gets into memory and what the robot can efficiently adapt from.
           </p>
      
           <h3>Multimodal Intent-Aware Interactive Learning</h3>
           <p>
-            We design interactive learning algorithms that treat language,
-            gestures, gaze, and audio as first-class supervision signals. Our
-            work builds models of human intent from these multimodal cues so
-            that robots can be corrected, guided, and collaborated with in
-            natural ways by everyday users, in both shared and full autonomy
-            settings.
+            Humans rarely teach robots by providing perfectly labeled trajectories. Instead, they point, gesture, correct, complain, and occasionally say “no, a bit more to the right.” Our second research direction builds learning algorithms and interaction protocols that treat these rich, multimodal signals as primary learning channels rather than “extra” inputs.
+
+          We develop methods for robots to learn from low-effort interactive feedback—natural language corrections, deictic gestures, gaze shifts, and audio cues such as prosody or emphasis. Instead of assuming a single type of supervision, we unify these into a shared framework where each signal provides evidence about a latent human intent: what the person wants the robot to do, how confident they are, and whether the current behavior is acceptable. Policies are then conditioned on these intent estimates, allowing robots to refine actions on the fly, adjust assistance levels, and resolve ambiguity in cluttered or multi-object scenes.
+
+          This direction also asks interface and HRI questions: How should robots expose their internal state so that people can efficiently correct them? When is a natural language correction better than a joystick nudge or a gaze shift, and how do non-experts prefer to teach? By combining algorithm design with user studies, we aim to create interactive learning systems in which everyday users can shape robot behavior using the channels that feel most natural to them, while the robot fuses those signals into a coherent, action-relevant model of intent.
           </p>
       
           <h3>Time- & Memory-Aware Robot Learning</h3>
           <p>
-            We investigate how robots can build structured, time-aware memories
-            of past interactions to personalize and adapt over days and weeks.
-            Our research develops multi-timescale internal state, retrieval
-            mechanisms, and user-controllable memory that let robots remember,
-            forget, and update behavior in ways that remain safe, predictable,
-            and socially acceptable.
+            Most current robot policies operate with, at best, a short context window. They can react to recent history, but they lack a structured sense of time: what happened earlier today versus last week, which experiences belong to which person, and which learned behaviors are outdated or mistaken. Our third research direction tackles this head-on by building time- and memory-aware learning mechanisms for long-term human–robot interaction.
+
+            We view a robot’s past experiences with people as a structured, queryable memory rather than an amorphous collection of training data. Episodes are stored with temporal and social context—who was involved, when and where events occurred, how the human reacted, and how well the robot’s behavior worked. On top of this, we design policies that can retrieve and reuse this experience in a time-sensitive way: emphasizing recent, high-quality interactions; recognizing stable long-term preferences; and down-weighting or forgetting outdated or unreliable information.
+
+            Technically, this includes multi-timescale internal state (fast interaction context, session-level adaptation, and slow user- or environment-specific parameters), small personalized adapters or latent codes that can be saved and reloaded as “memories,” and retrieval mechanisms that select relevant prior episodes based on current observations, motion, and inferred intent. Socially, it raises questions that we explicitly study: when should a robot forget or roll back learned behavior, how should it communicate what it remembers, and how do different memory behaviors affect trust, predictability, and comfort over weeks or months of interaction.
           </p>
     </div>
   </Container>
