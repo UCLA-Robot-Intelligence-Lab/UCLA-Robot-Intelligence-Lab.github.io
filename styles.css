@@ -439,6 +439,30 @@ main {
     margin: 0;
 }
 
+/* Sponsors */
+.sponsors {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.sponsors a {
+    display: inline-block;
+    transition: opacity 0.2s ease;
+}
+
+.sponsors a:hover {
+    opacity: 0.7;
+}
+
+.sponsors img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}
+
 /* Footer */
 footer {
     background-color: #f8f9fa;
