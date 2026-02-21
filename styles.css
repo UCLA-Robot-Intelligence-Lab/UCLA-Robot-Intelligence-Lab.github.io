@@ -520,6 +520,10 @@ footer {
     .content p {
         padding: 0;
     }
+
+    .sponsors img {
+        height: 24px;
+    }
 }
 
 @media (max-width: 750px) {
