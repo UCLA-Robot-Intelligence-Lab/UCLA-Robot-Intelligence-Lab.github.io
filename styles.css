@@ -1,0 +1,509 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Palatino, "Palatino Linotype", "Book Antiqua", serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation Bar */
+header {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    font-family: Palatino, "Palatino Linotype", "Book Antiqua", serif;
+}
+
+nav a {
+    text-decoration: none;
+    color: #999;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: rgb(24, 45, 88);
+    text-decoration: underline;
+}
+
+/* Main Content */
+main {
+    margin-top: 16px;
+    min-height: calc(100vh - 160px);
+}
+
+.content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem 2rem;
+    width: 100%;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+.group-photo {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.group-photo img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.lab-name {
+    font-weight: 700;
+    color: rgb(24, 45, 88);
+}
+
+.content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+    text-align: left;
+}
+
+.year-header {
+    font-size: 1.05rem;
+    color: rgb(24, 45, 88);
+    margin: 1.5rem 0 1.2rem 0;
+    padding-bottom: 0.15rem;
+    position: relative;
+}
+
+.year-header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 0.15rem;
+    margin-bottom: 1rem;
+}
+
+.people-list .year-header {
+    margin-top: 0.5rem;
+}
+
+.people-list .year-header:first-child {
+    margin-top: 0.25rem;
+}
+
+.year-header:first-child {
+    margin-top: 1rem;
+}
+
+.publication-with-video {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.publication-video {
+    flex-shrink: 0;
+    width: 28%;
+}
+
+.publication-video video,
+.publication-video img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.publication-text {
+    flex: 1;
+}
+
+.authors .authors-extra {
+    display: none;
+}
+
+.authors-ellipsis {
+    cursor: pointer;
+    color: rgb(24, 45, 88);
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+}
+
+.authors:hover .authors-extra {
+    display: inline;
+}
+
+.authors:hover .authors-ellipsis {
+    display: none;
+}
+
+.publication {
+    margin: 0 0 1.5rem 0;
+}
+
+.publication h3 {
+    font-size: 0.95rem;
+    color: #000;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.publication .authors {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 0.3rem;
+    padding: 0;
+}
+
+.publication .venue {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.3rem;
+    padding: 0;
+}
+
+.publication .paper-link {
+    font-size: 0.85rem;
+    color: rgb(24, 45, 88);
+    text-decoration: none;
+    margin-right: 0.4rem;
+}
+
+.publication .links {
+    margin-top: 0.3rem;
+}
+
+.publication .paper-link:hover {
+    text-decoration: underline;
+}
+
+.latest-header {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(24, 45, 88);
+    margin: 1.75rem 0 0.75rem 0;
+}
+
+.updates-list {
+    list-style: disc;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.updates-list li {
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.update-date {
+    color: #999;
+    font-size: 0.8rem;
+    margin-right: 0.4rem;
+}
+
+.updates-list a {
+    color: rgb(24, 45, 88);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.updates-list a:hover {
+    text-decoration: underline;
+}
+
+/* People page styles */
+.people-section {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    font-weight: normal;
+}
+
+.people-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+}
+
+.person {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    justify-content: flex-start;
+    margin-left: 0;
+}
+
+.person-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.person-details {
+    padding-top: 0.25rem;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.person-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    text-align: left;
+}
+
+.person-info {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0.0rem 0 0 0;
+    line-height: 1.4;
+    text-align: left;
+    padding-left: 0;
+
+}
+
+.link-button {
+    font-size: 0.85rem;
+    color: rgb(24, 45, 88);
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    background-color: rgba(247, 219, 73, 0.25);
+    transition: all 0.2s ease;
+}
+
+.link-button:hover {
+    background-color: rgba(247, 219, 73, 0.5);
+}
+
+.students-grid {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0;
+    margin-top: 0.15rem;
+    flex-wrap: wrap;
+}
+
+.student {
+    text-align: center;
+}
+
+.student-image {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.1rem;
+}
+
+.student-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.student-name a {
+    color: rgb(24, 45, 88);
+    text-decoration: underline;
+}
+
+.student-name a:hover {
+    opacity: 0.75;
+}
+
+.student-info {
+    font-size: 0.6rem;
+    color: #aaa;
+    margin: 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .person {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .person-image {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .person-info {
+        text-align: center;
+    }
+
+    .person-links {
+        justify-content: center;
+    }
+}
+
+.section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.section p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 160px);
+}
+
+/* Contact page styles */
+.contact-section p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+}
+
+.contact-section a {
+    color: rgb(24, 45, 88);
+    text-decoration: underline;
+}
+
+.contact-section a:hover {
+    opacity: 0.75;
+}
+
+.contact-note {
+    margin-top: 1rem;
+    background-color: #f9f9f9;
+    border-left: 3px solid rgb(24, 45, 88);
+    border-radius: 4px;
+    padding: 0.75rem 1.25rem;
+}
+
+.contact-note p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Responsive Design */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    margin-left: auto;
+}
+
+@media (max-width: 568px) {
+    .hamburger {
+        display: block;
+    }
+
+    header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        padding-top: 0.5rem;
+        align-items: flex-end;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    .content {
+        padding: 0 1rem 3rem 1rem;
+    }
+
+    .content p {
+        padding: 0;
+    }
+}
+
+@media (max-width: 750px) {
+    .publication-with-video {
+        flex-direction: column;
+    }
+
+    .publication-video {
+        width: 55%;
+    }
+}
