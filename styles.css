@@ -463,6 +463,38 @@ main {
     object-fit: contain;
 }
 
+/* Home Videos */
+.home-videos {
+    display: table;
+    width: 100%;
+    border-spacing: 1rem 0;
+    margin: 1.5rem -1rem 1.5rem -1rem;
+}
+
+.home-video-card {
+    display: table-cell;
+    width: 33.33%;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+.home-video-card video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.home-video-title {
+    display: block;
+    padding: 0.6rem 0 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgb(24, 45, 88);
+    text-align: center;
+}
+
 /* Footer */
 footer {
     background-color: #f8f9fa;
@@ -523,6 +555,18 @@ footer {
 
     .sponsors img {
         height: 24px;
+    }
+}
+
+@media (max-width: 568px) {
+    .home-videos {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .home-video-title {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.4rem;
     }
 }
 
