@@ -472,6 +472,7 @@ main {
 
 .home-video-card {
     flex: 1;
+    min-width: 0;
     text-decoration: none;
 }
 
