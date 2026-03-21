@@ -465,16 +465,13 @@ main {
 
 /* Home Videos */
 .home-videos {
-    display: table;
-    width: 100%;
-    border-spacing: 1rem 0;
-    margin: 1.5rem -1rem 1.5rem -1rem;
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
 }
 
 .home-video-card {
-    display: table-cell;
-    width: 33.33%;
-    vertical-align: top;
+    flex: 1;
     text-decoration: none;
 }
 
@@ -489,8 +486,8 @@ main {
 .home-video-title {
     display: block;
     padding: 0.6rem 0 0 0;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: clamp(0.75rem, 1.3vw, 0.92rem);
+    font-weight: normal;
     color: rgb(24, 45, 88);
     text-align: center;
 }
