@@ -23,7 +23,37 @@
     <main>
         <div class="content">
             <div class="group-photo">
-                <img src="labphoto.jpg" alt="URIL Lab">
+                <div class="gallery" id="lab-gallery">
+                    <div class="gallery-track">
+                        <figure class="gallery-slide is-active">
+                            <img src="labphotos/winter2026.jpg" alt="URIL Lab — Winter 2026">
+                            <figcaption>Winter 2026</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/fall2025.jpg" alt="URIL Lab — Fall 2025">
+                            <figcaption>Fall 2025</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/summer2025.jpg" alt="URIL Lab — Summer 2025">
+                            <figcaption>Summer 2025</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/spring2025.jpg" alt="URIL Lab — Spring 2025">
+                            <figcaption>Spring 2025</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/winter2025.jpg" alt="URIL Lab — Winter 2025">
+                            <figcaption>Winter 2025</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/fall2024.jpg" alt="URIL Lab — Fall 2024">
+                            <figcaption>Fall 2024</figcaption>
+                        </figure>
+                    </div>
+                    <button class="gallery-nav gallery-prev" aria-label="Previous photo">&#10094;</button>
+                    <button class="gallery-nav gallery-next" aria-label="Next photo">&#10095;</button>
+                    <div class="gallery-dots"></div>
+                </div>
             </div>
 <p>Welcome to the <span class="lab-name">UCLA Robot Intelligence Lab</span> (URIL). We explore how robots can learn, adapt, and work alongside people in the real world. Our research combines robot skill learning and human–robot interaction to build intelligent systems that are ready for real-world use.</p>
 
@@ -44,6 +74,7 @@
 
         <h2 class="latest-header">Updates</h2>
         <ul class="updates-list">
+            <li><span class="update-date">May 2026</span> <a href="https://arxiv.org/abs/2605.20355">Proximal State Nudging</a> is out, on reducing skill atrophy from AI assistance.</li>
             <li><span class="update-date">Mar 2026</span> <a href="https://arxiv.org/abs/2603.17323">DexEXO</a> and <a href="https://arxiv.org/abs/2603.17065">TeleDex</a> are out, works to scale dexterous manipulation.</li>
             <li><span class="update-date">Feb 2026</span> <a href="https://arxiv.org/abs/2602.11337">MolmoSpaces</a> is out, a large-scale open ecosystem for robot manipulation.</li>
             <li><span class="update-date">Feb 2026</span> <a href="publications.html">DiSCo</a> accepted at HRI 2026.</li>
@@ -54,6 +85,42 @@
 
         </div>
     </main>
+
+    <script>
+        (function () {
+            const gallery = document.getElementById('lab-gallery');
+            if (!gallery) return;
+            const slides = Array.from(gallery.querySelectorAll('.gallery-slide'));
+            const dotsContainer = gallery.querySelector('.gallery-dots');
+            let current = 0;
+            let timer;
+
+            const dots = slides.map((_, i) => {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+                dot.addEventListener('click', () => { show(i); reset(); });
+                dotsContainer.appendChild(dot);
+                return dot;
+            });
+
+            function show(i) {
+                current = (i + slides.length) % slides.length;
+                slides.forEach((s, idx) => s.classList.toggle('is-active', idx === current));
+                dots.forEach((d, idx) => d.classList.toggle('is-active', idx === current));
+            }
+
+            function reset() {
+                clearInterval(timer);
+                timer = setInterval(() => show(current + 1), 5000);
+            }
+
+            gallery.querySelector('.gallery-next').addEventListener('click', () => { show(current + 1); reset(); });
+            gallery.querySelector('.gallery-prev').addEventListener('click', () => { show(current - 1); reset(); });
+
+            show(0);
+            reset();
+        })();
+    </script>
 
 </body>
 </html>
