@@ -239,6 +239,18 @@ main {
     border: 1px solid #ddd;
 }
 
+.publication-video--short {
+    text-align: center;
+}
+
+.publication-video--short video,
+.publication-video--short img {
+    width: auto;
+    max-width: 100%;
+    max-height: 195px;
+    margin: 0 auto;
+}
+
 .publication-text {
     flex: 1;
 }
