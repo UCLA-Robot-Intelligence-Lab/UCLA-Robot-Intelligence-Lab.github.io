@@ -251,6 +251,14 @@ main {
     margin: 0 auto;
 }
 
+.publication-video--match video {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top;
+}
+
 .publication-text {
     flex: 1;
 }
