@@ -254,9 +254,9 @@ main {
 .publication-video--match video {
     width: 100%;
     height: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 798 / 583;
     object-fit: cover;
-    object-position: top;
+    object-position: center 11%;
 }
 
 .publication-text {
