@@ -86,21 +86,19 @@ main {
 }
 
 .gallery-track {
-    position: relative;
+    display: grid;
     width: 100%;
 }
 
 .gallery-slide {
+    grid-area: 1 / 1 / 2 / 2;
     margin: 0;
-    position: absolute;
-    inset: 0;
     opacity: 0;
     transition: opacity 0.6s ease;
     pointer-events: none;
 }
 
 .gallery-slide.is-active {
-    position: relative;
     opacity: 1;
     pointer-events: auto;
 }
