@@ -88,6 +88,8 @@ main {
 .gallery-track {
     display: grid;
     width: 100%;
+    aspect-ratio: 4707 / 2744;
+    background: #f2f2f2;
 }
 
 .gallery-slide {
@@ -106,7 +108,7 @@ main {
 .gallery-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
