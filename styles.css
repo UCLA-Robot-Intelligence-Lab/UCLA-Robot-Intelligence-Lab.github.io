@@ -82,18 +82,19 @@ main {
     position: relative;
     width: 100%;
     overflow: hidden;
-    border-radius: 8px;
 }
 
 .gallery-track {
-    display: grid;
+    position: relative;
     width: 100%;
-    aspect-ratio: 4707 / 2744;
+    aspect-ratio: 16 / 9;
     background: #f2f2f2;
+    overflow: hidden;
 }
 
 .gallery-slide {
-    grid-area: 1 / 1 / 2 / 2;
+    position: absolute;
+    inset: 0;
     margin: 0;
     opacity: 0;
     transition: opacity 0.6s ease;
@@ -103,12 +104,13 @@ main {
 .gallery-slide.is-active {
     opacity: 1;
     pointer-events: auto;
+    cursor: pointer;
 }
 
 .gallery-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
 }
 
@@ -120,7 +122,7 @@ main {
     padding: 0.6rem 1rem;
     color: #fff;
     font-size: 0.85rem;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .gallery-nav {
@@ -160,14 +162,26 @@ main {
 }
 
 .gallery-dots button {
-    width: 0.55rem;
-    height: 0.55rem;
+    width: 0.35rem;
+    height: 0.35rem;
     border-radius: 50%;
     border: none;
     padding: 0;
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: background 0.2s ease;
+    background-clip: content-box;
+    box-sizing: content-box;
+}
+
+.gallery-dots button::before {
+    content: "";
+    position: absolute;
+    inset: -0.4rem;
+}
+
+.gallery-dots button {
+    position: relative;
 }
 
 .gallery-dots button.is-active {
