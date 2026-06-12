@@ -326,7 +326,16 @@ main {
     font-size: 0.85rem;
     color: rgb(24, 45, 88);
     text-decoration: none;
-    margin-right: 0.4rem;
+    margin-right: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+}
+
+.publication .link-icon {
+    width: 0.95em;
+    height: 0.95em;
+    flex-shrink: 0;
 }
 
 .publication .links {

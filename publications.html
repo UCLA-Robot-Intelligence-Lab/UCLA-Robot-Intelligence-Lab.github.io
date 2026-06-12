@@ -9,6 +9,22 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+    <!-- Inline icon sprite (Lucide file-text / GitHub mark / Lucide globe) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="i-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+            <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+            <path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>
+        </symbol>
+        <symbol id="i-code" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </symbol>
+        <symbol id="i-website" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+            <path d="M2 12h20"/>
+        </symbol>
+    </svg>
     <header>
         <a href="index.html"><img src="logo.png" alt="URIL Logo" class="logo"></a>
         <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
@@ -32,7 +48,7 @@
                     <p class="authors">Megha Srivastava, Jonathan Ouyang, Eric Zhou, Andrew Silva, Emily Sumner, Dorsa Sadigh, Yuchen Cui, Deepak Gopinath, Guy Rosman</p>
                     <p class="venue">In Submission, May 2026</p>
                     <div class="links">
-                        <a href="https://arxiv.org/abs/2605.20355" class="paper-link">[paper]</a>
+                        <a href="https://arxiv.org/abs/2605.20355" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
                     </div>
                 </div>
             </div>
@@ -46,7 +62,7 @@
                     <p class="authors">Soham Kulkarni, Raayan Dhar, Yuchen Cui</p>
                     <p class="venue">In Submission, April 2026</p>
                     <div class="links">
-                        <a href="https://arxiv.org/pdf/2604.23000" class="paper-link">[paper]</a>
+                        <a href="https://arxiv.org/pdf/2604.23000" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
                     </div>
                 </div>
             </div>
@@ -62,8 +78,8 @@
                     <p class="authors">Alvin Zhu, Mingzhang Zhu, Beom Jun Kim, Jose Victor S. H. Ramos, Yike Shi, Yufeng Wu, Raayan Dhar, Fuyi Yang, Ruochen Hou, Hanzhang Fang, Quanyou Wang, Yuchen Cui, Dennis W. Hong</p>
                     <p class="venue">In Submission, March 2026</p>
                     <div class="links">
-                        <a href="https://arxiv.org/abs/2603.17323" class="paper-link">[paper]</a>
-                        <a href="https://dexexo-research.github.io/" class="paper-link">[website]</a>
+                        <a href="https://arxiv.org/abs/2603.17323" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                        <a href="https://dexexo-research.github.io/" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                     </div>
                 </div>
             </div>
@@ -79,8 +95,8 @@
                     <p class="authors">Omar Rayyan, Maximilian Gilles, Yuchen Cui</p>
                     <p class="venue">In Submission, March 2026</p>
                     <div class="links">
-                        <a href="https://arxiv.org/abs/2603.17065" class="paper-link">[paper]</a>
-                        <a href="https://orayyan.com/teledex" class="paper-link">[website]</a>
+                        <a href="https://arxiv.org/abs/2603.17065" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                        <a href="https://orayyan.com/teledex" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                     </div>
                 </div>
             </div>
@@ -96,8 +112,8 @@
                     <p class="authors">Omar Rayyan*, Yejin Kim*, Wilbert Pumacay*, Max Argus*<span class="authors-ellipsis">, ...</span><span class="authors-extra">, Winson Han, Eli VanderBilt, Jordi Salvador, Abhay Deshpande, Rose Hendrix, Snehal Jauhri, Shuo Liu, Nur Muhammad Mahi Shafiullah, Maya Guru, Ainaz Eftekhar, Karen Farley, Donovan Clay, Jiafei Duan, Arjun Guru, Piper Wolters, Alvaro Herrasti, Ying-Chun Lee, Georgia Chalvatzaki</span>, Yuchen Cui, Ali Farhadi, Dieter Fox, Ranjay Krishna</p>
                     <p class="venue">Robotics: Science and Systems (RSS), 2026</p>
                     <div class="links">
-                        <a href="https://arxiv.org/abs/2602.11337" class="paper-link">[paper]</a>
-                        <a href="https://github.com/allenai/molmospaces" class="paper-link">[code]</a>
+                        <a href="https://arxiv.org/abs/2602.11337" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                        <a href="https://github.com/allenai/molmospaces" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-code"></use></svg>code</a>
                     </div>
                 </div>
             </div>
@@ -113,7 +129,7 @@
                     <p class="authors">Brandon McMahan, Andy Wang, Xu Yan, Michael Zhou, Yuyang Yuan, Johannes Y. Lee, Ali Shreif, Matthew Li, Zhenghao Peng, Bolei Zhou, Yuchen Cui, Jonathan C. Kao</p>
                     <p class="venue">ACM/IEEE International Conference on Human-Robot Interaction (HRI), 2026</p>
                     <div class="links">
-                        <a href="https://arxiv.org/abs/2603.22787" class="paper-link">[paper]</a>
+                        <a href="https://arxiv.org/abs/2603.22787" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
                     </div>
                 </div>
             </div>
@@ -130,8 +146,8 @@
                     <p class="authors">Tracey Yee Hsin Tay, Xu Yan, Jonathan Ouyang, Daniel Wu, William Jiang, Jonathan Kao, Yuchen Cui</p>
                     <p class="venue">RSS 2025 Workshop on Robot Planning in the Era of Foundation Models, June 2025</p>
                     <div class="links">
-                        <a href="https://arxiv.org/abs/2601.05336" class="paper-link">[paper]</a>
-                        <a href="https://gamma0.vercel.app/" class="paper-link">[website]</a>
+                        <a href="https://arxiv.org/abs/2601.05336" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                        <a href="https://gamma0.vercel.app/" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                     </div>
                 </div>
             </div>
@@ -140,38 +156,45 @@
                 <h3>TRACE: Textual Reasoning for Affordance Coordinate Extraction</h3>
                 <p class="authors">Sangyun Park, Jin Kim, Yuchen Cui, Matthew S Brown</p>
                 <p class="venue">ICCV 2025 Knowledge-Intensive Multimodal Reasoning Workshop, Nov 2025</p>
+                <a href="https://arxiv.org/abs/2511.01999" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <div class="publication">
                 <h3>Casper: Inferring Diverse Intents for Assistive Teleoperation with Vision Language Models</h3>
                 <p class="authors">Huihan Liu, Rutav Shah, Shuijing Liu, Jack Pittenger, Mingyo Seo, Yuchen Cui, Yonatan Bisk, Roberto Martín-Martín, Yuke Zhu</p>
                 <p class="venue">Conference on Robot Learning (CoRL), September 2025</p>
+                <div class="links">
+                    <a href="https://arxiv.org/abs/2506.14727" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://ut-austin-rpl.github.io/casper/" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
+                </div>
             </div>
 
             <div class="publication">
                 <h3>GraphPad: Inference-Time 3D Scene Graph Updates for Embodied Question Answering</h3>
                 <p class="authors">Muhammad Qasim Ali, Saeejith Nair, Alexander Wong, Yuchen Cui, Yuhao Chen</p>
                 <p class="venue">CVPR Workshop on 3D-LLM/VLA: Bridging Language, Vision and Action in 3D Environments, June 2025</p>
+                <a href="https://arxiv.org/abs/2506.01174" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <div class="publication">
                 <h3>SAMJAM: Zero-Shot Video Scene Graph Generation for Egocentric Kitchen Videos</h3>
                 <p class="authors">Joshua Li, Fernando Jose Pena Cantu, Emily Yu, Alexander Wong, Yuchen Cui, Yuhao Chen</p>
                 <p class="venue">Computer Vision and Pattern Recognition Conference (CVPR) MetaFood Workshop, June 2025</p>
+                <a href="https://arxiv.org/abs/2504.07867" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <div class="publication">
                 <h3>Shared Autonomy for Proximal Teaching</h3>
                 <p class="authors">Megha Srivastava, Reihaneh Iranmanesh, Yuchen Cui, Deepak Gopinath, Emily Sarah Sumner, Andrew Silva, Laporsha Dees, Guy Rosman, Dorsa Sadigh</p>
                 <p class="venue">ACM/IEEE International Conference on Human-Robot Interaction (HRI), Mar 2025</p>
-                <a href="https://arxiv.org/abs/2502.19899" class="paper-link">[paper]</a>
+                <a href="https://arxiv.org/abs/2502.19899" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <div class="publication">
                 <h3>How to Train Your Robots? The Impact of Demonstration Modality on Imitation Learning</h3>
                 <p class="authors">Haozhuo Li, Yuchen Cui, Dorsa Sadigh</p>
                 <p class="venue">Proceedings of the International Conference on Robotics and Automation (ICRA), May 2025</p>
-                <a href="https://arxiv.org/abs/2503.07017" class="paper-link">[paper]</a>
+                <a href="https://arxiv.org/abs/2503.07017" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <h2 class="year-header">2024</h2>
@@ -180,8 +203,8 @@
                 <p class="authors">Li-Heng Lin, Yuchen Cui, Amber Xie, Tianyu Hua, Dorsa Sadigh</p>
                 <p class="venue">Conference on Robot Learning (CoRL), November 2024</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2408.16944" class="paper-link">[paper]</a>
-                    <a href="https://flow-retrieval.github.io/" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2408.16944" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://flow-retrieval.github.io/" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -190,8 +213,8 @@
                 <p class="authors">Lihan Zha, Yuchen Cui, Li-Heng Lin, Minae Kwon, Montserrat Gonzalez Arenas, Andy Zeng, Fei Xia, Dorsa Sadigh</p>
                 <p class="venue">International Conference on Robotics and Automation (ICRA), May 2024</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2311.10678" class="paper-link">[paper]</a>
-                    <a href="https://sites.google.com/stanford.edu/droc" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2311.10678" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://sites.google.com/stanford.edu/droc" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -200,8 +223,8 @@
                 <p class="authors">Open X-Embodiment Collaboration</p>
                 <p class="venue">International Conference on Robotics and Automation (ICRA), May 2024</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2310.08864" class="paper-link">[paper]</a>
-                    <a href="https://robotics-transformer-x.github.io" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2310.08864" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://robotics-transformer-x.github.io" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -210,7 +233,7 @@
                 <h3>Data Quality in Imitation Learning</h3>
                 <p class="authors">Suneel Belkhale, Yuchen Cui, Dorsa Sadigh</p>
                 <p class="venue">Conference on Neural Information Processing Systems (NeurIPS), December 2023</p>
-                <a href="https://arxiv.org/abs/2306.02437" class="paper-link">[paper]</a>
+                <a href="https://arxiv.org/abs/2306.02437" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <div class="publication">
@@ -218,8 +241,8 @@
                 <p class="authors">Suneel Belkhale, Yuchen Cui, Dorsa Sadigh</p>
                 <p class="venue">Conference on Robot Learning (CoRL), November 2023</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2306.17237" class="paper-link">[paper]</a>
-                    <a href="https://sites.google.com/view/hydra-il-2023" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2306.17237" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://sites.google.com/view/hydra-il-2023" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -228,8 +251,8 @@
                 <p class="authors">Li-Heng Lin, Yuchen Cui, Yilun Hao, Fei Xia, Dorsa Sadigh</p>
                 <p class="venue">Conference on Robot Learning (CoRL), November 2023</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2309.02721" class="paper-link">[paper]</a>
-                    <a href="https://sites.google.com/view/giraf23" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2309.02721" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://sites.google.com/view/giraf23" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -238,8 +261,8 @@
                 <p class="authors">Yilun Hao*, Ruinan Wang*, Zhangjie Cao, Zihan Wang, Yuchen Cui, Dorsa Sadigh</p>
                 <p class="venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), October 2023</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2209.07682" class="paper-link">[paper]</a>
-                    <a href="https://sites.google.com/view/mask-imitation-learning" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2209.07682" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://sites.google.com/view/mask-imitation-learning" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -248,8 +271,8 @@
                 <p class="authors">Yuchen Cui*, Siddharth Karamcheti*, Raj Palleti, Nidhya Shivakumar, Percy Liang, Dorsa Sadigh</p>
                 <p class="venue">Proceedings of the 2023 ACM/IEEE International Conference on Human-Robot Interaction (HRI), March 2023</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2301.02555" class="paper-link">[paper]</a>
-                    <a href="https://sites.google.com/view/hri-lilac" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2301.02555" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://sites.google.com/view/hri-lilac" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -259,8 +282,8 @@
                 <p class="authors">Yuchen Cui, Scott Niekum, Abhinav Gupta, Vikash Kumar, Arvind Rajeswaran</p>
                 <p class="venue">Learning for Dynamics & Control Conference (L4DC), June 2022</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2204.11134" class="paper-link">[paper]</a>
-                    <a href="https://sites.google.com/view/zestproject" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2204.11134" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://sites.google.com/view/zestproject" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -269,7 +292,7 @@
                 <h3>Understanding the Relationship between Interactions and Outcomes in Human-in-the-Loop Machine Learning</h3>
                 <p class="authors">Yuchen Cui, Pallavi Koppol, Henny Admoni, Scott Niekum, Reid Simmons, Aaron Steinfeld, Tesca Fitzgerald</p>
                 <p class="venue">Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence (IJCAI), August 2021</p>
-                <a href="https://www.ijcai.org/proceedings/2021/0599.pdf" class="paper-link">[paper]</a>
+                <a href="https://www.ijcai.org/proceedings/2021/0599.pdf" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <h2 class="year-header">2020</h2>
@@ -278,8 +301,8 @@
                 <p class="authors">Yuchen Cui, Qiping Zhang, Alessandro Allievi, Peter Stone, Scott Niekum, and W. Bradley Knox</p>
                 <p class="venue">Conference on Robot Learning (CoRL), November 2020</p>
                 <div class="links">
-                    <a href="https://arxiv.org/abs/2009.13649" class="paper-link">[paper]</a>
-                    <a href="https://sites.google.com/utexas.edu/empathic" class="paper-link">[website]</a>
+                    <a href="https://arxiv.org/abs/2009.13649" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
+                    <a href="https://sites.google.com/utexas.edu/empathic" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-website"></use></svg>website</a>
                 </div>
             </div>
 
@@ -288,14 +311,14 @@
                 <h3>Uncertainty-Aware Data Aggregation for Deep Imitation Learning</h3>
                 <p class="authors">Yuchen Cui, David Isele, Scott Niekum, Kikuo Fujimura</p>
                 <p class="venue">International Conference on Robotics and Automation (ICRA), May 2019</p>
-                <a href="https://arxiv.org/abs/1905.02780" class="paper-link">[paper]</a>
+                <a href="https://arxiv.org/abs/1905.02780" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <div class="publication">
                 <h3>Risk-Aware Active Inverse Reinforcement Learning</h3>
                 <p class="authors">Daniel S. Brown*, Yuchen Cui*, Scott Niekum</p>
                 <p class="venue">Conference on Robot Learning (CoRL), November 2020</p>
-                <a href="https://arxiv.org/abs/1901.02161" class="paper-link">[paper]</a>
+                <a href="https://arxiv.org/abs/1901.02161" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
 
             <h2 class="year-header">2018</h2>
@@ -303,7 +326,7 @@
                 <h3>Active Reward Learning from Critiques</h3>
                 <p class="authors">Yuchen Cui, Scott Niekum</p>
                 <p class="venue">International Conference on Robotics and Automation (ICRA), May 2018</p>
-                <a href="https://ieeexplore.ieee.org/document/8460854" class="paper-link">[paper]</a>
+                <a href="https://ieeexplore.ieee.org/document/8460854" class="paper-link"><svg class="link-icon" aria-hidden="true"><use href="#i-paper"></use></svg>paper</a>
             </div>
         </div>
     </main>
