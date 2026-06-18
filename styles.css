@@ -371,6 +371,8 @@ main {
     color: #999;
     font-size: 0.8rem;
     margin-right: 0.4rem;
+    display: inline-block;
+    width: 4.5rem;
 }
 
 .updates-list a {
