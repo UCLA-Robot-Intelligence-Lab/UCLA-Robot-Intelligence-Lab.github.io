@@ -22,6 +22,42 @@
 
     <main>
         <div class="content">
+            <div class="group-photo">
+                <div class="gallery" id="lab-gallery">
+                    <div class="gallery-track">
+                        <figure class="gallery-slide is-active">
+                            <img src="labphotos/winter2026.jpg" alt="URIL Lab — Winter 2026">
+                            <figcaption>Winter 2026</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/spring2026.jpeg" alt="URIL Lab — Spring 2026">
+                            <figcaption>Spring 2026</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/fall2025.jpg" alt="URIL Lab — Fall 2025">
+                            <figcaption>Fall 2025</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/summer2025.jpg" alt="URIL Lab — Summer 2025">
+                            <figcaption>Summer 2025</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/spring2025.jpg" alt="URIL Lab — Spring 2025">
+                            <figcaption>Spring 2025</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/winter2025.jpg" alt="URIL Lab — Winter 2025">
+                            <figcaption>Winter 2025</figcaption>
+                        </figure>
+                        <figure class="gallery-slide">
+                            <img src="labphotos/fall2024.jpg" alt="URIL Lab — Fall 2024">
+                            <figcaption>Fall 2024</figcaption>
+                        </figure>
+                    </div>
+                    <div class="gallery-dots"></div>
+                </div>
+            </div>
+
             <section class="people-section">
                 <div class="people-list">
                     <h2 class="year-header">Principal Investigator</h2>
@@ -143,6 +179,41 @@
             </section>
         </div>
     </main>
+
+    <script>
+        (function () {
+            const gallery = document.getElementById('lab-gallery');
+            if (!gallery) return;
+            const slides = Array.from(gallery.querySelectorAll('.gallery-slide'));
+            const dotsContainer = gallery.querySelector('.gallery-dots');
+            let current = 0;
+            let timer;
+
+            const dots = slides.map((_, i) => {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+                dot.addEventListener('click', () => { show(i); reset(); });
+                dotsContainer.appendChild(dot);
+                return dot;
+            });
+
+            function show(i) {
+                current = (i + slides.length) % slides.length;
+                slides.forEach((s, idx) => s.classList.toggle('is-active', idx === current));
+                dots.forEach((d, idx) => d.classList.toggle('is-active', idx === current));
+            }
+
+            function reset() {
+                clearInterval(timer);
+                timer = setInterval(() => show(current + 1), 15000);
+            }
+
+            slides.forEach(s => s.addEventListener('click', () => { show(current + 1); reset(); }));
+
+            show(0);
+            reset();
+        })();
+    </script>
 
 </body>
 </html>

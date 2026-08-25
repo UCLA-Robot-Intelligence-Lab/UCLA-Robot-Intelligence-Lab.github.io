@@ -504,6 +504,36 @@ main {
     width: 100%;
 }
 
+/* Home page: slightly larger type */
+.home p {
+    font-size: 1.05rem;
+}
+
+.home p + p {
+    margin-top: 0.9rem;
+}
+
+.home .welcome {
+    font-size: 1.2rem;
+}
+
+.home .latest-header {
+    font-size: 1.15rem;
+}
+
+.home .updates-list li {
+    font-size: 1rem;
+}
+
+.home .update-date {
+    font-size: 0.875rem;
+    width: 5rem;
+}
+
+.home .home-video-title {
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+}
+
 @media (max-width: 768px) {
     .person {
         grid-template-columns: 1fr;
@@ -630,8 +660,18 @@ main {
     display: block;
     padding: 0.6rem 0 0 0;
     font-size: clamp(0.75rem, 1.3vw, 0.92rem);
-    font-weight: normal;
+    font-weight: 600;
     color: rgb(24, 45, 88);
+    text-align: center;
+}
+
+.home-video-desc {
+    display: block;
+    padding: 0.35rem 0.4rem 0 0.4rem;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: clamp(0.72rem, 1.15vw, 0.85rem);
+    line-height: 1.45;
+    color: #555;
     text-align: center;
 }
 
