@@ -517,6 +517,14 @@ main {
     font-size: 1.2rem;
 }
 
+.home .welcome .robot-icon {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: -0.18em;
+    margin-left: 0.15em;
+    color: rgb(24, 45, 88);
+}
+
 .home .latest-header {
     font-size: 1.15rem;
 }
@@ -670,6 +678,14 @@ main {
     font-weight: 600;
     color: rgb(24, 45, 88);
     text-align: center;
+}
+
+.home-video-title .pillar-icon {
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -0.2em;
+    margin-right: 0.35em;
+    flex-shrink: 0;
 }
 
 .home-video-desc {
