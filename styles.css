@@ -322,6 +322,11 @@ main {
     padding: 0;
 }
 
+.publication .venue-spotlight {
+    color: rgb(24, 45, 88);
+    font-weight: 600;
+}
+
 .publication .paper-link {
     font-size: 0.85rem;
     color: rgb(24, 45, 88);
